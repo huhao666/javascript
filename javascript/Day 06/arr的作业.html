@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //1.定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程。
+    var arr = []; //创建的数组
+    var newArr = []; //存放平均值的数组
+    var avg = 0; //平均值。
+    for (var i = 0; i < 30; i++) {
+        arr.push((i + 1) * 2);
+    }
+    for (var j = 0; j < arr.length; j++) {
+        avg += arr[j];
+        if ((j + 1) % 5 == 0) { //代表每5个，索引从0开始的。
+            newArr.push(avg / 5); //将平均值push到新的数组
+            avg = 0; //重置为0，每五个从新计算
+        }
+    }
+    console.info(arr);
+    console.info(newArr);
+
+    //2.通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。试编程。
+    var arr = []; //定义一个数组
+    var num = 1; //数组的值
+    for (var i = 0; i < 5; i++) { //外出循环一次，内层循环到底。
+        arr[i] = []; //二维数组的写法，数组的值还是一个数组
+        for (var j = 0; j < 5; j++) {
+            arr[i][j] = doubleNum(num); //给二维数组赋值
+            num++; //累加
+            if (i >= j) { //输出三角的判断。
+                document.write(arr[i][j] + '&nbsp;&nbsp;'); //输出对应的值
+            }
+            if ((num - 1) % 5 == 0) { //每输出5个换行。
+                document.write('<br>');
+            }
+        }
+    }
+
+    //3．编写函数has(arr , 60) 判断数组中是否存在60这个元素，返回布尔类型
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    function has(arr, value) {
+        //方法一
+        if (arr.indexOf(value) != -1) {
+            return true;
+        }
+        //方法二
+        return arr.some(function(v, i, array) { //has函数的返回值
+            return v == value //布尔值
+        });
+
+    }
+    //方法三
+    function has(arr, value) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //4．编写函数map(arr) 把数组中的每一位数字都增加30%
+    //方法一
+    function map(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] += arr[i] * 0.3;
+        }
+        return arr;
+    }
+    //方法二
+    var newarr = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function(value, index, array) {
+        return value += value * 0.3
+    });
+
+    //5．数组的选择排序（封装函数）
+    function selectSort(arr) {
+        var temp;
+        for (var i = 0; i < arr.length; i++) {
+            var minIndex = i; //假设i是数组的最小值 的下标
+            for (var j = i + 1; j < arr.length; j++) { //假设最小值的下一个数
+                if (arr[minIndex] > arr[j]) {
+                    minIndex = j;
+                }
+            }
+            if (i != minIndex) { //假设的刚好就是最小值。
+                temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+
+        }
+        return arr;
+    }
+    //6．数组的冒泡排序（封装函数）
+    function bubbleSort(arr) {
+        var temp;
+        for (var i = 0; i < arr.length - 1; i++) { //控制次数  0,1,2,3,4,5,6,7,8
+            for (var j = 0; j < arr.length - 1; j++) { //发生两两比较。i：减少遍历次数
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+
+                }
+            }
+        }
+    }
+
+    //7.快速排序。
+    function quickSort(array) {
+        //判断传入的必须是数组
+        if (Array.isArray(array)) {
+            //起点。
+            if (array.length <= 1) {
+                return array;
+            }
+            //排序的思路
+            var leftarr = [];
+            var rightarr = [];
+
+            var midIndex = Math.floor(array.length / 2); //获取中间索引
+            var midValue = array.splice(midIndex, 1)[0]; //splice：改变原数组,输出中间值,返回值是一个数组
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] < midValue) {
+                    leftarr.push(array[i]);
+                } else {
+                    rightarr.push(array[i]);
+                }
+            }
+            return quickSort(leftarr).concat(midValue, quickSort(rightarr)); //递归。
+
+        } else {
+            alert('你好好传个数组');
+        }
+    }
+    //8．随机生成一个五位以内的数，然后输出该数共有多少位，分别是什么。
+    var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var newarr = [];
+    newarr[0] = num[parseInt(Math.random() * 9) + 1];
+    for (var i = 0; i < parseInt(Math.random() * 5); i++) {
+        newarr.push(num[parseInt(Math.random() * 10)]);
+    }
+    document.write('数组为：' + newarr.join('') + '<br>');
+    document.write('该数的长度为：' + newarr.length + '<br>');
+    document.write('分别是：' + newarr);
+    document.write('<br>');
+
+    // 9．编写函数norepeat(arr) 将数组的重复元素去掉，并返回新的数组。
+    //方法一：开关
+    function norepeat(arr) {
+        var newarr = [];
+        newarr.push(arr[0]); //将去重前的数组第一项放到新数组
+        for (var i = 1; i < arr.length; i++) { //去重前的数组
+            var bstop = true; //开关 没有重复
+            for (var j = 0; j < newarr.length; j++) { //新数组
+                if (arr[i] == newarr[j]) { //去重前的数组和新数组的每个元素进行比较
+                    bstop = false; //有重复
+                    break; //如果由重发，终止此次遍历
+                }
+            }
+            if (bstop) { //如果此时bstop==true,新数组不存在。
+                newarr.push(arr[i]);
+            }
+        }
+        return newarr;
+    }
+    //方法二：splice
+    function norepeat(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    arr.splice(j, 1); //splice:改变原数组
+                    j--;
+                }
+            }
+        }
+        return arr;
+    }
+
+    //方法三：indexOf
+    function norepeat(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (newArr.indexOf(arr[i]) == -1) { //去重数组的值没在新数组中出现。
+                newArr.push(arr[i]); //追加到新数组中。
+            }
+        }
+        return newarr;
+    }
+
+    //方法四：filter+indexOf
+    function norepeat(arr) {
+        var newarr = arr.filter(function(v, i, array) {
+            return arr.indexOf(v) == i; //返回true的值组成的数组
+        });
+        return newarr;
+    }
+
+    // 10．有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+    // 第一种方法
+    function insertnum(array, num) {
+        for (var i = 0; i < array.length; i++) { //遍历排序好的数组
+            if (array[i] > num) { //将插入的值和数组进行一一比较，如果大于插入的值，则终止遍历，然后将当前插入的值赋值给当前位置
+                break;
+            }
+        }
+        for (var j = array.length - 1; j >= i; j--) { //当前位置被插入值覆盖，那么从当前位置开始之后的每一项值都往后移动一位。
+            array[j + 1] = array[j];
+        }
+        array[i] = num; //将当前插入的值赋值给当前位置
+        return array; //返回数组
+    }
+    //第二种方法
+    function insertnum(array, num) {
+        array.push(num);
+        array.sort((a, b) => {
+            return a - b;
+        });
+
+        return array;
+    }
+
+    //alert(insertnum([1, 2, 3, 4, 5, 6, 7], -8));//测试
+    // 11．使用字面量形式创建一个对象，该对象存储一个学生的信息，该对象包含姓名，学号、身份证、年龄、性别、所学专业等属性信息，同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息.
+    var studentInfo = {
+        name: 'zhangsan',
+        stuid: '001',
+        cardid: '123456.....',
+        age: 22,
+        sex: '男',
+        profession: '计算机信息',
+        introduce: function() {
+            return '我的姓名是：' + this.name + '<br>学号是：' + this.stuid + '<br>身份证号码是：' + this.cardid + '<br>我今年' + this.age + '<br>我的性别是：' + this.sex + '<br>我的专业是' + this.profession;
+        }
+    }
+
+    //document.write(studentInfo.introduce());//测试
+    </script>
+</body>
+
+</html>

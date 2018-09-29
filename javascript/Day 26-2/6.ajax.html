@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*$.ajax({
+				type:'post',
+				url:'http://127.0.0.1/js1708/Day%2026/php.php',
+				dataType:'json',//设置输出的数据的格式
+				data:{
+					name:'zhangsan',
+					age:100
+				},
+				success:function(d){
+					alert(typeof d);
+				},
+				error:function(e){
+					alert(e);
+				}
+			});*/
+			
+			/*$.ajax({//增强了程序的可读性,$.ajax返回值是deferred对象
+				type:'post',
+				url:'http://127.0.0.1/js1708/Day%2026/php.php',
+				dataType:'json',//设置输出的数据的格式
+				data:{
+					name:'zhangsan',
+					age:100
+				}
+			}).done(function(d){
+				alert(d);
+			}).fail(function(e){
+				alert(e);
+			});*/
+			
+			
+			/*$.when($.ajax({
+				type:'post',
+				url:'http://127.0.0.1/js1708/Day%2026/php2.php',
+				data:{
+					num:1000
+				}
+			}),$.ajax({
+				type:'post',
+				url:'http://127.0.0.1/js1708/Day%2026/php1.php',
+				data:{
+					num:1000
+				}
+			}))
+			.done(function(d1,d2){//请求的两个地址都成功，执行done
+				console.log(d1);
+				console.log(d2);
+			})
+			.done(function(){//一直的链式下去
+				console.log('上面完成了');
+			})
+			.fail(function(e){//如果有一个失败都走这里
+				console.log(e.statusText);
+			})*/
+			
+			
+		
+			var def=$.Deferred();
+			var cb=$.Callback();
+			//ajax的跨域问题
+			$.ajax({//增强了程序的可读性,$.ajax返回值是deferred对象
+				type:'get',
+				url:'http://localhost/js1708/Day%2026/php1.php',
+				dataType:'jsonp',//设置跨域类型
+				jsonpCallback:'hehe',//修改传递给后端的函数名
+				data:{
+					name:'zhangsan',
+					age:100
+				},
+				beforeSend:function(){//请求前的信息
+					$('.box').html('<strong>数据加载中...</strong>');
+				}
+			}).done(function(d){
+				$('strong').remove();//请求完成删除dom元素。
+				$('.box').html(d.title);
+			}).fail(function(e){
+				alert(e);
+			});
+			
+		</script>
+	</body>
+</html>

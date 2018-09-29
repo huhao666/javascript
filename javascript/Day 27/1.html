@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1,.box2,.box3{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position:absolute;
+			}
+			.box2{
+				background: blue;
+			}
+			.box3{
+				background: orange;
+			}
+			span{
+				width: 100px;
+				height: 100px;
+				background: blue;
+				position: absolute;
+				top:-100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<span></span>
+		</div>
+		<!--<div class="box2"></div>
+		<div class="box3"></div>
+		<div>
+			<p>
+				<div class="box4">111111111111111</div>
+			</p>
+		</div>-->
+		
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//数据缓存
+		//data([key],[value]) 
+		//removeData([name|list])1.7* 
+		/*$('.box').data('name','zhangsan');
+		$('.box').removeData('name');
+		alert($('.box').data('name'));*/
+		
+		//queue  dequeue  函数队列
+		/*function fn1(){
+			alert(1);
+		}
+		function fn2(){
+			alert(2);
+		}
+		function fn3(){
+			alert(3);
+		}*/
+		//入
+//		$(document).queue('hehe',fn1);
+//		$(document).queue('hehe',fn2);
+//		$(document).queue('hehe',fn3);
+//		//出
+//		$(document).dequeue('hehe');
+//		$(document).dequeue('hehe');
+//		$(document).dequeue('hehe');
+		
+		/*function fn4(){
+			$('.box').animate({
+				left:500
+			});
+		}
+		
+		$('.box').animate({width:500});
+		$('.box').queue('hehe',fn4);//入
+		setTimeout(function(){
+			$('.box').dequeue('hehe');//出
+		},2000);
+		$('.box').animate({height:500});*/
+		//jQuery.fn.extend(object) ：扩展jquery的实例方法。 
+		//jQuery.extend(object)：扩展jquery工具方法。
+		$.fn.extend({
+			drag:function(){
+				$(this).on('mousedown',function(ev){
+					$that=$(this);
+					var shortx=ev.offsetX;
+					var shorty=ev.offsetY;
+					$(document).on('mousemove',function(ev){
+						$that.css({
+							left:ev.pageX-shortx,
+							top:ev.pageY-shorty
+						})
+					});
+					$(document).on('mouseup',function(){
+						$(document).off();
+					});
+					return false;
+				});
+			}
+		});
+		
+		$('.box1,.box2,.box3').drag();
+		
+		$.extend({
+			quickSort:function(array){
+				if(Array.isArray(array)){
+					if(array.length<=1){//分割长度<=1时，返回数组本身，同时也是递归的临界点
+						return array;
+					}
+					var left=[];
+					var right=[];
+					var baseValue=array.splice(0,1)[0];//splice：改变原数组,返回值是一个数组
+					for(var i=0;i<array.length;i++){
+						if(array[i]<baseValue){
+							left.push(array[i]);
+						}else{
+							right.push(array[i]);
+						}
+					}
+					return $.quickSort(left).concat(baseValue,$.quickSort(right)); //递归。
+					
+				}else{
+					throw new Error('传入参数的不是数组');
+				}
+			}
+		});
+		
+		var arr=[1,3,45,123,78,3,45,1234,8765,234,0.15,-78];
+		//alert($.quickSort(arr));
+		
+		//empty();
+		//$('div').wrapAll('<p>');
+		//remove([expr])  detach([expr]) 
+		
+		$('.box3').on('click',{num:1000},function(ev){
+			alert(ev.data.num);
+		});
+		
+		/*var d3=$('.box3').remove();
+		$(document.body).append(d3);*/
+		/*var d3=$('.box3').detach();
+		$(document.body).append(d3);*/
+		
+		//$(document.body).empty();
+		//filter:筛选出与指定表达式匹配的元素集合。
+		console.log($('div').filter('.box4').html());
+		//获取一堆的元素找包含过滤条件的
+		//mouseover mouseout   mouseenter mouseleave不会冒泡
+		
+		/*$('.box1').on('mouseover',function(){
+			$('span').animate({top:0});
+		})
+		$('.box1').on('mouseout',function(){
+			$('span').animate({top:-100});
+		})*/
+		
+		$('.box1').on('mouseenter',function(){
+			$('span').animate({top:0});
+		})
+		$('.box1').on('mouseleave',function(){
+			$('span').animate({top:-100});
+		})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*var url='https://imgsa.baidu.com/news/q%3D100/sign=70f5d20cafc27d1ea3263fc42bd4adaf/1f178a82b9014a9052c92615a2773912b21beea7.jpg';
+			
+			var cimg=new Image();//图片对象
+			cimg.src=url;
+			cimg.onload=function(){//图片加载完成
+				alert('完成')
+				document.body.appendChild(cimg);
+			};
+			cimg.onerror=function(){//图片加载失败
+				alert('失败')
+			};*/
+			
+			
+			/*var promise=new Promise(function(resolve,reject){
+				var url='https://imgsa.baidu.com/news/q%3D100/sign=70f5d20cafc27d1ea3263fc42bd4adaf/1f178a82b9014a9052c92615a2773912b21beea7.jpg';
+				var cimg=new Image();//图片对象
+				cimg.src=url;
+				cimg.onload=function(){//图片加载完成
+					resolve(cimg);
+				};
+				cimg.onerror=function(){//图片加载失败
+					reject(new Error('图片地址错误'))
+				};
+			});
+			
+			promise.then(function(img){
+				document.body.appendChild(img);
+			}).catch(function(e){
+				console.log(e);
+			})*/
+			
+			var arr=[
+				'https://imgsa.baidu.com/news/q%3D100/sign=70f5d20cafc27d1ea3263fc42bd4adaf/1f178a82b9014a9052c92615a2773912b21beea7.jpg',
+				'https://imgsa.baidu.com/news/q%3D100/sign=ec0f53e209087bf47bec53e9c2d2575e/d52a2834349b033baa2f90731ece36d3d439bdf0.jpg',
+				'https://imgsa.baidu.com/news/q%3D100/sign=2f273effdb160924da25a61be406359b/377adab44aed2e73120edf858c01a18b86d6fab0.jpg',
+				'https://imgsa.baidu.com/news/q%3D100/sign=3973543155df8db1ba2e78643922dddb/9345d688d43f8794c1d11d87d91b0ef41bd53a68.jpg',
+				'https://imgsa.baidu.com/news/q%3D100/sign=c916d3ac38fa828bd72399e3cd1e41cd/aa18972bd40735fa93e5191095510fb30f240805.jpg'
+			];
+			function loadimg(url){
+				var promise=new Promise(function(resolve,reject){
+					var cimg=new Image();//图片对象
+					cimg.src=url;
+					cimg.onload=function(){//图片加载完成
+						resolve(cimg);
+					};
+					cimg.onerror=function(){//图片加载失败
+						reject(new Error('图片地址错误'))
+					};
+				});
+				return promise;
+			}
+			//只有数组里面的每个状态都变成resolve，则新的 Promise 实例状态才会变成resolve
+			var pro=Promise.all([loadimg(arr[0]),loadimg(arr[1]),loadimg(arr[2]),loadimg(arr[3]),loadimg(arr[4])]);
+			pro.then(function(imgs){
+				imgs.forEach(function(v){
+					document.body.appendChild(v);
+				});
+			}).catch(function(e){
+				console.log(e);
+			})
+		</script>
+	</body>
+</html>

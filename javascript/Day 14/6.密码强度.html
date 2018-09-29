@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="pass" /><span id="error"></span><br />
+		<input type="button" value="登录" id="btn" />
+		
+		<script type="text/javascript">
+			var oPass=document.getElementById('pass');
+			var oError=document.getElementById('error');
+			var oBtn=document.getElementById('btn');
+			var bstop=true;
+			oPass.onfocus=function(){
+				if(this.value==''){
+					oError.innerHTML=' 建议使用字母、数字和符号两种及以上的组合，6-20个字符';
+					oError.style.color='#ddd';
+				}
+			}
+			oPass.onblur=function(){
+				if(oPass.value==''){
+					oError.innerHTML=' 密码不能为空';
+					oError.style.color='#ff0000';
+					bstop=false;
+				}
+				
+				if(bstop){
+					oError.innerHTML=' √';
+					oError.style.color='#00ff00';
+					bstop=true;
+				}
+			}
+			
+			oPass.oninput=function(){
+				if(oPass.value.length>=6 && oPass.value.length<=20){
+					//判断密码的强度   数字或字母或特殊字符  弱   数字+字母或特殊字符   中   数字字母特殊字符   强
+					var numreg=/\d/;
+					var uppreg=/[a-zA-Z]/;
+					var otherreg=/\W/;
+					var count=0;
+					
+					if(numreg.test(oPass.value)){
+						count++;
+					}
+					
+					if(uppreg.test(oPass.value)){
+						count++;
+					}
+					
+					if(otherreg.test(oPass.value)){
+						count++;
+					}
+					
+					switch(count){
+						case 1: oError.innerHTML=' 弱'; bstop=true;  break;
+						case 2: oError.innerHTML=' 中'; bstop=true;  break;
+						case 3: oError.innerHTML=' 强'; bstop=true;  break;
+					}
+				}else{
+					oError.innerHTML=' 密码长度不对';
+					oError.style.color='#ff0000';
+					bstop=false;
+				}
+			}
+			
+			
+			oBtn.onclick=function(){
+				if(oPass.value==''){
+					oError.innerHTML=' 密码不能为空';
+					oError.style.color='#ff0000';
+					bstop=false;
+				}
+				if(bstop){
+					location.href='http://www.baidu.com';
+				}
+				
+			}
+		</script>
+		
+		
+	</body>
+</html>

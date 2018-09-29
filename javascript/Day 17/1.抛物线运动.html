@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left:100px;
+				top:400px;
+				border-radius: 50%;
+			}
+			
+			.box1{
+				width: 100px;
+				height: 100px;
+				background: blue;
+				position: absolute;
+				left:1000px;
+				top:200px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box1"></div>
+		<script type="text/javascript">
+			//模拟抛物线。
+			var oDiv=document.querySelector('.box');
+			var oDiv1=document.querySelector('.box1');
+			/*var timer=null;
+			var speedx=15;
+			var speedy=-25;
+			oDiv.onclick=function(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					if(oDiv.offsetTop>=450){
+						clearInterval(timer);
+					}
+					var cdiv=document.createElement('div');
+					cdiv.style.cssText='width:5px;height: 5px;background: red;position: absolute;'
+					cdiv.style.left=oDiv.offsetLeft+'px';
+					cdiv.style.top=oDiv.offsetTop+'px';
+					document.body.appendChild(cdiv);
+					oDiv.style.left=oDiv.offsetLeft+speedx+'px';
+					oDiv.style.top=oDiv.offsetTop+speedy+'px';
+					speedy++;
+				},50);
+			}*/
+			
+			//抛物线的公式：y=ax*x + b*x + c;   x,y:位置    (a:曲率   0.001-0.009)
+			
+			//改变：y=a*x*x+b*x;(x,y坐标原点)   ==>求 b = (y-a*x*x)/x
+			
+			/*var current={
+				x:oDiv.offsetLeft,
+				y:oDiv.offsetTop
+			}
+			
+			var target={
+				x:oDiv1.offsetLeft-current.x,
+				y:oDiv1.offsetTop-current.y
+			}
+			
+			var a=0.0013;
+			
+			var b = (target.y-a*target.x*target.x)/target.x;
+			
+			var x=0;
+			var timer=setInterval(function(){
+				x+=10;
+				oDiv.style.left=current.x+x+'px';
+				oDiv.style.top=current.y+a*x*x+b*x+'px';
+				if(x>=target.x){
+					clearInterval(timer);
+				}
+			},30);*/
+			
+			oDiv.onclick=function(){
+				var clonediv=this.cloneNode(true);
+				clonediv.style.width='50px';
+				clonediv.style.height='50px';
+				clonediv.style.opacity=0.5;
+				document.body.appendChild(clonediv);
+				var current={
+					x:clonediv.offsetLeft,
+					y:clonediv.offsetTop
+				}
+				
+				var target={
+					x:oDiv1.offsetLeft-current.x,
+					y:oDiv1.offsetTop-current.y
+				}
+				
+				var a=0.0013;
+				
+				var b = (target.y-a*target.x*target.x)/target.x;
+				
+				var x=0;
+				var timer=setInterval(function(){
+					x+=10;
+					clonediv.style.left=current.x+x+'px';
+					clonediv.style.top=current.y+a*x*x+b*x+'px';
+					if(x>=target.x){
+						clearInterval(timer);
+					}
+				},30);
+			}
+			
+		</script>
+	</body>
+</html>

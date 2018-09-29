@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ajax=null;
+			try{
+				ajax=new XMLHttpRequest();//标准
+			}catch(e){
+				ajax=new ActiveXObject('Microsoft.XMLHTTP');//IE6
+			}
+			ajax.open('post','http://127.0.0.1/js1708/Day%2020/3.senddata.php',true);
+			ajax.setRequestHeader('content-type','application/x-www-form-urlencoded');//提交数据的格式
+			ajax.send('name=zhangsan&age=100&sex=男');
+			ajax.onreadystatechange=function(){
+				if(ajax.readyState==4){
+					if(ajax.status==200){
+						alert(ajax.responseText);
+					}else{
+						alert(ajax.status);//输出接口地址错误
+					}
+				}
+			}
+			//总结post/get区别：
+			//安全性
+			//传输数据大小不一样。
+			//传输数据的方式不一样。一个是放置在地址栏的后面?  post通过send发送数据+设置数据的格式。
+			
+			/*ajax({
+				type:'post',//默认值：get
+				url:'地址',//必须的
+				data:***,//默认值:''
+				success:function(str){
+					str:后端返回的数据
+				},
+				error:function(err){
+					err:失败的信息
+				}
+			});*/
+			
+			
+			
+		</script>
+	</body>
+</html>

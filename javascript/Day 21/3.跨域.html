@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.piclist{
+				width: 1000px;
+			}
+			.piclist img{
+				width:230px;
+				height: 300px;
+			}
+			.piclist li{
+				float: left;
+				list-style:none;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var oPiclist=document.querySelector('.piclist');
+			ajax({
+				type:'get',
+				//url:'http://localhost/js1708/Day%2021/data.php?__hbt=1511147457310',
+				//url:'http://www.kuitao8.com/api/joke',
+				url:'joke.php',
+				//Access-Control-Allow-Origin:产生跨域
+				success:function(data){
+					console.log(JSON.parse(data));
+				}
+			});
+			
+		</script>
+	</body>
+</html>

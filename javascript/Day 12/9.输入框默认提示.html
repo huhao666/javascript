@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="请输入用户名" />
+		<script type="text/javascript">
+			var oInput=document.getElementsByTagName('input')[0];
+			oInput.onfocus=function(){
+				if(oInput.value=='请输入用户名'){
+					oInput.value='';
+				}
+			}
+			
+			oInput.onblur=function(){
+				if(oInput.value==''){
+					oInput.value='请输入用户名';
+				}
+			}
+		</script>
+	</body>
+</html>

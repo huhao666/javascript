@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html id="html1">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 200px;height:200px;background: red;border-radius: 50%;
+			}
+			#div2{
+				width: 200px;height:200px;background: green;border-radius: 50%;padding: 100px;
+			}
+			#div3{
+				width: 400px;height:400px;background: blue;border-radius: 50%;padding: 100px; margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body id="body1">
+		<div id="div3">
+			<div id="div2">
+				<div id="div1"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*var oDiv1=document.getElementById('div1');
+			var oDiv2=document.getElementById('div2');
+			var oDiv3=document.getElementById('div3');*/
+			//事件冒泡
+			/*function fn(){
+				alert(this.id);
+			}
+			
+			oDiv1.onclick=fn;
+			oDiv2.onclick=fn;
+			oDiv3.onclick=fn;
+			document.body.onclick=fn;
+			document.documentElement.onclick=fn;*/
+			
+			
+			
+			//事件捕获
+			var oDiv1=document.getElementById('div1');
+			var oDiv2=document.getElementById('div2');
+			var oDiv3=document.getElementById('div3');
+			function fn(){
+				alert(this.id);
+			}
+			//事件捕获阶段、处于目标阶段和事件冒泡阶段
+			oDiv1.addEventListener('click',fn,false);
+			oDiv2.addEventListener('click',fn,true);//捕获
+			oDiv3.addEventListener('click',fn,false);
+			document.body.addEventListener('click',fn,false);
+			document.documentElement.addEventListener('click',fn,true);//捕获
+			
+		</script>
+	</body>
+</html>

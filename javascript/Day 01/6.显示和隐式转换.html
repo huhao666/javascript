@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//三个强制转换类型的方法：Number(value)  String(value)  Boolean(value)
+			//三个强制方法使用：将括号里面的值转换对应的类型。
+			//parseInt() ： 将括号的内容转换成对应的整数
+			//parseFloat() ： 将括号的内容转换成对应的浮点数(小数)
+			
+			//数字下面的方法:
+			//toFixed() : 参数为对应的小数的位数。  数字.toFixed()
+			
+			//显示转换：强制转换。
+			//隐式转换：系统自己转换。
+			
+		
+		</script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//var bool=false;
+			//alert(typeof bool);//boolean
+			//alert(Number(bool));//强制转换：true--->1   false--->0
+			
+			//alert(typeof String(bool));//值：false  类型：string   
+			
+			//非空即真，非零即真。null undefined
+			//alert(Boolean(''));//false;
+			//alert(Boolean(' '));//true
+			
+			/*alert(Boolean(0));//false;
+			alert(Boolean('0'));//true
+			alert(Boolean(6));//true
+			alert(Boolean('6'));//true*/
+			
+			/*alert(Boolean(null));//false
+			alert(Boolean('null'));//true
+			alert(Boolean(undefined));//false
+			alert(Boolean('undefined'));//true*/
+//			alert(undefined==null);//true
+//			alert(undefined===null);//false(值和类型);
+			
+			
+			/*var num='200px';
+			alert(typeof parseInt(num));//number  强制转换
+			alert(parseInt(num));//200  从头往后找，找到非数字退出，将前面的输出。  */
+			
+			
+			/*console.log(parseInt('0110',2));//6
+			console.log(parseInt('0110',10));//110
+			console.log(parseInt('0110',8));//8+64=72
+			console.log(parseInt('0110',16));//16+256=272*/
+			
+			//0-7八进制   0x十六进制(0-9 a-f)
+			
+			//console.log(parseInt('0x10'));//16
+			//console.log(parseInt('1110',2));//14
+			
+			//var num='0.3579abc';
+			//alert(parseFloat(num));//0.3579
+			
+			
+			//关系运算符（结果为布尔值） <、>、<=、>=、==、===、!=(不相等)  !==（不全等）
+			//数学运算符  +  -  *  /  %
+			
+			//隐式转换：== , - , * , /
+			
+			//alert('5'==5);//true  隐式转换（将对应的字符串转换成数字）
+			//alert('5'===5);//false
+			
+			/*alert('5'+5);//没有隐式转换
+			alert('5'-5);
+			alert('5'*5);
+			alert('5'/5);*/
+			//比较：unicode编码    gbk utf-8  数字（0-9）==》  48-57   字母（a-z）=》  97-122
+//			alert('5'>3);//true
+//			alert('a'>'b');//false
+//			alert('3'>5);//false
+			alert('3'>=3);//true
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding:0px;margin:0px;
+			}
+			.box{
+				width: 200px;
+				height:200px;
+				background: red;
+				position: absolute;
+				left:0px;
+				top:0px;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementsByTagName('button')[0];//[obj htmlButtonElement]
+			var oDiv=document.getElementsByTagName('div')[0];//[obj htmlDivElement]
+			
+			oBtn.onclick=function(){//点击事件
+				oDiv.style.display='block';
+				oDiv.style.left=(document.documentElement.clientWidth-oDiv.offsetWidth)/2 +'px';
+				oDiv.style.top=(document.documentElement.clientHeight-oDiv.offsetHeight)/2 +'px';	
+			}
+			window.onresize=function(){
+				oDiv.style.left=(document.documentElement.clientWidth-oDiv.offsetWidth)/2 +'px';
+				oDiv.style.top=(document.documentElement.clientHeight-oDiv.offsetHeight)/2 +'px';	
+			}
+			window.onscroll=function(){
+				//先获取滚动条离顶部的距离
+				var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+				oDiv.style.left=(document.documentElement.clientWidth-oDiv.offsetWidth)/2 +'px';
+				oDiv.style.top=(document.documentElement.clientHeight-oDiv.offsetHeight)/2 + scrolltop+'px';
+			}
+			
+		}	
+		
+		/*window.onload=window.onresize=function(){//两个事件都会触发。
+			var oBtn=document.getElementsByTagName('button')[0];//[obj htmlButtonElement]
+			var oDiv=document.getElementsByTagName('div')[0];//[obj htmlDivElement]
+			
+			//oBtn.onclick=function(){//点击事件
+				//oDiv.style.display='block';
+				oDiv.style.left=(document.documentElement.clientWidth-oDiv.offsetWidth)/2 +'px';
+				oDiv.style.top=(document.documentElement.clientHeight-oDiv.offsetHeight)/2 +'px';	
+			//}
+			
+		}*/
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<button>登录</button>
+		<div class="box"></div>
+	</body>
+</html>

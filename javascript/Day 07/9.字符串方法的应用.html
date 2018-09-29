@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				/*var oBox=document.getElementById('box');//id
+				var oDiv1=document.getElementsByClassName('div1')[0];//类数组
+				var oP=document.getElementsByTagName('p')[0];//类数组*/
+				
+				function $(selector){
+					if(selector.substring(0,1)=='#'){
+						return document.getElementById(selector.substring(1));
+					}else if(selector.substring(0,1)=='.'){
+						return document.getElementsByClassName(selector.substring(1));
+					}else{
+						if(document.getElementsByTagName(selector)[0]){
+							return document.getElementsByTagName(selector);
+						}else{
+							throw new Error('我错了!!!!!!!!');
+						}
+					}
+					
+				}
+				
+				/*alert($('#box').innerHTML);
+				alert($('.div1')[0].innerHTML);
+				alert($('.div1')[1].innerHTML);*/
+				
+				
+				alert($('pppppppppppp')[0]);
+				
+				
+				/*var a=document.getElementsByTagName('sdafdsajlfkjdslakf');
+				alert(a[0]);//undefined*/
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">box111111111111111</div>
+		<div class="div1">div222222222222</div>
+		<div class="div1">div333333333333</div>
+		<p>ppppppppppppppp</p>
+		<p>tttttttttttttttt</p>
+		<p>rrrrrrrrrrrrrrrr</p>
+	
+	</body>
+</html>

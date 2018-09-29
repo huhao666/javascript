@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div contenteditable= true>1111111111111111111</div>
+		<script type="text/javascript">
+			function createTable(rows,cols){
+				var rows=rows||6;//替换默认参数，前面rows和后面rows不一样。
+				var cols=cols||6;
+				var cTable=document.createElement('table');
+				for(var i=0;i<rows;i++){
+					var cTr=document.createElement('tr');
+						for(var j=0;j<cols;j++){
+							var cTd=document.createElement('td');
+							cTd.style.cssText='padding:10px 20px;border:1px solid red;';
+							if(j==cols-1){//每一行的最后一列
+								cTd.innerHTML='<a href="javascript:;">删除'+(i+1)+'</a>';
+							}else{
+								cTd.innerHTML='111111';
+							}
+							cTr.appendChild(cTd);
+						}
+					cTable.appendChild(cTr);
+				}
+				document.body.appendChild(cTable);
+				
+				
+				var aA=document.getElementsByTagName('a');//获取点击的元素。
+				var oTable=document.getElementsByTagName('table')[0];//表格
+				for(var i=0;i<aA.length;i++){//给每一个a元素添加事件
+					aA[i].onclick=function(){
+						//父node.removeChild(子node);//删除子节点。都使用节点。
+						//this:当前点击的a元素
+						var del=confirm('你确定要删除吗?');//确定true,取消false
+						if(del){
+							oTable.removeChild(this.parentNode.parentNode);//当前点击的a元素所在的那行。
+						}
+						
+					}
+				}
+			}
+			createTable(15,10);
+		</script>
+		
+		
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

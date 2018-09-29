@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				background: red;position: absolute;left:0px;top:0px
+			}
+			img{
+				width: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"><img src="1.jpg" alt="" /></div>
+		<script type="text/javascript">
+			var oBox=document.getElementsByTagName('div')[0];
+			var shortx=0;
+			var shorty=0;
+			oBox.onmousedown=function(ev){//求短线。
+				var ev=ev||window.event;
+				shortx=ev.offsetX;
+				shorty=ev.offsetY;
+				/*if(oBox.setCapture){
+					oBox.setCapture();//ie独有的，捕获的意思
+				}*/
+				
+				//按下之后才进行move
+				document.onmousemove=function(ev){
+					var ev=ev||window.event;//每次move的时候重新获取事件对象。
+					oBox.style.left=ev.clientX-shortx+'px';
+					oBox.style.top=ev.clientY-shorty+'px';
+				}
+				
+				document.onmouseup=function(){
+					document.onmousemove=null;//取消DOM 0级事件(普通事件),将null赋值给对应的事件
+					document.onmouseup=null;
+					/*if(oBox.releaseCapture){
+						oBox.releaseCapture();//取消捕获
+					}*/
+				}
+				return false;//去掉浏览器默认事件（标准浏览器）
+			}
+			
+			//思考：实现百度登录效果。
+		</script>
+	</body>
+</html>

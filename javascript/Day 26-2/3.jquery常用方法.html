@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				/*display: none;*/
+				position: absolute;
+				top:40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<button>stop()</button>
+		<button>stop(true)</button>
+		<button>stop(true,true)</button>
+		
+		<button>finish()</button>
+		<button>stop(false,true)</button>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.color.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+//			基本
+//			show([s,[e],[fn]]) 
+//			hide([s,[e],[fn]]) 
+//			滑动
+//			slideDown([s],[e],[fn]) 
+//			slideUp([s,[e],[fn]]) 
+//			slideToggle([s],[e],[fn]) 
+//			淡入淡出
+//			fadeIn([s],[e],[fn]) 
+//			fadeOut([s],[e],[fn]) 
+//			fadeTo([[s],o,[e],[fn]]) 
+//			fadeToggle([s,[e],[fn]]) 
+//			自定义
+//			animate(p,[s],[e],[fn])1.8* 
+//			stop([c],[j])1.7* 
+//			delay(d,[q]) 
+//			finish([queue])1.9+ 
+//			设置
+//			jQuery.fx.off 
+//			jQuery.fx.interval 
+		/*var $div=$('.box');
+		$(document).click(function(){
+			if($div.is(':hidden')){
+				$div.show(1000);
+			}else{
+				$div.hide(1000);
+			}
+		})*/
+		//var $div=$('.box');
+		/*$(document).click(function(){
+			$div.slideToggle(2000);
+		})*/
+		
+		//$(document).click(function(){
+			//$div.fadeTo(2000,0.55);
+			//$div.fadeIn(2000);
+			//$div.fadeOut(2000);
+		//})
+		var $div=$('.box');
+		/*$(document).click(function(){
+			$div.animate({
+				width:300,
+				height:300,
+				backgroundColor:'blue'
+			},3000,function(){
+				$div.animate({
+					left:500,
+					top:300,
+					backgroundColor:'purple'
+				},3000)
+			});
+		});*/
+		/*jQuery.fx.off =true;
+		jQuery.fx.interval = 10;*/
+		$div
+		.animate({
+			width:300
+		},3000)
+		.animate({
+			height:300
+		},3000)
+		.animate({
+			backgroundColor:'blue'
+		},3000)
+		.animate({
+			left:1000
+		},3000).animate({
+			top:500
+		},3000);
+		
+		$('button').eq(0).click(function(){
+			$div.stop();
+		});
+		$('button').eq(1).click(function(){
+			$div.stop(true);
+		});
+		$('button').eq(2).click(function(){
+			$div.stop(true,true);
+		});
+		$('button').eq(3).click(function(){
+			$div.finish();
+		});
+		$('button').eq(4).click(function(){
+			$div.stop(false,true);
+		});
+		</script>
+	</body>
+</html>

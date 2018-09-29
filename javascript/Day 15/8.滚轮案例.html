@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			body{
+				padding:30px 0 0 100px;
+			}
+			.content{
+				width: 300px;
+				height: 500px;
+				border: 1px solid black;
+				float: left;
+				overflow: hidden;
+				position: relative;
+			}
+			.content p{
+				padding: 5px;
+				text-align: justify;
+				position: absolute;
+				left:0px;
+				top:0px;
+			}
+			.box{
+				width: 30px;
+				height: 500px;
+				border: 1px solid black;
+				float: left;
+				margin-left: 10px;
+				position: relative;
+			}
+			.drag{
+				width: 30px;
+				height: 50px;
+				background: red;
+				position: absolute;
+				left:0px;
+				top:0px;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		
+		<!--<textarea name="" rows="10" cols="30"></textarea>-->
+		<div class="scroll">
+			<div class="content">
+				<p>1949—2049”，这一复兴图强的时间表，随着近70年时光的过去，已进入至关重要的“下半程”。靠什么推开民族复兴的梦想大门？又该怎样踢好现代化强国的临门一脚？
+　　“改革开放是决定当代中国命运的关键一招”“中华民族伟大复兴必将在改革开放的进程中得以实现”。在同中外记者见面时，习近平总书记用民族复兴的历史标尺，衡量改革开放的不凡意义。铿锵有力的话语，是对过去的总结，更是对未来的谋划；是必胜的信念，更是改革的宣言。
+　　历史是理解未来的一把钥匙。30多年前，一位外国时装大师的黑色毛料大衣，在北京街头引来无数围观；如今，中国红、中国风，扮靓世界各地的时装周。30多年前，我国GDP只有3645亿元，位居全世界最不发达的低收入国家行列；如今，中国经济总量翻了200多倍，每年增量相当于一个中等发达国家经济规模。是改革开放，让我们“大踏步赶上时代”，让中华民族迎来伟大复兴的光明前景。
+　　发展是解决一切问题的关键，改革开放则是中国发展的根本动力。从邓小平“不改革死路一条”的大声疾呼，到习近平“改革不停顿、开放不止步”的铮铮誓言，中国在困顿中踏上改革开放之路，又在接续奋斗中让这条伟大的道路不断向前。5年前，有西方媒体列举“中国需要跨越的下一个栏”，而现在他们感慨“中国将继续崛起”。凭着一股逢山开路、遇水架桥的闯劲，凭着一股滴水穿石、绳锯木断的韧劲，我们取得了举世瞩目的历史性成就，实现了前所未有的历史性变革，让近代以来久经磨难的中华民族，实现了从站起来、富起来到强起来的伟大飞跃，比历史上任何时期，都更接近实现中华民族伟大复兴的目标。
+　　哲人说，时间是真理的挚友。实现中华民族伟大复兴，是近代以来中华民族最伟大的梦想。翻开历史的卷轴，洋务运动、戊戌变法、辛亥革命，不乏革新图强的热血，不乏民族振兴的壮志，但大都草草收场。中国共产党为什么能？根本原因就在于，共产党人在救亡图存的艰辛探索中，找到了马克思主义这一颠扑不破的真理；在改革开放的伟大进程中，开辟了中国特色社会主义这条唯一正确的道路。“我们比历史上任何时期都更接近、更有信心和能力实现中华民族伟大复兴的目标”，这份信心，源于被历史证明了的成就，源于被人民认同的选择，源于党的十九大确立的新思想新使命。走进新时代，我们这一代人的新长征，仍需跨越“雪山”和“草地”，仍要征服“娄山关”与“腊子口”，但只要我们用新思想引领新征程，去沉疴于自我革命，除痼疾于改革创新，就一定会步步逼近光辉的山巅。
+　　2018年，我们将迎来改革开放40周年。不断在改革开放上取得新的进展，是对改革开放40周年最好的纪念。相信改革开放将以“史诗般的进步”，让我们的人民共和国抵达全新高度；相信激荡百年的民族复兴梦想，必将在进一步改革开放的进程中得以实现，让中华民族以更加昂扬的姿态屹立于世界民族之林。</p>
+			</div>
+			<div class="box">
+				<div class="drag"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+
+			var oContent=document.querySelector('.content');
+			var oP=document.querySelector('p');
+			var oBox=document.querySelector('.box');
+			var oDrag=document.querySelector('.drag');
+			var shorty=null;
+			oDrag.onmousedown=function(ev){
+				var ev=ev||window.event;
+				shorty=ev.clientY-oDrag.offsetTop;
+				document.onmousemove=function(ev){
+					var ev=ev||window.event;
+					var t=ev.clientY-shorty;
+					offset(t);				
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;
+			}
+			
+			
+			//oContent.onmousewheel=fn;
+			oContent.addEventListener('mousewheel',fn,false);
+			oContent.addEventListener('DOMMouseScroll',fn,false);
+			
+			//oContent.onmousewheel=fn;
+			oBox.addEventListener('mousewheel',fn,false);
+			oBox.addEventListener('DOMMouseScroll',fn,false);
+			
+			
+			function offset(t){
+				if(t<0){
+					t=0;
+				}else if(t>=oBox.offsetHeight-oDrag.offsetHeight-2){
+					t=oBox.offsetHeight-oDrag.offsetHeight-2;
+				}
+				//红色盒子移动的范围比例
+				var scale=t/(oBox.offsetHeight-oDrag.offsetHeight-2);			
+				oDrag.style.top=t+'px';	
+				oP.style.top=-scale*(oP.offsetHeight-oContent.offsetHeight)+'px'
+			}
+			
+			
+			
+			function fn(ev){//true:上   false:下
+				var ev=ev||window.event;
+				var bstop=true;
+				if(ev.wheelDelta){
+					bstop=ev.wheelDelta>0?true:false;
+				}else{
+					bstop=ev.detail<0?true:false;
+				}
+				if(bstop){
+					offset(oDrag.offsetTop-10);
+				}else{
+					offset(oDrag.offsetTop+10);
+				}
+				
+				if(ev.preventDefault){
+					ev.preventDefault();
+				}
+				return false;
+			}
+			
+		</script>
+	</body>
+</html>

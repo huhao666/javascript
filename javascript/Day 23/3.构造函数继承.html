@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//子类继承父类上面的属性和方法，不能影响父类。
+			//将父对象的构造函数绑定在子对象上,子对象能够继承父对象的属性和方法。
+			//在子对象构造函数中利用call或apply将父对象指向子对象的实例对象。
+			
+			function Person(name,age){
+				this.name=name;
+				this.age=age;
+				this.showinfo=function(){
+					return '你的名字是'+this.name+',你的年龄是'+this.age;
+				}
+			}
+			function Student(name,age){
+				Person.apply(this,arguments);
+			}
+			
+			alert(new Student('wangwu',1000).name);
+			alert(new Student('wangwu',1000).showinfo());
+			
+			alert(new Person('zhangsan',100).name);
+			alert(new Person('zhangsan',100).showinfo());
+			/*function Student(name,age,grade){
+				//Person.call(this,name,age);//name,age:函数的参数
+				//Person.apply(this,[name,age]);
+				Person.apply(this,arguments);
+				this.grade=grade;
+				this.showinfo1=function(){
+					return '你的名字是'+this.name+',你的年龄是'+this.age + this.grade;
+				}
+			}
+			
+			alert(new Student('wangwu',1000,1708).showinfo());
+			alert(new Student('wangwu',1000,1708).grade);
+			alert(new Student('wangwu',1000,1708).name);*/
+			
+			
+			//alert(new Person('zhangsan',100).showinfo1());
+			
+			
+			
+		</script>
+	</body>
+</html>

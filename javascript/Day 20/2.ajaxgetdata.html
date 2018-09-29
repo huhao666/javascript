@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ajax=null;
+			try{
+				ajax=new XMLHttpRequest();//标准
+			}catch(e){
+				ajax=new ActiveXObject('Microsoft.XMLHTTP');//IE6
+			}
+			//ajax.open('get','txt.txt',true);
+			//ajax.open('get','json.json',true);
+			//ajax.open('get','html.html',true);
+			//ajax.open('get','xml.xml',true);
+			ajax.open('post','php.php',false);
+			ajax.send();
+			alert(ajax.responseText);
+			ajax.onreadystatechange=function(){
+				
+				/*if(ajax.readyState==4){
+					if(ajax.status==200){
+						//alert(ajax.responseText);//输出内容   string
+						//document.body.innerHTML=ajax.responseText;
+						//alert(ajax.responseXML);//[object XMLDocument]
+						//var xmlDoc=ajax.responseXML;//xmlDoc:xml文档
+						//alert(xmlDoc.getElementsByTagName('title')[0].innerHTML);
+						//alert(xmlDoc.getElementsByTagName('book')[0].childNodes[1].childNodes[0].nodeValue);
+						alert(ajax.responseText);
+					}else{
+						alert(ajax.status);//输出接口地址错误
+					}
+				}*/
+			}
+		</script>
+	</body>
+</html>

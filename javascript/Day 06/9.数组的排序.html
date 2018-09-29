@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				*zoom: 10;
+			}
+		</style>
+	</head>
+	<body>
+		heheheheheheheheh
+		<script type="text/javascript">
+			/*var arr=[12,3,45,123,78,3,45,1234,8765,234];
+			document.write('排序前：'+arr);
+			var temp,times=0;
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[i]>arr[j]){
+						var temp=arr[i];
+						arr[i]=arr[j];
+						arr[j]=temp;
+						
+					}
+					times++;
+				}
+			}
+			document.write('<br>');
+			document.write('排序后：'+arr);
+			document.write('<br>');
+			document.write(times);*/
+			
+			
+			//冒泡排序
+			/*var arr=[12,3,45,123,78,3,45,1234,8765,234];
+			var temp,times=0;
+			for(var i=0;i<arr.length-1;i++){//控制次数  0,1,2,3,4,5,6,7,8
+				for(var j=0;j<arr.length-i-1;j++){//发生两两比较。i：减少遍历次数
+					if(arr[j]>arr[j+1]){
+						var temp=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+						
+					}
+					times++;
+				}
+			}
+			document.write('排序后：'+arr);
+			document.write('<br>');
+			document.write(times);*/
+			
+			
+			/*var arr=[12,3,45,123,78,3,45,1234,8765,234];
+			var temp,times=0;
+			for(var i=0;i<arr.length-1;i++){//控制次数  0,1,2,3,4,5,6,7,8
+				for(var j=0;j<arr.length-1;j++){//发生两两比较。i：减少遍历次数
+					if(arr[j]>arr[j+1]){
+						var temp=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+						
+					}
+					times++;
+				}
+			}
+			document.write('排序后：'+arr);
+			document.write('<br>');
+			document.write(times);*/
+			
+			
+			/*var arr=[12,3,45,123,78,3,45,1234,8765,234];
+			var temp,times=0;
+			for(var i=0;i<arr.length;i++){//控制次数  0,1,2,3,4,5,6,7,8
+				for(var j=i+1;j<arr.length;j++){//发生两两比较。i：减少遍历次数
+					if(arr[i]>arr[j]){
+						var temp=arr[i];
+						arr[i]=arr[j];
+						arr[j]=temp;
+						
+					}
+					times++;
+				}
+			}
+			document.write('排序后：'+arr);
+			document.write('<br>');
+			document.write(times);*/
+			
+			
+			
+			//选择排序：
+			/*var arr=[1,3,45,123,78,3,45,1234,8765,234];
+			var temp;
+			for(var i=0;i<arr.length;i++){
+				var minIndex=i;//假设i是数组的最小值 的下标
+				for(var j=i+1;j<arr.length;j++){//假设最小值的下一个数
+					if(arr[minIndex]>arr[j]){
+						minIndex=j;
+					}
+				}
+				if(i!=minIndex){//假设的刚好就是最小值。
+					temp=arr[i];
+					arr[i]=arr[minIndex];
+					arr[minIndex]=temp;
+				}
+			}
+			
+			document.write(arr);
+			document.write('<br>');
+			document.write(times);*/
+			
+			//快速排序。
+			/*var arr=[1,3,45,123,78,3,45,1234,8765,234,0.15,-78];
+			function quickSort(array){
+				//判断传入的必须是数组
+				if(Array.isArray(array)){
+					//起点。
+					if(array.length<=1){
+						return array;
+					}
+				//排序的思路
+					var leftarr=[];
+					var rightarr=[];
+					
+					var midIndex=Math.floor(array.length/2);//获取中间索引
+					
+					var midValue=array.splice(midIndex,1)[0];//splice：改变原数组,输出中间值,返回值是一个数组
+					alert(typeof midValue);//返回是一个数组
+					alert(midValue)
+					for(var i=0;i<array.length;i++){
+						if(array[i]<midValue){
+							leftarr.push(array[i]);
+						}else{
+							rightarr.push(array[i]);
+						}
+					}
+					
+					//return quickSort(leftarr).concat(midValue,quickSort(rightarr)); //递归。
+					
+				}else{
+					alert('你好好传个数组');
+				}
+			}
+			alert(quickSort(arr));*/
+		</script>
+	</body>
+</html>

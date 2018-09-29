@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			body {
+				background: #eee;
+				padding: 100px;
+				font-family: 'microsoft yahei';
+				font-size: 14px;
+			}
+			
+			.tab {
+				width: 300px;
+				height: 150px;
+				background: #fff;
+			}
+			
+			.tab_btn {
+				width: 100%;
+				height: 36px;
+				line-height: 36px;
+				border-bottom: 1px solid #ddd;
+			}
+			
+			.tab_btn li {
+				float: left;
+				list-style: none;
+			}
+			
+			.tab_btn li a {
+				padding: 0 22px;
+				color: #333;
+				text-decoration: none;
+			}
+			
+			.tab_btn li a.active1 {
+				color: red;
+				font-weight: bold;
+				text-decoration: underline;
+			}
+			
+			.tab_content ol {
+				padding: 10px;
+				color: #333;
+				margin-left: 20px;
+				display: none;
+			}
+			
+			.tab_content li {
+				line-height: 24px;
+			}
+			
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.box {
+				width: 790px;
+				height: 340px;
+				border: 1px solid black;
+				position: relative;
+				margin: 50px auto;
+			}
+			
+			.box ul li {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				opacity: 0;
+				/*transition: all .5s;*/
+				/*渐变效果*/
+			}
+			
+			.box ol {
+				position: absolute;
+				list-style: none;
+				left: 50%;
+				margin-left: -91px;
+				bottom: 20px;
+				background-color: hsla(0, 0%, 100%, .5);
+				padding: 4px 8px;
+				border-radius: 12px;
+			}
+			
+			.box ol li {
+				float: left;
+				width: 12px;
+				height: 12px;
+				margin-right: 10px;
+				border-radius: 50%;
+				background-color: #fff;
+				text-indent: -99999px;
+				cursor: pointer;
+			}
+			
+			.box ol li.active {
+				background: #db192a;
+			}
+			
+			#left,
+			#right {
+				display: none;
+				position: absolute;
+				top: 50%;
+				margin-top: -30px;
+				width: 30px;
+				height: 60px;
+				background-color: rgba(0, 0, 0, .1);
+				line-height: 60px;
+				text-align: center;
+				color: #fff;
+			}
+			
+			#left:hover,
+			#right:hover {
+				background-color: #333;
+			}
+			
+			#left {
+				left: 0px;
+			}
+			
+			#right {
+				right: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="box">
+			<ul>
+				<li style="opacity: 1;">
+					<a href="#"><img src="img/1.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/2.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/3.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/4.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/5.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/6.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/7.jpg"></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/8.jpg"></a>
+				</li>
+			</ul>
+			<ol>
+				<li class="active" index=0>1</li>
+				<li index=1>2</li>
+				<li index=2>3</li>
+				<li index=3>4</li>
+				<li index=4>5</li>
+				<li index=5>6</li>
+				<li index=6>7</li>
+				<li index=7>8</li>
+			</ol>
+			<a href="javascript:;" id="left">&lt;</a>
+			<a href="javascript:;" id="right">&gt;</a>
+		</div>
+
+		<div class="tab">
+			<div class="tab_btn">
+				<ul>
+					<li>
+						<a href="##" class="active1">公告</a>
+					</li>
+					<li>
+						<a href="##">规则</a>
+					</li>
+					<li>
+						<a href="##">论坛</a>
+					</li>
+					<li>
+						<a href="##">安全</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab_content">
+				<ol style="display: block;">
+					<li>九寨沟地震紧急救援</li>
+					<li>九寨沟地震紧急救援</li>
+					<li>九寨沟地震紧急救援</li>
+					<li>九寨沟地震紧急救援</li>
+				</ol>
+				<ol>
+					<li>致百万商家的感谢信</li>
+					<li>致百万商家的感谢信</li>
+					<li>致百万商家的感谢信</li>
+					<li>致百万商家的感谢信</li>
+				</ol>
+				<ol>
+					<li>公益宝贝卖家发票索取</li>
+					<li>公益宝贝卖家发票索取</li>
+					<li>公益宝贝卖家发票索取</li>
+					<li>公益宝贝卖家发票索取</li>
+				</ol>
+				<ol>
+					<li>“淘宝汇吃”规则变更</li>
+					<li>“淘宝汇吃”规则变更</li>
+					<li>“淘宝汇吃”规则变更</li>
+					<li>“淘宝汇吃”规则变更</li>
+				</ol>
+			</div>
+		</div>
+
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			console.log(taobao.zhangsan.tool.ranNum(1,5));
+		</script>
+	</body>
+
+</html>

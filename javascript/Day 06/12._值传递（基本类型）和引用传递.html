@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//值传递（基本类型）和引用传递。
+			//基本类型：值传递
+			/*var a=100;//number
+			var b=a;
+			a++;
+			alert(a);
+			alert(b);//100*/
+			
+			//Date,Array,Object
+			
+			//引用类型(对象类型)：引用传递(址传递)
+			/*var arr1=[1,2,3];
+			var arr2=arr1;
+			arr2.push(4);
+			
+			alert(arr2);//1,2,3,4
+			alert(arr1);//1,2,3,4*/
+			//注意：引用传递不能直接赋值的方式。传递是地址。
+			
+			//最简单的引用传递--浅拷贝
+			/*var arr1=[1,2,3];
+			var arr2=[];
+			for(var i in arr1){
+				arr2[i]=arr1[i];//一一赋值
+			}
+			arr2.push(4);
+			alert(arr2);//1,2,3,4
+			alert(arr1);//1,2,3*/
+			
+			
+			/*var num=5;
+			alert(typeof num);//number
+			var num1=new Number(5);
+			alert(typeof num1);//object
+			console.log(num==num1);//true*/
+			
+			
+			//new String()  new Boolean()  
+			
+			/*var arr=new Array();
+			//alert(typeof arr);//object
+			
+			var d=new Date();
+			//alert(typeof d);//object
+			
+			var a=new Function('alert(123)');//函数的构造方法实现方式
+			//alert(typeof a);//function
+			alert(a instanceof Object)//true
+			
+			//alert(typeof null);//object*/
+			
+			//索引思维
+			//var arr=['a','b','c','d'];
+			//alert(arr[Number(true)]);//数字,数字字符串，表达式
+			
+			//var arr=[0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+			//Math.random()
+			/*//随机生成一个五位以内的数
+			var num=[0,1,2,3,4,5,6,7,8,9];
+			var html='';
+			for(var i=0;i<Math.ceil(Math.random()*5);i++){//i<(1,2,3,4,5)
+				html+=num[parseInt(Math.random()*10)];//拼接字符串
+			}
+			var arrnum=html.split('');//字符串转数组
+			if(arrnum[0]==0){//去掉第一个0
+				arrnum.splice(0,1);//截取0
+			}
+			var str=arrnum.join('');//转换成字符串
+			document.write(html+'-----'+Number(str));//输出*/
+		</script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+//			var arr=[0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];//16
+//			var html='#';
+//			for(var i=0;i<6;i++){
+//				//parseInt(Math.random()*arr.length)//0-15
+//				html+=arr[parseInt(Math.random()*arr.length)]
+//			}
+//			//document.write(html);
+//			document.body.style.backgroundColor=html;//background-color===backgroundColor(js表示方法)
+		</script>
+	</body>
+</html>

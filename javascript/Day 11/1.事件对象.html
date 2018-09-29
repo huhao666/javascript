@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//获取事件对象。事件对象下面有很多常用的属性和方法。
+			/*document.onclick=function(ev){
+				console.log(ev);
+			};*/
+			
+			/*document.onclick=function(){
+				console.log(arguments[0]);//它是事件绑定中的一个隐藏的参数，可以通过arguments[0]来获取
+			}*/
+			
+			//事件：鼠标和键盘
+			
+			//获取事件对象具有兼容问题
+			//标准浏览器：事件处理的函数的第一个参数
+			//ie浏览器：event--->window.event;
+			
+			//处理兼容的方法：
+//			if...else
+//			三目运算符:  ?:
+//			或运算符:  ||
+//			try...catch  容错的
+			
+			//alert(adfdasfdsafdsaf);
+			//引用错误：没找到，不存在； Uncaught ReferenceError: adfdasfdsafdsaf is not defined
+			//()()()()//语法错误：语法格式有问题，SyntaxError: Unexpected token )
+			/*try{//如果try里面的代码有错误，走catch里面的代码，而且catch里面的参数就是错误信息。没错执行里面的代码。
+				alert(adfdasfdsafdsaf);	
+			}catch(e){
+				//alert(e);//ReferenceError: adfdasfdsafdsaf is not defined
+				alert('上面错误了，我出来了');
+			}*/
+			
+			
+			document.onclick=function(ev){
+				var ev=ev||window.event;
+				console.log(ev);
+			};
+			
+			
+		</script>
+	</body>
+</html>

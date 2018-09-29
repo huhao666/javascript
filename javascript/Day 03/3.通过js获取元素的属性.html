@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 200px;height:200px;background: red;
+			}
+			.hide{
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			//通过js获取元素的属性
+			//通过js获取元素的css属性。
+		</script>
+	</head>
+	<body>
+		<input type="button" value="显示隐藏" />
+		<div class="box">111111</div>
+		
+		<script type="text/javascript">
+			var oDiv=document.querySelector('.box');
+			var oBtn=document.querySelector('input');
+			//oDiv oBtn都是对象   对象下面肯定由属性：（html元素的属性，css属性）
+			//alert(oBtn.value);//获取属性值
+			//alert(oDiv.className);//class:类   获取类名：className
+			
+			/*oBtn.onclick=function(){
+				oDiv.className='hide'//设置属性值。
+			};*/
+			//总结：自由的设置和获取元素对象的默认属性。
+			
+			//alert(oDiv.style.width);//无法获取选择器里面css属性，行内css属性可以。
+			//oDiv.style.width='800px';//设置css的属性
+			
+			
+			//获取css属性：getComputedStyle()['属性值'];
+			
+			//alert(getComputedStyle(oDiv)['width']);  //获取css的属性值。
+			
+			//offsetWidth/offsetHeight/offsetLeft/offsetTop : 获取css的盒模型的宽高位置属性。(仅仅获取,没有单位)
+			//alert(oDiv.offsetWidth);
+			
+			
+			//var oDiv=document.querySelector('.box');
+			//var oBtn=document.querySelector('input');
+			/*oBtn.onclick=function(){
+				if(oDiv.style.display=='none'){
+					oDiv.style.display='block';
+				}else{
+					oDiv.style.display='none';
+				}
+			};*/
+			
+			//开关，标记(布尔值，数字)
+			var bstop=true;//关
+			oBtn.onclick=function(){
+				if(bstop){
+					oDiv.style.display='none';
+					bstop=false;
+				}else{
+					oDiv.style.display='block';
+					bstop=true;
+				}
+			};
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

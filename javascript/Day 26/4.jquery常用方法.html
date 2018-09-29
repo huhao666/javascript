@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		p{
+			display: none;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<ul>
+				<li>11111111111111</li>
+				<p>pppppppppppppp</p>
+				<li>222222222222222222</li>
+				<p>ppppppppppppppppppppp</p>
+				<li>3333333333333333333</li>
+				<li>44444444444444444444444</li>
+				<li>555555555555555</li>
+			</ul>
+		</div>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//each(callback) 
+//			size() == length 
+//			length
+//			index([selector|element])
+//			jQuery.noConflict([ex]);
+			
+//			$('li').each(function(index,element){
+//				//console.log(index+'-'+element);
+//				//return false;//终止遍历
+//				alert($('li').eq(index).html());
+//			});
+//			
+//			
+//			var arr=[1,2,3,4,5];
+//			$.each(arr,function(i,v){//遍历数组和对象
+//				console.log(i+'-'+v);
+//			});
+
+			
+			/*$('li').click(function(){
+				alert($(this).index('li'));
+			})*/
+			
+			
+			var $$=jQuery.noConflict();//==$.noConflict();
+			
+			//alert($('li').eq(0).html());//$ is not a function
+			//alert(jQuery('li').eq(0).html());//
+			//alert($$('li').eq(0).html());
+			
+			
+			(function($){
+				alert($('li').eq(0).html());
+			})(jQuery);
+			
+			
+			
+		</script>
+	</body>
+</html>

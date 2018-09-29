@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;height:100px;background: red;position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script type="text/javascript">
+			//构造函数改写拖拽
+			function Drag(){
+				this.shortx=null;
+				this.shorty=null;
+				this.box=document.getElementsByTagName('div')[0];
+				var that=this;
+				this.init=function(){
+					this.box.onmousedown=function(ev){
+						var ev=ev||window.event;
+						that.shortx=ev.offsetX;
+						that.shorty=ev.offsetY;
+						document.onmousemove=function(ev){
+							var ev=ev||window.event;
+							that.mousemove(ev);
+						}
+						document.onmouseup=that.mouseup;
+						return false;
+					}
+				};
+				this.mousemove=function(ev){
+					that.box.style.left=ev.clientX-that.shortx+'px';
+					that.box.style.top=ev.clientY-that.shorty+'px';
+				};
+				this.mouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+			}
+			var d1=new Drag();
+			d1.init();
+		</script>
+	</body>
+</html>

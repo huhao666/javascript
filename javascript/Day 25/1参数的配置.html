@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//默认的参数：没有传参使用默认参数
+			//配置的参数：覆盖默认参数。
+			
+			var settings={//默认参数
+				width:200,
+				height:250,
+				background:'red'
+			};
+			
+			
+			var options={//配置参数
+				width:500,
+				border:'1px solid red'
+			}
+			
+			
+			/*for(var i in options){
+				settings[i]=options[i];
+			}*/
+			
+			function extend(obj1,obj2){
+				for(var i in obj2){
+					obj1[i]=obj2[i];
+				}
+				return obj1;
+			}
+			
+			
+			
+			//console.log(settings);//输出结果：如果没有传参使用默认参数，传参使用配置参数，如果默认参数和配置参数同时拥有的，输出的还是配置参数(覆盖)
+			
+			console.log(extend(settings,options));
+		</script>
+	</body>
+</html>

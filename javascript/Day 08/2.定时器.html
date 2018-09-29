@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 300px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: red;
+				border: 3px solid red;
+				margin: 100px auto;
+				font-size: 30px;
+				font-family: "微软雅黑";
+			}
+		</style>
+		<script type="text/javascript">
+			//定时器：window下面的方法
+			//setInterval(函数,时间(ms)); 间隔型,间隔一定的时间触发一次,反复执行
+			//setTimeout(函数,时间(ms)); 延时型，仅执行一次
+			
+			//clearInterval(value);//value:开启定时器的返回值，让我们知道关闭那个定时器
+			//clearTimeout(value);//value:开启定时器的返回值，让我们知道关闭那个定时器
+			
+			
+			
+			/*window.setInterval(function(){
+				document.write('hello<br>');
+			},1000);*/
+			
+			/*setInterval(function(){//同步（阻塞），异步（非阻塞）
+				alert(fdsafdsafdasf);
+			},0);
+			
+			alert(1);*/
+			
+			
+			window.onload=function(){
+				/*setTimeout(function(){
+					document.getElementsByTagName('img')[0].style.display='none';
+				},3000);*/
+				
+				/*function fn(){
+					document.getElementsByTagName('img')[0].style.display='none';
+				}
+				setTimeout(fn,3000);*/
+				
+			}
+			//定时器开启了，尽量关上。
+		</script>
+	</head>
+	<body>
+		<!--<img src="1.webp" alt="" />-->
+		<div id="box">凤凰自行车</div>
+		<script type="text/javascript">
+			var arr=['凤凰自行车','新加波一日游','iphoneX','洗衣粉','电视机','宝马汽车','再来一次','谢谢惠顾'];
+			var oDiv=document.getElementById('box');
+			var timer=null;
+			var bstop=true;
+			timer=setInterval(function(){
+				oDiv.innerHTML=arr[parseInt(Math.random()*8)];//0-7
+			},5);
+			
+			document.onkeydown=function(ev){
+				if(ev.keyCode==32 && bstop){//按下空格键  同时bstop==true;
+					clearInterval(timer);//关闭定时器
+					bstop=false;
+				}else{
+					timer=setInterval(function(){
+						oDiv.innerHTML=arr[parseInt(Math.random()*8)];//0-7
+					},5);
+					bstop=true;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

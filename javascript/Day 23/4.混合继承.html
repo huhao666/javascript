@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//		混合继承（构造函数+原型混合方式实现js的继承）
+//		属性的继承和构造函数的继承一致的，call/apply
+//		方法的继承1：拷贝继承，一一赋值。
+//		方法的继承2：原型继承。
+		
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Person.prototype.showname=function(){
+			return '你的名字是'+this.name;
+		}
+		Person.prototype.showage=function(){
+			return '你的年龄是'+this.age;
+		}
+		
+		
+		function Student(name,age){
+			Person.apply(this,arguments);//继承了父类属性
+		}
+		
+		
+		//方法的继承1  拷贝继承，一一赋值
+		//Student.prototype=Person.prototype;//引用传递
+		
+		/*for(var i in Person.prototype){
+			Student.prototype[i]=Person.prototype[i];
+		}*/
+		
+		//方法的继承2：原型继承
+		Student.prototype=new Person();//将子类的构造函数改变了。
+		Student.prototype.constructor=Student;//重新设置子类的构造函数。
+		
+		
+		/*Student.prototype.showinfo=function(){
+			return '我是子类的方法，你的名字是'+this.name+',你的年龄是'+this.age;
+		}*/
+		
+		var s1=new Student('lisi',5);
+		alert(s1.constructor);
+		/*alert( s1.showname());
+		alert( s1.showage());
+		alert( s1.name);
+		alert( s1.age);*/
+		
+		//alert(new Person('wangwu',50).showinfo());
+		
+		/*var arr=[1,2,3,4];
+		//var arr1=arr;
+		var arr1=[];
+		for(var i in arr){
+			arr1[i]=arr[i];
+		}
+		arr1.push(5);
+		alert(arr1);//1,2,3,4,5
+		alert(arr);//1,2,3,4,5*/
+		
+		</script>
+	</body>
+</html>

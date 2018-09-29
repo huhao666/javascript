@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding:0;margin:0;
+		}
+		html,body{
+			width: 100%;
+			height:100%;
+		}
+		.pbl{
+			width: 100%;
+			height:100%;
+			position: relative;
+		}
+		.pbl div{
+			width: 230px;
+			position: absolute;
+		}
+		.pbl div img{
+			width: 230px;
+			display: block;
+		}
+	</style>
+	<script src="public.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="pbl">
+			
+		</div>
+		<script type="text/javascript">
+			var pbl=document.querySelector('.pbl');
+			//1.实现布局
+			ajax({
+				url:'img.json',
+				success:function(data){
+					var arrpic=JSON.parse(data);
+					for(var i=0;i<arrpic.length;i++){
+						var cdiv=document.createElement('div');
+						var cimg=document.createElement('img');
+						cimg.src=arrpic[i].src;
+						cimg.style.width='230px';
+						cimg.style.height=arrpic[i].height;
+						cdiv.appendChild(cimg);
+						pbl.appendChild(cdiv);
+					}
+					pubuliu();
+				}
+			});
+			
+			//2.封装方法实现pbl布局
+			function pubuliu(){
+				var aDiv=pbl.getElementsByTagName('div');//20
+				console.log(aDiv.length);
+				var oDivwidth=aDiv[0].offsetWidth;
+				//计算列数。
+				var cols=Math.floor(pbl.offsetWidth/oDivwidth);//最大化的列数是5
+				//计算水平的空隙
+				var x=Math.floor((pbl.offsetWidth-cols*oDivwidth)/(cols+1));
+				var y=10;//垂直方法的空隙
+				
+				//将每列的值存放数组里面。
+				var position=[];
+				for(var i=0;i<cols;i++){
+					var obj={};
+					obj.left1=i*oDivwidth+(i+1)*x;
+					obj.top1=10;
+					position.push(obj);
+				}
+				
+				function getMinindex(array){
+					var minindex=0;
+					var minvalue=array[minindex].top1;
+					for(var i=0;i<array.length;i++){
+						if(array[i].top1<minvalue){
+							minvalue=array[i].top1;
+							minindex=i;
+						}
+					}
+					return minindex;//最小的top1值的索引。
+				}
+				
+				//[{left1:33,top1:10},{left1:296,top1:10},{},{}]
+				
+				for(var i=0;i<aDiv.length;i++){
+					var min=getMinindex(position);//获取数组里面对象的最小的top1值的索引。
+					aDiv[i].style.left=position[min].left1+'px';
+					aDiv[i].style.top=position[min].top1+'px';
+					position[min].top1+=aDiv[i].offsetHeight+y;
+				}
+				
+			}
+			window.onresize=function(){
+				pubuliu();
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<ul id="ul1"></ul>
+		<script type="text/javascript">
+			/*var ajax=null;
+			try{
+				ajax=new XMLHttpRequest();//标准
+			}catch(e){
+				ajax=new ActiveXObject('Microsoft.XMLHTTP');//IE6
+			}
+			ajax.open('get','http://127.0.0.1/js1708/Day%2020/3.senddata.php?num=1000',true);
+//http://127.0.0.1/js1708/Day%2019/4.form.php?username=zhangsan&password=123456&email=123456%40qq.com
+			ajax.send();
+			ajax.onreadystatechange=function(){
+				if(ajax.readyState==4){
+					if(ajax.status==200){
+						alert(ajax.responseText);
+					}else{
+						alert(ajax.status);//输出接口地址错误
+					}
+				}
+			}*/
+			
+			var oInput=document.getElementsByTagName('input')[0];
+			oInput.oninput=function(){
+				var ajax=null;
+				try{
+					ajax=new XMLHttpRequest();//标准
+				}catch(e){
+					ajax=new ActiveXObject('Microsoft.XMLHTTP');//IE6
+				}
+				ajax.open('get','http://127.0.0.1/js1708/Day%2020/3.senddata.php?name=zhangsan&num='+oInput.value,true);
+				ajax.send();
+				ajax.onreadystatechange=function(){
+					if(ajax.readyState==4){
+						if(ajax.status==200){
+							/*var arr=ajax.responseText;
+							if(arr){
+								var arr=JSON.parse(ajax.responseText);
+								var html='';
+								for(var i=0;i<arr.length;i++){
+									html+='<li>'+arr[i]+'</li>';
+								}
+								document.getElementById('ul1').innerHTML=html;
+							}else{
+								document.getElementById('ul1').innerHTML=ajax.responseText;
+							}*/
+							alert(ajax.responseText);
+							
+						}else{
+							alert(ajax.status);//输出接口地址错误
+						}
+					}
+				}
+			};
+		</script>
+	</body>
+</html>

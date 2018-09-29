@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//数组和对象
+			//遍历数组
+			//var arr=[1,2,3,4,5];
+			/*for(var i=0;i<arr.length;i++){//3
+				alert(arr[i]);
+			}
+			
+			for(var i in arr){//对象专用  4
+				alert(arr[i]);
+			}*/
+			
+			/*arr.forEach(function(v){ //2
+				alert(v);
+			})*/
+			
+			/*for(var v of arr){//性能最好。功能最强大。 1
+				alert(v);
+			}*/
+			
+			//数组的解构赋值 (匹配)
+			
+			//let arr=['apple','orange','pear','banana','water'];
+			/*let a,b,c,d;
+			a=arr[0];
+			b=arr[1];
+			c=arr[2];
+			d=arr[3];
+			console.log(a,b,c,d);*/
+			//let [a,b,c,d]=arr;
+			//let [a,b,c,d]=['apple','orange','pear','banana'];
+			//console.log(a,b,c,d);
+			
+			/*let [a,b,[c,d,[e,f]]]=[1,2,[3,4,[5,6]]];
+			console.log(a,b,c,d,e,f);*/
+			
+			/*let [a]=5;
+			console.log(a);*///undefined is not a function
+			//循环解构赋值
+			/*let arr=[[1,2],[3,4],[5,6]];
+			for(let [a,b] of arr){
+				console.log(a,b);
+			}*/
+			
+//			let obj={
+//				name:'zhangsan',
+//				age:100,
+//				sex:'women',
+//				obj1:{
+//					sid:'110',
+//					grade:'1708'
+//				}
+//			}
+			
+			//let {name,age,sex}=obj;
+			//console.log(name,age,sex);//zhangsan 100 women
+			/*let {name,age,sex,obj1}=obj;
+			console.log(name,age,sex,obj1);*/
+			
+			//变量名和属性名一致，当然可以不一致。
+			/*let {name:hehe,age:haha,sex:xixi}=obj;
+			console.log(hehe,haha,xixi);*/
+			
+			//字符串的解构赋值。
+			/*let [a,b,c,d,e]='hello';
+			console.log(a,b,c,d,e);//h e l l o*/
+			
+			//函数参数的解构赋值
+			/*let arr=[1,2,3];
+			function fn([a,b,c]){
+				alert(a+b+c);
+			}
+			fn(arr);*/
+			
+			
+			/*function fn({name,age,sex}){
+				console.log(name,age,sex);
+			}
+			fn(obj);*/
+			
+			
+			//交换
+			//var a=5;
+			//var b=10;
+			/*var temp=a;
+			a=b;
+			b=temp;
+			console.log(a,b);*/
+			
+			//var [a,b]=[b,a];
+			//console.log(a,b);
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

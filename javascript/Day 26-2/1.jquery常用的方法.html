@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<div class="wrap">
+			<div class="box"></div>
+		</div>
+		
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			CSS
+//			css(name|pro|[,val|fn])
+//			位置
+//			offset([coordinates]) 
+//			position() 
+//			scrollTop([val]) 
+//			scrollLeft([val]) 
+//			尺寸
+//			height([val|fn]) 内容的高
+//			width([val|fn]) 
+//			innerHeight() 内容高+padding
+//			innerWidth() 
+//			outerHeight([soptions])  内容高+padding+border
+//			outerWidth([options])    
+//			outerHeight(true)  内容高+padding+border+margin
+			
+		//$('.box').css('width','200px').css('height','200px').css('background','red');
+		$('.box').css({
+			width:200,
+			height:200,
+			background:'blue'
+		})
+		$('.wrap').css({
+			width:400,
+			height:400,
+			background:'red',
+			position:'absolute',
+			left:200,
+			top:100
+		})
+		//console.log($('.box').offset());
+		
+		//console.log($('.box').position());//定位父级。
+		
+			/*$(document).click(function(){
+				alert($(window).scrollTop());
+			});*/
+		</script>
+	</body>
+</html>

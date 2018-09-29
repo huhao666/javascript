@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//元素默认属性+自定义的属性
+			//获取元素对象，通过点操作符读写属性。
+			window.onload=function(){
+				//alert($('#div1').title);//获取默认的属性
+				//alert($('#div1').aaa);//undefined,显示的自定义属性无法通过.操作符获取。
+				
+				//通过js代码设置属性，通过js代码获取属性。
+				//$('#div1').x=100;//js设置  ie8下面可以看到了
+				
+				//alert($('#div1').x);//js获取  ok
+				
+				
+				//自定义的属性
+				var aLi=document.getElementsByTagName('li');
+				//alert(aLi.length);//7
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].x=i;
+				}
+				alert(aLi[4].x);
+				
+				
+				//通过js写入元素的属性，通过js获取元素的属性。
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" title="div123456" aaa="bbbb"></div>
+		<input type="text" value="123" class="input1" id="input2" />
+		<ul>
+			<li>11111111111</li>
+			<li>11111111111</li>
+			<li>11111111111</li>
+			<li>11111111111</li>
+			<li>11111111111</li>
+			<li>11111111111</li>
+			<li>11111111111</li>
+		</ul>
+	</body>
+</html>

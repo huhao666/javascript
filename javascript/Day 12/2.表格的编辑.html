@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				font-family: "微软雅黑";
+				font-size: 14px;
+				color: #333;
+			}
+			td{
+				width: 400px;
+				height: 36px;
+			}
+			input{
+				width: 100%;
+				border: none;
+				height: 100%;
+				outline: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){//页面加载完成（结构，图片等相关的页面信息）
+				function cancelbubble(ev){//事件处理函数。
+					var ev=ev||window.event;
+					if(ev.stopPropagation){
+						ev.stopPropagation();
+					}else{
+						ev.cancelBubble=true;
+					}
+				}
+				
+				function change(ele){//ele：input元素。
+					ele.outerHTML=ele.value;//ele.outerHTML input标签的全部内容，包括标签自身
+				}
+				//如果window.onload里面存在结构，结构里面引用的函数必须设为全局。window.onload的特定造成的。
+				var oTable=document.getElementsByTagName('table')[0];
+				var oTr=null;
+				var oTd=null;
+				for(var i=0;i<5;i++){
+					oTr=oTable.insertRow(i);//i:第几行
+					for(var j=0;j<5;j++){
+						oTd=oTr.insertCell(j);
+						oTd.innerHTML='1111111111'+j;
+					}
+				}
+				var aTd=document.getElementsByTagName('td');
+				for(var i=0;i<aTd.length;i++){
+					aTd[i].onclick=function(){
+						this.innerHTML='<input type="text" value="'+this.innerHTML+'">';
+						this.children[0].select();
+						this.children[0].onclick=function(ev){
+							cancelbubble(ev);
+						}
+						this.children[0].onblur=function(){
+							change(this)//this:当前操作的元素。
+						}
+					};
+					
+				}
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<table border="1">
+			
+		</table>
+	</body>
+</html>
+

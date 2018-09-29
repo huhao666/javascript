@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*function Array(){//系统提供的对象，属性是放置在构造函数里面，方法放置在原型下面。
+				//私有的：属性+方法
+				this.num=1000;
+				this.push=function(){
+					
+				}
+			}
+			
+			//共有的，公有的
+			Array.prototype.num=100;//属性
+			Array.prototype.push=function(){//方法
+				
+			}
+			var arr=new Array(1,2,3,4,5);//实例化，让arr能够使用构造函数里面的方法和属性。
+			var arr1=new Array(1,2,3,4,5,6);//实例化，让arr能够使用构造函数里面的方法和属性。*/
+			
+			//上面是混合模式
+			
+			
+			//1、一切皆对象   对象=属性+方法
+			//2、构造函数和对象的关系：构造函数用来实例化对象。
+			//3、创建对象（字面量或者构造函数）
+			
+			
+			/*var person=new Object();
+			person.name='zhangsan';
+			person.showname=function(){
+				alert(this.name)
+			}
+			person.showname();
+			
+			
+			var person1=new Object();
+			person1.name='lisi';
+			person1.showname=function(){
+				alert(this.name)
+			}
+			person1.showname();
+			
+			
+			var person2=new Object();
+			person2.name='wangwu';
+			person2.showname=function(){
+				alert(this.name)
+			}
+			person2.showname();*/
+			
+			//利用object创建多个对象，出现代码冗余。----函数封装
+			
+			/*function createperson(name){
+				var person=new Object();
+				person.name=name;
+				person.showname=function(){
+					alert(this.name)
+				}
+				return person;//返回对象。
+			}
+			
+			var p1=createperson('zhangsan');//创建出来的对象
+			var p2=createperson('lisi');//创建出来的对象
+			var p3=createperson('wangwu');//创建出来的对象
+			
+			p1.showname();
+			p2.showname();
+			p3.showname();*/
+			//工厂模式：这种模式抽象了创建具体对象的过程。
+			//工厂模式的实现方法非常简单，通过封装解决了创建多个相似对象的问题，但是却无从识别对象的类型，因为全部都是Object，不像Date、Array等
+			//工厂模式的弊端造就了构造函数。使用构造函数解决上面的问题。
+//			function Createperson(name){
+//				this.name=name;
+//				this.showname=function(){
+//					alert(this.name)
+//				}
+//			}
+//			//构造函数里面的this指向new出来的实例。
+//			var p1=new Createperson('zhangsan');//创建出来的对象
+//			var p2=new Createperson('lisi');//创建出来的对象
+//			var p3=new Createperson('wangwu');//创建出来的对象
+//			
+//			/*p1.showname();
+//			p2.showname();
+//			p3.showname();*/
+//			alert(p1.showname==p2.showname);//false;
+			
+			/*var arr=new Array(1,2);
+			var arr2=new Array(3,4,5);*/
+			
+			//alert(arr.push==arr2.push);//true
+			/*
+			1、创建一个空对象，并且 this 变量引用该对象。
+ 			2、属性和方法被加入到 this 引用的对象中。
+ 	 		3、新创建的对象由 this 所引用，并且最后隐式的返回this 。 
+			*/
+			
+			
+			
+			
+			var arr1=[];
+			var arr2=[];
+			
+			alert(arr1.push==arr2.push);//方法是共有的。属性是私有。
+			
+			/*var obj1={};//空对象
+			var obj2={};*/
+			
+			//冗余---封装（工厂模式）--无法识别对象的类型--构造函数--问题---->构造函数+原型
+		</script>
+	</body>
+</html>

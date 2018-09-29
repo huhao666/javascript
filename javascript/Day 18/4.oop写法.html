@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Abc(){//构造函数
+				this.num=1000;
+				this.init=function(){
+					return '我是方法';
+				}
+			}
+			//alert(new Abc().init());//实力化
+			/*var a1=new Abc();
+			a1.init();*/
+			
+			
+			var Fn=function(){//构造函数
+				this.num1=1000;
+				this.init1=function(){
+					return '我是方法1111';
+				}
+			};
+			
+			//alert(new Fn().init1());
+		</script>
+	</body>
+</html>

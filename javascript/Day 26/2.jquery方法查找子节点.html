@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding: 0px;margin:0px;
+		}
+		body{
+			padding: 50px;
+		}
+		li{
+			list-style: none;
+			padding-left: 30px;
+		}
+		.add{
+			background: url(img/2.gif) no-repeat 10px 7px;
+		}
+		.reduce{
+			background: url(img/-.gif) no-repeat 10px 7px;
+		}
+	</style>
+	<body>
+		<!--<ul>
+			<li>
+				第一级菜单
+				<ul>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>
+						第二级菜单
+						<ul>
+							<li>第三级菜单</li>
+							<li>第三级菜单</li>
+							<li>第三级菜单</li>
+							<li>第三级菜单</li>
+							<li>第三级菜单</li>
+							<li>第三级菜单</li>
+						</ul>
+					</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+				</ul>
+			</li>
+			<li>第一级菜单</li>
+			<li>
+				第一级菜单
+				<ul>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				第一级菜单
+				<ul>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+					<li>第二级菜单</li>
+				</ul>
+			</li>
+			<li>第一级菜单</li>
+			<li>第一级菜单</li>
+		</ul>-->
+		<div class="box">
+			<ul>
+				<li><strong>11111111111</strong></li>
+				<p>pppppppppppppppppppppp</p>
+				<li><strong>22222222222</strong></li>
+				<p>pppppppppppppppppppppp</p>
+				<li><strong>33333333333</strong></li>
+			</ul>
+		</div>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//eq(index|-index) 等于
+			//not(expr|ele|fn) 除了
+			//children([expr]) 子元素
+			//has(expr|ele)   是否包括
+			//find(e|o|e) 查找内部，不管层级
+			//next([expr]) 下一个
+			//parent([expr]) 一个父节点
+			//parents([expr]) 多个父节点
+			//prev([expr]) 上一个
+			//siblings([expr]) 兄弟
+			
+			/*$('li').has('ul').addClass('add').children().hide();
+			$('li').has('ul').click(function(ev){
+				if(this==ev.target){//判断当前点击的元素，是触发事件的元素。
+					if($(this).children('ul').is(':hidden')){
+						$(this).addClass('reduce').removeClass('add').children('ul').show(400);
+					}else{
+						$(this).addClass('add').removeClass('reduce').children('ul').hide(400);
+					}
+				}
+			});*/
+			
+			//find:性能
+			/*alert($('.box').find('a strong').html());
+			alert($('.box a').find('strong').html());
+			alert($('.box').find('strong').html());*/
+			
+			//parent/parents
+			//alert($('strong').parent().html());
+			//alert($('strong').parents('html').html());
+			
+			
+			//$('li').siblings('li').css('color','red');
+			//$('li').eq(0).siblings('li').css('color','red');//除了自己之外的其他兄弟
+			
+			
+			
+		</script>
+	</body>
+</html>

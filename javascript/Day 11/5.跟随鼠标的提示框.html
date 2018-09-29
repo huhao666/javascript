@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				border: 3px solid #ccc;
+				width: 250px;
+				padding: 10px;
+				display: none;
+				position: absolute;
+				background: #ddd;
+			}
+			li{
+				height: 36px;
+				line-height: 36px;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li><a href="#" tip="中国嫦娥飞天的一些感想中国嫦娥飞天的一些感想中国嫦娥飞天的一些感想">中国嫦娥飞天的一些感想</a></li>
+			<li><a href="#" tip="中国是世界上最强大的国家1中国是世界上最强大的国家1中国是世界上最强大的国家1中国是世界上最强大的国家1">中国是世界上最强大的国家1</a></li>
+			<li><a href="#" tip="中国是世界上最强大的国家222222中国是世界上最强大的国家222222中国是世界上最强大的国家222222">中国是世界上最强大的国家222222</a></li>
+			<li><a href="#" tip="中国是世界上最强大的国家3333333333中国是世界上最强大的国家3333333333">中国是世界上最强大的国家3333333333</a></li>
+			<li><a href="#" tip="中国是世界上最强大的国家4444444444444中国是世界上最强大的国家4444444444444">中国是世界上最强大的国家4444444444444</a></li>
+			<li><a href="#" tip="中国是世界上最强大的国家55555555555555555555555">中国是世界上最强大的国家555555555555555555555</a></li>
+		</ol>
+		<div class="box">
+			
+		</div>
+		<input type="text" placeholder="请输入姓名" />
+		<script type="text/javascript">
+			var aA=document.getElementsByTagName('a');
+			var oBox=document.getElementsByTagName('div')[0];
+			for(var i=0;i<aA.length;i++){
+				aA[i].onmouseover=function(){//鼠标移入
+					oBox.style.display='block';
+					oBox.innerHTML=this.getAttribute('tip');//将当前的tip值给盒子。
+					this.onmousemove=function(ev){//this当前鼠标经过的a元素
+						var ev=ev||window.event;
+						oBox.style.left=ev.clientX+15+'px';
+						oBox.style.top=ev.clientY+15+'px';
+					}
+				}
+				aA[i].onmouseout=function(){//鼠标移出
+					oBox.style.display='none';
+				}
+			}
+			
+			//考虑数组的实现：将tip的值放到数组里面。
+		</script>
+	</body>
+</html>

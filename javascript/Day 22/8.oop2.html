@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Person=function(){
+				//this.name='zhangsan'
+			}
+			Person.prototype.name='lisi';
+			Object.prototype.name='wangwu';
+			Person.prototype.showname=function(){
+				alert(this.name);
+			}
+			
+			Object.prototype.showname=function(){
+				alert('我是'+this.name);
+			}
+			
+			var p1=new Person();
+			alert(p1.name);//undefined
+		</script>
+	</body>
+</html>

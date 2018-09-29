@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}		
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				background:#000000;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getStyle(obj,attr){
+				if(obj.currentStyle){
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj)[attr];
+				}
+			}
+			function buffermove(obj,json,fn){//fn:回调函数，前面的运动完成之后，才能执行。
+				var speed=0;
+				clearInterval(obj.timer);//将定时器当作每个元素对象下面的属性来操作。
+				obj.timer=setInterval(function(){
+					//获取当前的值。
+					var bstop=true;
+					for(var attr in json){//attr：传入的属性    json[attr]:属性的值
+						var current=null;
+						if(attr=='opacity'){
+							current=Math.round(getStyle(obj,attr)*100);//扩大100倍
+						}else{
+							current=parseInt(getStyle(obj,attr));
+						}
+						speed=(json[attr]-current)/8;
+						speed=speed>0?Math.ceil(speed):Math.floor(speed);
+						if(current!=json[attr]){//还有没有到目标点。继续运动
+							if(attr=='opacity'){
+								obj.style.opacity=(current+speed)/100;   
+								obj.style.filter='alpha(opacity='+(current+speed)+')';
+							}else{
+								obj.style[attr]=current+speed+'px';
+							}
+							bstop=false;
+						}
+					}
+					if(bstop){//运动停止条件
+						clearInterval(obj.timer);
+						fn&&fn();//前面fn存在，执行。
+					}					
+				},20);
+			}
+			function ranNum(min,max){
+				return Math.floor(Math.random()*(max-min+1))+min
+			}
+			
+			
+			//开始烟花的构造函数
+			function Firework(x,y){
+				this.x=x;
+				this.y=y;
+				this.clientHeight=document.documentElement.clientHeight;
+				var that=this;
+				this.createFirework=function(){//创建烟花
+					this.firework=document.createElement('div');
+					this.firework.style.cssText='width:5px;height:5px;background:#fff;position:absolute;left:'+this.x+'px;top:'+this.clientHeight+'px;';
+					document.body.appendChild(this.firework);
+					this.fireMove();//烟花运动
+				};
+				this.fireMove=function(){//烟花运动
+					buffermove(this.firework,{top:this.y},function(){
+						document.body.removeChild(that.firework);
+						that.fireFragment();//创建烟花碎片
+					});
+				};
+				this.fireFragment=function(){//创建烟花碎片
+					for(var i=0;i<ranNum(30,60);i++){
+						this.fragment=document.createElement('div');
+						this.fragment.style.cssText='width:5px;height:5px;background:rgb('+ranNum(0,255)+','+ranNum(0,255)+','+ranNum(0,255)+');position:absolute;left:'+this.x+'px;top:'+this.y+'px;';
+						document.body.appendChild(this.fragment);
+						this.fireBoom(this.fragment);//烟花爆炸
+					}
+				};
+				this.fireBoom=function(obj){//烟花爆炸
+					//烟花碎片的随机的速度（正负）
+					var speedx=parseInt((Math.random()>0.5?'-':'')+ranNum(1,15));
+					var speedy=parseInt((Math.random()>0.5?'-':'')+ranNum(1,15));
+					//初始位置
+					var initx=this.x;
+					var inity=this.y;
+					obj.timer=setInterval(function(){//每个碎片一个定时器
+						initx+=speedx;
+						inity+=speedy++;//加速度
+						if(inity>=that.clientHeight){
+							document.body.removeChild(obj);//删除对应的碎片
+							clearInterval(obj.timer);//清除定时器
+						}
+						obj.style.left=initx+'px';
+						obj.style.top=inity+'px';
+					},30);
+				}
+			}
+			
+			document.onclick=function(ev){
+				var ev=ev||window.event;
+				new Firework(ev.clientX,ev.clientY).createFirework();
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height:200px;
+				border: 1px solid red;
+				display: none;
+			}
+			.active{
+				background: red;
+			}
+		</style>
+		<!--
+			async="ture" :异步引入require.js文件
+			defer：ie浏览器不支持上面的下面，defer针对ie异步的。
+		-->
+		<script src="js/require.js" data-main="js/main" type="text/javascript" async="ture" defer></script>
+		<!--
+			data-main属性的作用是，指定网页程序的主模块,意思是整个网页的入口代码,所有代码都从这儿开始运行
+			入口文件：main.js , 自由定义的文件名，可以省略扩展名
+		-->
+	</head>
+	<body>
+		<!--<div class="box">1111111</div>-->
+		<button class="active">11111</button>
+		<button>22222</button>
+		<button>33333</button>
+		<div style="display: block;">111111111111111111</div>
+		<div>222222222222222222</div>
+		<div>333333333333333333</div>
+	</body>
+</html>

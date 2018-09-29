@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}
+			.box2{
+				width: 200px;
+				height: 200px;
+				background: blue;
+				position: absolute;
+				left:300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">box1</div>
+		<div class="box2">box2</div>
+		<script type="text/javascript">
+			function Drag(classname){
+				this.box=document.querySelector(classname);
+				this.shortx=null;
+				this.shorty=null;
+				this.clientwidth=document.documentElement.clientWidth;
+				this.clientheight=document.documentElement.clientHeight;
+			}
+			Drag.prototype.init=function(){
+				var that=this;
+				this.box.onmousedown=function(ev){
+					var ev=ev||window.event;
+					that.down(ev);
+				}
+			}
+			Drag.prototype.down=function(ev){
+				var that=this;
+				this.shortx=ev.offsetX;
+				this.shorty=ev.offsetY;
+				document.onmousemove=function(ev){
+					var ev=ev||window.event;
+					that.move(ev);
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;
+			}
+			Drag.prototype.move=function(ev){
+				this.box.style.left=ev.clientX-this.shortx+'px';
+				this.box.style.top=ev.clientY-this.shorty+'px';
+			}
+			
+			function LimitDrag(classname){
+				Drag.apply(this,arguments);
+			}
+			
+			LimitDrag.prototype=new Drag();
+			LimitDrag.prototype.constructor=LimitDrag;
+			
+			LimitDrag.prototype.move=function(ev){
+				var l=ev.clientX-this.shortx;
+				var t=ev.clientY-this.shorty;
+				if(l<0){
+					l=0;
+				}
+				if(t<0){
+					t=0;
+				}
+				this.box.style.left=l+'px';
+				this.box.style.top=t+'px';
+			}
+			
+			new Drag('.box1').init();
+			new LimitDrag('.box2').init();
+		</script>
+	</body>
+</html>

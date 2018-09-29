@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<script type="text/javascript">
+			/*document.onmousewheel=function(ev){//滚轮事件   ie  chrome   0级
+				var ev=ev||window.event;//wheelDelta
+				alert(ev.wheelDelta);//上  120  正  下 -120负
+			}*/
+			
+			document.onmousewheel=fn;
+			document.addEventListener('DOMMouseScroll',fn,false);
+			
+			/*document.addEventListener('DOMMouseScroll',function(ev){
+				alert(ev.detail);//上 -3 负  下 3正
+			},false);*/
+			
+			
+			function fn(ev){//true:上   false:下
+				var ev=ev||window.event;
+				var bstop=true;
+				if(ev.wheelDelta){
+					bstop=ev.wheelDelta>0?true:false;
+				}else{
+					bstop=ev.detail<0?true:false;
+				}
+				return bstop;
+			}
+			
+			
+		</script>
+	</body>
+</html>

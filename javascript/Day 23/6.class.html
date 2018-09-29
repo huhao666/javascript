@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//es5面向对象的写法：构造函数+原型	
+		//父类
+		/*function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Person.prototype.showname=function(){
+			return '你的名字是'+this.name;
+		}
+		Person.prototype.showage=function(){
+			return '你的年龄是'+this.age;
+		}
+		
+		
+		//子类
+		function Student(name,age){
+			Person.apply(this,arguments);//继承了父类属性
+		}
+		
+		
+		Student.prototype=new Person();//将子类的构造函数改变了。
+		Student.prototype.constructor=Student;//重新设置子类的构造函数。*/
+		
+		//父类、子类实例化
+		
+		/*var p1=new Person('zhangsan',100);
+		alert(p1.showname())
+		alert(p1.showage())
+		var s1=new Student('wangwu',98);
+		alert(s1.showname())
+		alert(s1.showage())*/
+		
+		//es6 class 改写。
+		class Person{//创建了一个类
+			constructor(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			showname(){
+				return '你的名字是'+this.name;
+			}
+			showage(){
+				return '你的年龄是'+this.age;
+			}
+		}
+		
+		class Student extends Person{//Student 继承 Person
+			constructor(name,age){
+				super(name,age);
+			}
+		}
+		
+		
+		
+		//父类、子类实例化等同于es5
+		var p1=new Person('zhangsan',100);
+		//alert(typeof Person);//function
+		alert(p1.showname());
+		alert(p1.showage());
+		var s1=new Student('wangwu123',980);
+		alert(s1.showname());
+		alert(s1.showage());
+		</script>
+	</body>
+</html>

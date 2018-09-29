@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin:0px;
+			}
+			.smallpic{
+				width: 400px;
+				height: 400px;
+				float: left;
+				border: 1px solid #ccc;
+				position: relative;
+			}
+			.smallfdj{
+				background: rgba(255,255,0,0.9);
+				position: absolute;
+				left:0px;
+				top:0px;
+				visibility: hidden;
+			}
+			.smallpic img{
+				width: 400px;
+				height: 400px;
+				display: block;
+			}
+			.bigfdj{
+				width: 500px;
+				height: 500px;
+				float: left;
+				overflow: hidden;
+				border: 1px solid #ccc;
+				margin-left: 10px;
+				position: relative;
+				visibility: hidden;
+				
+			}
+			.bigfdj img{
+				position: absolute;
+				left:0px;
+				top:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="smallpic">
+			<img src="tel.jpg"/>
+			<div class="smallfdj"></div>
+		</div>
+		<div class="bigfdj">
+			<img src="tel.jpg" alt="" id="img1" />
+		</div>
+		
+		<script type="text/javascript">
+			//公式：小方/大方=小图/大图
+			var smallpic=document.querySelector('.smallpic');
+			var smallfdj=document.querySelector('.smallfdj');
+			var bigfdj=document.querySelector('.bigfdj');
+			var bigpic=document.querySelector('#img1');
+			
+			smallpic.onmouseover=function(){
+				smallfdj.style.visibility='visible';
+				bigfdj.style.visibility='visible';
+				//获取小放大镜的尺寸
+				smallfdj.style.width=bigfdj.offsetWidth*smallpic.offsetWidth/bigpic.offsetWidth+'px';
+				smallfdj.style.height=bigfdj.offsetHeight*smallpic.offsetHeight/bigpic.offsetHeight+'px';
+				
+				var scale=bigfdj.offsetWidth/smallfdj.offsetWidth;
+				//让小放大镜跟随鼠标
+				document.onmousemove=function(ev){
+					var ev=ev||window.event;
+					var l=ev.clientX-smallfdj.offsetWidth/2;
+					var t=ev.clientY-smallfdj.offsetHeight/2;
+					if(l<0){
+						l=0;
+					}else if(l>=smallpic.offsetWidth-smallfdj.offsetWidth-2){
+						l=smallpic.offsetWidth-smallfdj.offsetWidth-2;
+					}
+					
+					if(t<0){
+						t=0;
+					}else if(t>=smallpic.offsetHeight-smallfdj.offsetHeight-2){
+						t=smallpic.offsetHeight-smallfdj.offsetHeight-2;
+					}
+					
+					smallfdj.style.left=l+'px';
+					smallfdj.style.top=t+'px';
+					bigpic.style.left=-scale*l+'px';
+					bigpic.style.top=-scale*t+'px';
+				}
+				
+			}
+			smallpic.onmouseout=function(){
+				smallfdj.style.visibility='hidden';
+				bigfdj.style.visibility='hidden';
+			}
+			
+		</script>
+	</body>
+</html>

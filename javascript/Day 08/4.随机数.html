@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: rgb(255,0,0);
+				
+			}
+		</style>
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//随机数如何设定范围Math.random();
+			/*function ranNum(min,max){
+		 		return Math.floor(Math.random()*(max-min+1))+min
+			}
+			for(var i=0;i<1000;i++){
+				document.write(ranNum(2,6));
+			}*/
+			
+			
+			
+			//十进制数字转16进制或8进制（toString()）
+			//var num=100;
+			//alert(num.toString(16));//十六进制    64
+			//alert(num.toString(8));//八进制  144
+			
+			
+			//编写一个函数，获得一个十六进制的随机颜色的字符串(例如：#20CD4F)
+			//parseInt(Math.random()*0xffffff).toString(16)
+			//var num=0xffffff;//0x十六进制，0八进制
+			//alert(num.toString(10))
+			//var num=0xffffff;
+			//alert(Math.random()*num);//产生不同的十进制数
+			//alert(parseInt(Math.random()*0xffffff).toString(16));
+			
+			
+			/*function ranBgcolor(){
+				return '#'+parseInt(Math.random()*0xffffff).toString(16);
+			}*/
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//document.body.style.backgroundColor=ranBgcolor();
+			
+			/*document.onclick=function(){
+				document.body.style.backgroundColor='rgb('+ranNum(0,255)+','+ranNum(0,255)+','+ranNum(0,255)+')';
+			}*/
+		</script>
+	</body>
+</html>

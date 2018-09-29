@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 600px;
+				height:600px;
+				/*position: absolute;*/
+				left:200px;
+				background: #ccc;
+			}
+			#box{
+				width: 200px;
+				height: 150px;
+				background: red;
+				padding:100px;
+				border:2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div id="box"></div>
+		</div>
+		
+		<script type="text/javascript">
+		//offsetWidth、offsetHeight、offsetLeft、offsetTop、offsetParent(定位父级)没有单位
+		
+		//offsetWidth、offsetHeight:盒模型的尺寸
+		//alert(document.getElementsByTagName('div')[0].offsetWidth);//404=width+padding+border
+		
+		//alert(document.getElementById('box').offsetLeft);
+		
+		//盒子的偏移值，如果存在定位父级，以父级为基准，没有定位父级以body元素为基准。
+		
+		
+		//alert(document.getElementById('box').offsetParent);//[object HTMLDivElement]
+		//alert(document.getElementById('box').offsetParent);//[object HTMLBodyElement]
+		
+		//封装方法,求一个元素的绝对的位置.？？？？？？
+		</script>
+	</body>
+</html>

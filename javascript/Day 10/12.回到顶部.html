@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{
+				position: fixed;
+				right:20px;
+				bottom:20px
+			}
+		</style>
+	</head>
+	<body style="height: 5000px;">
+		<a href="javascript:;">回到顶部</a>
+		<script type="text/javascript">
+			/*var oA=document.getElementsByTagName('a')[0];
+			var timer=null;
+			var bstop=true;//第一次
+			oA.onclick=function(){
+				timer=setInterval(function(){
+					var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+					document.documentElement.scrollTop=document.body.scrollTop=scrolltop-100;//赋值
+					if(scrolltop<=0){
+						clearInterval(timer);
+					}
+					bstop=true;
+				},30);
+			}
+			
+			window.onscroll=function(){//onscroll我再手动触发一次，两次，bstop值记录下来。
+				console.log('我被触发了');
+				if(!bstop){//bstop==false才执行。
+					clearInterval(timer);
+				}
+				bstop=false;//触发
+			}*/
+			
+			
+			
+			
+			
+			//思路：将scrollTop值变成0
+			var oA=document.getElementsByTagName('a')[0];
+			var timer=null;
+			var speed=0;
+			var bstop=true;
+			oA.onclick=function(){
+				timer=setInterval(function(){
+					var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;//动态获取
+					speed=scrolltop/10; 
+					if(scrolltop<=0){
+						clearInterval(timer);
+						return false;
+					}
+					//speed值依次减小
+					document.documentElement.scrollTop=document.body.scrollTop=scrolltop-speed;
+					bstop=true;
+				},20);
+			};
+			window.onscroll=function(){
+				console.log('bstop='+bstop);
+				if(!bstop){//bstop=false;
+					clearInterval(timer);
+				}
+				bstop=false;
+			}
+			
+			console.log(bstop);
+		</script>
+	</body>
+</html>

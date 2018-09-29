@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../Day 8/public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				//创建节点  createElement();
+				//追加(添加)节点  appendChild();
+				
+				
+				/*document.onclick=function(){
+					var cDiv=document.createElement('div');
+					cDiv.style.width='100px';
+					cDiv.style.height='100px';
+					cDiv.style.backgroundColor='rgb('+ranNum(0,255)+','+ranNum(0,255)+','+ranNum(0,255)+')';
+					cDiv.style.position='absolute';
+					cDiv.style.left=ranNum(0,document.documentElement.clientWidth-100)+'px';
+					cDiv.style.top=ranNum(0,document.documentElement.clientHeight-100)+'px';
+					document.body.appendChild(cDiv);//将创建的元素追加到body里面
+				}*/
+			/*document.onclick=function(){
+				var cDiv=document.createElement('div');//创建元素节点
+				var cDivText=document.createTextNode('hehe');//创建文本节点,div的内容
+				cDiv.style.width='100px';
+				cDiv.style.height='100px';
+				cDiv.style.backgroundColor='rgb('+ranNum(0,255)+','+ranNum(0,255)+','+ranNum(0,255)+')';
+				cDiv.style.position='absolute';
+				cDiv.style.left=ranNum(0,document.documentElement.clientWidth-100)+'px';
+				cDiv.style.top=ranNum(0,document.documentElement.clientHeight-100)+'px';
+				cDiv.appendChild(cDivText);//先将文本节点追加给创建的元素。
+				document.body.appendChild(cDiv);//将创建的元素追加到body里面
+			}*/
+			
+			document.onkeydown=function(){
+				var cDiv=document.createElement('div');//创建元素节点
+				var cSpan=document.createElement('span');
+				var cDivText=document.createTextNode('X');//创建文本节点,div的内容
+				cDiv.style.cssText='width:100px;height:100px;position: absolute;';
+				cDiv.style.backgroundColor='rgb('+ranNum(0,255)+','+ranNum(0,255)+','+ranNum(0,255)+')';
+				cDiv.style.left=ranNum(0,document.documentElement.clientWidth-100)+'px';
+				cDiv.style.top=ranNum(0,document.documentElement.clientHeight-100)+'px';
+				cSpan.style.cssText='position: absolute;right:5px;top:5px;cursor: pointer;';//将css写到一起，和写选择器里面的css格式一样。
+				cSpan.appendChild(cDivText);//先将文本节点追加给创建的元素。
+				cDiv.appendChild(cSpan);
+				document.body.appendChild(cDiv);//将创建的元素追加到body里面
+				
+				cSpan.onclick=function(){
+					cDiv.style.display='none';
+				}
+			}
+			
+		}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

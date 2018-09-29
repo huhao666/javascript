@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//JSON.parse():
+			//作用：将 JavaScript 对象表示法 (JSON) 字符串转换为对象，具有json格式检测功能。
+//			var str='{"name":"zhangsan"}';
+//			str=JSON.parse(str);
+//			alert(str.name);
+
+
+
+			//JSON.stringify();
+			
+			var obj={
+				name:'zhangsan'
+			}
+			
+			alert(typeof obj);//object
+			alert(JSON.stringify(obj));//{"name":"zhangsan"}
+			alert(typeof JSON.stringify(obj));//string
+			
+			
+			//eval()
+			
+			//eval('var a=5;var b=10;alert(a+b);');
+			//没有格式检测功能，转成对象。
+			/*var str='{name:"zhangsan123"}';
+			str=eval('('+str+')');//():表达式转换成对象
+			alert(str.name);*/
+			
+			//alert(eval("{}"));//undefined
+			//alert(eval('('+'{}'+')'));//[object Object]
+			
+		</script>
+	</body>
+</html>

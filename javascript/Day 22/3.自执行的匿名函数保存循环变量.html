@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding:0px;margin:0px;list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.box{
+				width: 790px;
+				height: 340px;
+				border: 1px solid black;
+				position: relative;
+				margin: 50px auto;
+			}
+			.box ul li{
+				position: absolute;
+				left:0px;
+				top:0px;
+				opacity: 0;
+				/*transition: all .5s;*//*渐变效果*/
+			}
+			.box ol{
+				position: absolute;
+				left:50%;
+				margin-left: -91px;
+				bottom:20px;
+				background-color: hsla(0,0%,100%,.5);
+				padding: 4px 8px;
+				border-radius: 12px;
+			}
+			.box ol li{
+				float: left;
+				width: 12px;
+				height: 12px;
+				margin-right: 10px;
+				border-radius: 50%;
+				background-color: #fff;
+				text-indent:-99999px;
+				cursor: pointer;
+			}
+			.box ol li.active{
+				background: #db192a;
+			}
+			#left,#right{
+				display: none;
+			    position: absolute;
+			    top: 50%;
+			    margin-top: -30px;
+			    width: 30px;
+			    height: 60px;
+			    background-color: rgba(0,0,0,.1);
+			    line-height: 60px;
+			    text-align: center;
+			    color: #fff;
+			    
+			}
+			#left:hover,#right:hover{
+				background-color: #333;
+			}
+			#left{
+				left:0px;
+			}
+			#right{
+				right:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li style="opacity: 1;"><a href="#"><img src="img/1.jpg"></a></li>
+				<li><a href="#"><img src="img/2.jpg"></a></li>
+				<li><a href="#"><img src="img/3.jpg"></a></li>
+				<li><a href="#"><img src="img/4.jpg"></a></li>
+				<li><a href="#"><img src="img/5.jpg"></a></li>
+				<li><a href="#"><img src="img/6.jpg"></a></li>
+				<li><a href="#"><img src="img/7.jpg"></a></li>
+				<li><a href="#"><img src="img/8.jpg"></a></li>
+			</ul>
+			<ol>
+				<li class="active" index=0>1</li>
+				<li index=1>2</li>
+				<li index=2>3</li>
+				<li index=3>4</li>
+				<li index=4>5</li>
+				<li index=5>6</li>
+				<li index=6>7</li>
+				<li index=7>8</li>
+			</ol>
+			<a href="javascript:;" id="left">&lt;</a>
+			<a href="javascript:;" id="right">&gt;</a>
+		</div>
+		<script type="text/javascript">
+			//核心：一一匹配（按钮和图片）
+			//1.搞定布局
+			//2.获取对应的元素。
+			var oBox=document.querySelector('.box');
+			var aBtn=document.getElementsByTagName('ol')[0].getElementsByTagName('li');//8个按钮
+			var aPic=document.getElementsByTagName('ul')[0].getElementsByTagName('li');//8张图片
+			var oLeft=document.getElementById('left');
+			var oRight=document.getElementById('right');//右边的按钮
+			var timer=null;
+			var num=0;//存放当前的索引，index的值   全局
+			for(var i=0;i<aBtn.length;i++){
+				
+				
+				(function(i){//形参：函数的局部变量
+					aBtn[i].onclick=function(){
+						//alert(i);//0-7
+						for(var j=0;j<aBtn.length;j++){
+							aBtn[j].className='';
+							aPic[j].style.opacity='0';
+						}
+						aBtn[i].className='active';
+						aPic[i].style.opacity='1';
+					}
+				})(i);//i:0-7
+			
+			}
+		</script>
+	</body>
+</html>

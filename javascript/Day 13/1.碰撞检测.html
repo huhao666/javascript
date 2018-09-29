@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1,.box2{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				background: red;
+			}
+			.box2{
+				background: blue;
+				left:300px;
+				top:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<script type="text/javascript">
+			//封装拖拽
+			/*var oBox1=document.querySelector('.box1');
+			var shortx=null;
+			var shorty=null;
+			oBox1.onmousedown=function(ev){
+				var ev=ev||window.event;
+				shortx=ev.offsetX;
+				shorty=ev.offsetY;
+				document.onmousemove=function(ev){
+					var ev=ev||window.event;
+					oBox1.style.left=ev.clientX-shortx+'px';
+					oBox1.style.top=ev.clientY-shorty+'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				return false;
+			}*/
+			
+			function drag(obj){
+				var shortx=null;
+				var shorty=null;
+				obj.onmousedown=function(ev){
+					var ev=ev||window.event;
+					shortx=ev.offsetX;
+					shorty=ev.offsetY;
+					document.onmousemove=function(ev){
+						var ev=ev||window.event;
+						
+						var x=ev.clientX-shortx;
+						var y=ev.clientY-shorty;
+						//范围限制
+						if(x<=0){
+							x=0;
+						}else if(x>=document.documentElement.clientWidth-obj.offsetWidth){
+							x=document.documentElement.clientWidth-obj.offsetWidth;
+						}
+						
+						if(y<=0){
+							y=0;
+						}else if(y>=document.documentElement.clientHeight-obj.offsetHeight){
+							y=document.documentElement.clientHeight-obj.offsetHeight;
+						}
+						
+						obj.style.left=x+'px';
+						obj.style.top=y+'px';
+						if(hit(obj,oBox2)){
+							oBox2.style.background='green';
+						}else{
+							oBox2.style.background='blue';
+						}
+					
+					}
+					document.onmouseup=function(){
+						document.onmousemove=null;
+						document.onmouseup=null;
+					}
+					return false;
+				}
+			}
+			var oBox1=document.querySelector('.box1');
+			var oBox2=document.querySelector('.box2');
+			drag(oBox1);
+			drag(oBox2);
+			
+			//碰撞检测的函数
+			function hit(obj1,obj2){
+				if(!((obj1.offsetLeft+obj1.offsetWidth<obj2.offsetLeft)|| (obj1.offsetLeft>obj2.offsetLeft+obj2.offsetWidth)|| (obj1.offsetTop+obj1.offsetHeight<obj2.offsetTop)|| (obj1.offsetTop>obj2.offsetTop+obj2.offsetHeight))){
+					return true;//碰上了
+				}else{
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

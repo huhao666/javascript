@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//分支语句：处理选择
+			//if语句：三种结构(单条件，双条件，多条件)
+			//switch语句
+			
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//if的三种情况
+			//var num=prompt('请输入一个数');
+			/*if(num==''){//if语句单条件的应用。(为空执行)
+				alert('不能为空');
+			}*/
+			/*if(num==''){//if双条件应用，为空弹出警告，不为空输出。
+				alert('不能为空');
+			}else{
+				alert(num);
+			}*/
+			//if多条件的应用，可以省略else.   else if可以出现多个。
+			//满足那个条件，执行那个条件下{}里面对应的代码
+			/*if(num>0){//条件1 
+				alert('大于零');
+			}else if(num==0){//条件2
+				alert('等于零');
+			}else if(num<0){//条件3
+				alert('小于零')
+			}else{//其他情况
+				alert('输入有误！');
+			}*/
+			
+			
+			//判断一个整数是偶数还是奇数，并输出判断结果
+			//var num=prompt('请输入一个数');
+			//1.判断是否是一个数字
+			//if(!isNaN(num)){//是一个数字
+				
+				/*if(Math.round(num)%2==0){
+					alert('偶数');
+				}else{
+					alert('奇数');
+				}*/
+				
+				/*if(parseInt(num)%2==0){
+					alert('偶数');
+				}else{
+					alert('奇数');
+				}*/
+				
+				
+			//}
+			//else{
+			//	alert('输入不是数字');
+			
+			
+			//简单的判断：三目运算符  ？：    条件? 语句1：语句2；  如果满足条件执行语句1，否则语句2.   类似if...else
+			//var num=prompt('请输入一个数');
+			//isNaN(num)? alert('不是一个数字'):alert('是数字');
+			//isNaN(num)? alert('不是一个数字'):(Math.round(num)%2==0)?alert('偶数'):alert('奇数');
+			
+			
+			
+			//3．开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适(身高：cm)
+			/*var height=prompt('请输入你的身高(单位：cm)');
+			var weight=prompt('请输入你的体重');
+			var maxWeight=(height-108)*2+10;
+			var minWeight=(height-108)*2-10;
+			if(weight>maxWeight){
+				alert('偏胖');
+			}else if(weight<=maxWeight && weight>=minWeight){
+				alert('标准身材');
+			}else if(weight<minWeight){
+				alert('偏廋');
+			}else{
+				alert('输入有误！');
+			}*/
+			
+			//案例：输入年份，计算某一年是否是闰年（闰年能被4整除且不能被100整除，或能被400整除）
+			/*var year=prompt('请输入年份');
+			if(year%4==0 && year%100!=0 || year%400==0){//条件
+				alert('闰年');
+			}else{
+				alert('不是闰年');
+			}*/
+		</script>
+	</body>
+</html>

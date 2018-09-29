@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//		1.使用索引下标来读取数组的值--下标是固定的，从0开始
+		var arr=[];
+		//alert(arr[5]);//undefined  获取
+		arr[5]='hello';  //赋值
+		//alert(arr.length);//6
+		//alert(arr);//,,,,,hello
+		
+//		2.length:静态赋值/动态赋值（动态的，无需指定大小），数组的length属性 ，代表长度，
+//	           数组的 length 属性不只是只读的。通过设置这个属性，可以从数组的末尾移除项或向数组中添加新项。
+		/*var arr1=[1,2,3,4,5,6,7,8,9,10];
+		alert(arr1.length);//10
+		alert(arr1);
+		arr1.length=5;//赋值
+		alert(arr1);//1,2,3,4,5*/
+
+		
+//		3.数组的遍历 普通for循环和 for-in循环（结合数组或对象）
+		//结论：for 和   for...in都可以遍历数组，但是对象只能用for...in遍历
+		//for:下标是固定的，比较适合遍历数组，对象的属性是不固定的。
+		var name1=['zhangsan','lisi','wangwu','zhaoliu','sunqi'];
+		/*for(var i=0;i<name1.length;i++){
+			alert(name1[i]);
+		}*/
+		
+		
+		
+		for(var i in name1){
+			alert(i+':'+name1[i]);
+		}
+		
+		
+		//4.创建一个对象--构造函数创建对象
+		/*var obj=new Object();//构造函数创建对象
+		obj.name='zhangsan';//新增三个属性
+		obj.age=100;
+		obj.sex='男';
+		obj.showInfo=function(){//给对象新增一个方法
+			alert('我的名字是：'+obj.name+',我今年有'+obj.age+'岁,我是'+obj.sex+'的');
+		}*/
+		
+		
+		//alert(obj.name);//访问属性
+		//obj.showInfo();//访问方法。
+		
+		//5.创建一个对象--字面量创建对象
+		var obj={
+			name:'zhangsan',//属性名默认就是字符串，引号可以省略。
+			age:100,
+			sex:'男',
+			showInfo:function(){
+				alert('我的名字是：'+obj.name+',我今年有'+obj.age+'岁,我是'+obj.sex+'的');
+			}
+		};
+		//alert(obj['name']);//zhangsan
+//		alert(obj.name);//访问属性
+//		obj.showInfo();//访问方法。
+		
+		for(var hehe in obj){//var hehe  代表  属性的名称
+			//console.log(hehe);//name age sex showInfo
+			//alert(obj[hehe]);
+		}
+		
+		//6.区别：点操作符(.)和中括号([])的区别
+		//点操作符后面必须是字符串,而中括号里面可以存放字符串和变量.
+		//var attr='left';
+		//oDiv.style.attr//报错
+		//oDiv.style[attr]//ok
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

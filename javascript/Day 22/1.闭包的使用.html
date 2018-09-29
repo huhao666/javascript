@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.getElementsByTagName('div')[0];
+				oBox.onclick=function(){
+					alert(123);
+				}
+			}
+		</script>-->
+	</head>
+	<body>
+		<!--<div class="box">1111</div>-->
+		
+		<script type="text/javascript">
+			//作用域的问题：局部变量和全局变量
+			//局部变量：作用于函数。
+			
+			
+			
+			//函数：普通函数和函数表达式
+			
+			/*function fn(b){//函数的参数也是函数的局部变量
+				var a=100;
+				alert(a);
+			}
+			
+			fn();
+			
+			alert(a);//a is not define*/
+			
+			/*var num=1000;//避免使用全局变量。
+			function fn(){
+				alert(num);//函数内部可以访问外部的全局变量
+			}
+			fn();*/
+			
+			
+			//闭包的概念：函数嵌套函数
+			
+			/*function fn(b){//函数的参数也是函数的局部变量
+				a=100;//没有var，变量变成全局的
+			}
+			
+			fn();
+			
+			alert(a);*/
+			
+			
+			
+			/*var num=10;
+			function fn(){
+				alert(num);
+			}
+			fn();*/
+			
+			
+			/*function bb(){
+				var num=10;
+				function fn(){
+					num++;
+					alert(num);
+				}
+				fn();
+			}
+			bb();//11
+			bb();//11*/
+			
+			/*function bb(){
+				var num=10;
+				return function(){//函数内部的子函数才能读取局部变量
+					num++;
+					alert(num);
+				}
+			}
+			var count=bb();
+			count();//11
+			count();//12
+			count();//13
+			count();//14
+			count();//15
+			count();//16*/
+			//外部访问函数的内部局部变量，利用函数来返回。局部变量不会消失了。一直驻扎在内存中。
+			
+			/*var bb=(function(){
+				var num=10;
+				return function(){//函数内部的子函数才能读取局部变量
+					num++;
+					return num;
+				}
+			})();
+			
+			bb();
+			bb();
+			bb();
+			bb();*/
+			
+			(function(){
+				var a=10;
+			})();
+			(function(){
+				var a=10;
+			})();
+			(function(){
+				var a=10;
+			})();
+			
+			
+		</script>
+	</body>
+</html>

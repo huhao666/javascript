@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">11111111111111111111111</div>
+		<ul>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+			<li>1111</li>
+		</ul>
+		<script type="text/javascript">
+			//那就是this指的是调用函数的那个对象。
+			/*function fn(){
+				alert(this)//window
+			}
+			window.fn();*/
+			
+			/*document.onclick=function(){
+				alert(this);//document
+			}*/
+			
+			//作为对象方法的调用，这时this就指这个当前对象。
+			/*var obj={
+				name:'zhangsan',
+				showname:function(){
+					alert(this.name);//this:obj
+				}
+			}
+			//alert(name);//关键字
+			
+			alert(obj.name);//zhangsan
+			obj.showname();*/
+			
+			/*function Fn(){
+				//alert(this);//f
+				this.name='zhangsan123';
+			}
+			
+			var f=new Fn();
+			var f1=new Fn();
+			
+			alert(f1.name);//this就指这个新对象（实例）。*/
+			
+			
+			/*document.onclick=function(){
+				alert(this);//document
+				setTimeout(function(){
+					alert(this);//window
+				},1000);
+			}*/
+			
+			/*document.onclick=function(){
+				setTimeout(function(){
+					alert(this);//document
+				}.apply(document),1000);
+			}*/
+			
+			/*document.onclick=function(){
+				setTimeout(function(){
+					alert(this);//document
+				}.bind(document),2000);
+			}*/
+			
+			/*function fn(a,b){
+				alert(this+','+(a+b));
+			}*/
+			
+			//fn.call(document,3,4);
+			//fn.apply(document,[4,5]);
+			//fn.bind(document)(5,6);//但bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
+			
+			/*document.getElementsByTagName('div')[0].onclick=function(){
+				setTimeout(function(){
+					this.innerHTML='22222222222222222222222222';
+				}.bind(document.getElementsByTagName('div')[0]),2000)
+			}*/
+			
+			/*document.getElementsByTagName('div')[0].onclick=function(){
+				var that=this;
+				setTimeout(function(){
+					that.innerHTML='22222222222222222222222222';
+				},2000)
+			};*/
+			
+			//call,apply,bind
+			//var arr=[1,2,3,4,5,6,7,8,9];
+			//alert(Math.max.apply(this,arr));
+			
+			//var aLi=document.getElementsByTagName('li');
+			
+			//alert(Array.isArray(aLi));
+			
+			//var aLi1=[].slice.apply(aLi);//利用了数组的特性。
+			
+			//var aLi2=Array.prototype.slice.apply(aLi);
+			
+			//alert(Array.isArray(aLi2));
+			
+			/*var arr=new Array(1,2,3,4);
+			var arr1=arr.slice();
+			console.log(arr1);
+			alert(Array.isArray(arr1));*/
+			//alert(arr.constructor);//输出对象的构造函数
+			//function Array() { [native code] }
+			/*function Array(){//构造函数
+				
+			}*/
+			
+			/*Array.prototype.push=function(){
+				//空的
+				//this==arr
+			}*/
+			
+			/*arr.push('5');
+			alert(arr);*/
+			/*String.prototype.slice=function(){
+				
+			}
+			Array.prototype.slice=function(){
+				
+			}*/
+			
+			
+			
+		</script>
+	</body>
+</html>

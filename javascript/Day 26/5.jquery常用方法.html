@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li>1111111111111111</li>
+				<li>1111111111111111</li>
+				<li>1111111111111111</li>
+				<li>1111111111111111</li>
+			</ul>
+		</div>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//on(eve,[sel],[data],fn)1.7+ 
+			//delegate():事件委托
+			//bind():事件绑定
+			//hover([over,]out)]
+			//off(eve,[sel],[fn])1.7+ 
+			/*
+			.bind()是直接绑定在元素上
+			.live()则是通过冒泡的方式来绑定到元素上的。更适合列表类型的，绑定到document DOM节点上。和.bind()的优势是支持动态数据。
+			.delegate()则是更精确的小范围使用事件代理，性能优于.live()
+			.on()则是最新的1.9版本整合了之前的三种方式的新事件绑定机制 
+			 * */
+			
+			
+			/*$(document).on('click',function(){
+				alert(1);
+			});*/
+			//var $ul=$('ul');
+			//console.log($ul);
+			/*$('ul').on('click','li',{foo: "bar"},function(e){//一个选择器字符串,用于过滤器的触发事件的选择器元素的后代
+				alert(e.data.foo);
+			});*/
+			
+			
+			/*$('.box').html('<ul><li>1111111111</li><li>22222222222222</li>');
+			$('.box').on('click mouseover','li',{foo: "bar"},function(e){//一个选择器字符串,用于过滤器的触发事件的选择器元素的后代
+				alert(e.data.foo);
+			});
+			$('.box').off('mouseover');//取消事件*/
+			
+			/*$('.box').hover(function(){//鼠标经过
+				console.log('a');
+			},function(){//鼠标溢出
+				console.log('b');
+			})*/
+			
+		</script>
+	</body>
+</html>

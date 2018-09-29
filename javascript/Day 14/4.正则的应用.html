@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li class="li1 li3">111111</li>
+			<li class="li2 li1">222222</li>
+			<li class="li5 li1 li4">333333</li>
+			<li class="li123">444444</li>
+			<li>555555</li>
+		</ul>
+		<script type="text/javascript">
+			/*function getClass(classname,parent){
+				var parent=parent||document;  //如果parent有值，取parent的值，没有值赋值document
+				var arr=[];//定义一个空数组，用来存储满足条件的元素。
+				var elements=parent.getElementsByTagName('*');//获取parent下面的所有的元素
+				for(var i=0;i<elements.length;i++){
+					if(elements[i].className==classname){//每一个元素的类名和传入的类名进行比较
+						arr.push(elements[i]);
+					}
+				}
+				return arr;//返回数组，数组里面是满足条件的元素。
+			}*/
+			/*function getClass(classname,parent){
+				var parent=parent||document;  //如果parent有值，取parent的值，没有值赋值document
+				var arr=[];//定义一个空数组，用来存储满足条件的元素。
+				var elements=parent.getElementsByTagName('*');//获取parent下面的所有的元素
+				for(var i=0;i<elements.length;i++){
+					if(elements[i].className.indexOf(classname)!=-1){//每一个元素的类名和传入的类名进行比较
+						arr.push(elements[i]);
+					}
+				}
+				return arr;//返回数组，数组里面是满足条件的元素。
+			}*/
+			
+			/*function getClass(classname,parent){
+				var parent=parent||document;  //如果parent有值，取parent的值，没有值赋值document
+				var arr=[];//定义一个空数组，用来存储满足条件的元素。
+				var reg=new RegExp('\\b'+classname+'\\b');//定义正则验证
+				var elements=parent.getElementsByTagName('*');//获取parent下面的所有的元素
+				for(var i=0;i<elements.length;i++){
+					if(reg.test(elements[i].className)){//每一个元素的类名和传入的类名进行比较
+						arr.push(elements[i]);
+					}
+				}
+				return arr;//返回数组，数组里面是满足条件的元素。
+			}*/
+			
+			function getClass(classname,parent){
+				var parent=parent||document;
+				if(parent.getElementsByClassName){
+					return parent.getElementsByClassName(classname);//标准支持的。
+				}else{
+					var arr=[];//定义一个空数组，用来存储满足条件的元素。
+					var reg=new RegExp('\\b'+classname+'\\b');//定义正则验证
+					var elements=parent.getElementsByTagName('*');//获取parent下面的所有的元素
+					for(var i=0;i<elements.length;i++){
+						if(reg.test(elements[i].className)){//每一个元素的类名和传入的类名进行比较
+							arr.push(elements[i]);
+						}
+					}
+					return arr;//返回数组，数组里面是满足条件的元素。
+				}
+			}
+			
+			
+			//alert(document.getElementsByClassName('li1'));//[object HTMLCollection]  ie8不支持
+			//alert(getClass('li1')[0].innerHTML);//解决兼容问题。
+			//alert(getClass('li1')[1].innerHTML);//解决兼容问题。
+			//alert(getClass('li1')[2].innerHTML);//解决兼容问题。
+			//li1li li3
+			
+			//var str='我是chinese';//11个长度
+			//alert(str.length);//9
+			//var reg=/[\u4e00-\u9fa5]/g;
+			//alert(str.replace(reg,'**').length);
+			
+			
+			
+		</script>
+	</body>
+</html>

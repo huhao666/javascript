@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		  /*JSON表示对象的方法:利用json的方式创建对象。（类似于字面量创建对象）
+		json: 是一种轻量级的数据交换格式。不是js独有的。
+		json组成：简单值+对象+数组。
+		json里面字符需要添加双引号。
+		json没有var关键字,没有分号(;)*/
+		
+		/*var obj1={
+			"name":"zhangsan",
+			"age":100,
+			"show":function(){
+				alert(this.name);
+			}
+		}*/
+		
+		
+		/*{
+			"name":"zhangsan",
+			"age":100,
+			"show":function(){
+				alert(this.name);
+			}
+		}*/
+		
+		
+		//[]获取{};
+		
+		
+		
+		
+		
+		
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//var obj=[{},{},{}]
+		var obj=[{"src":"http:\/\/img07.jiuxian.com\/2016\/0413\/55e0e019a72b41f9b8a7f97ba70d09d22.jpg","title":"45\u00b0\u6cb1\u724c\u5934\u66f2500ml\uff082014\u5e74\uff09","price":"\uffe516.00"},{"src":"http:\/\/img07.jiuxian.com\/2017\/0221\/deade9b2cd9e444fbdb56536b03b73862.jpg","title":"\u3010\u8d85\u7ea7\u70ab\u7c89\u65e5\u301152\u00b0\u6cf8\u5dde\u8001\u7a96\u4e09\u4eba\u70ab\u4f18\u9009\u7cbe\u917f500ml\uff082\u74f6\u88c5\uff09+\u667a\u5229\u5e72\u9732.\u514b\u62c9\u514b\u5e72\u7ea2\u8461\u8404\u9152750ml","price":"\uffe5158.00"},{"src":"http:\/\/img07.jiuxian.com\/2016\/0920\/08536dca5d824f3baa5d87eb0af1d39a2.jpg","title":"38\u00b0\u5b54\u5e9c\u5bb6\u9152\u9676\u5929\u4e0b\u5927\u9676500ml \uff086\u74f6\u88c5\uff09","price":"\uffe599.00"},{"src":"http:\/\/img07.jiuxian.com\/2017\/0215\/cef51998e2224a538d29e67dbbcdce4f2.jpg","title":"68\u00b0\u4e94\u7cae\u6db2500ml","price":"\uffe5666.00"},{"src":"http:\/\/img07.jiuxian.com\/2017\/0306\/0b5feff2729c4282bad61edba096d2d62.jpg","title":"52\u00b0\u73cd\u54c1\u74f7\u74f6\u6842\u6797\u4e09\u82b1\u9152\u7c73\u9999\u578b\u767d\u9152450ML\uff082\u74f6\u88c5\uff09","price":"\uffe569.00"},{"src":"http:\/\/img07.jiuxian.com\/2016\/1215\/f185b70998054a5c8fcbcd818bf2e8932.jpg","title":"52\u00b0\u6cf8\u6587\u574a\u4e00\u74f6\u597d\u9152518ml","price":"\uffe599.00"},{"src":"http:\/\/img07.jiuxian.com\/2017\/0124\/e0b181cf58b34d96844f95d63e9f6aeb2.jpg","title":"52\u00b0\u6d0b\u6cb3\u7279\u66f2\uff08\u73e0\u5149\u91d1\uff09500ml+\u667a\u5229\u5e72\u9732.\u514b\u62c9\u514b\u5e72\u7ea2\u8461\u8404\u9152750ml","price":"\uffe5178.00"},{"src":"http:\/\/img07.jiuxian.com\/2016\/0612\/8ae5d74b9a4246439352aa66c03265c52.jpg","title":"52\u00b0\u9152\u9b3c\u539f\u6d46\u9152500ml","price":"\uffe5239.00"},{"src":"http:\/\/img07.jiuxian.com\/2016\/0901\/e3160f2d3f0f4e6da7f1c3d696b82f4f2.jpg","title":"54\u00b0\u8463\u9152\u5c0a\u4eab\u5c01\u85cf\u5927\u575b1500ml","price":"\uffe5429.00"},{"src":"https:\/\/imgsa.baidu.com\/news\/q%3D100\/sign=348d55079c0a304e5422a4fae1c9a7c3\/9f510fb30f2442a710a1dca6da43ad4bd1130201.jpg","title":"\u4e60\u8fd1\u5e73\u51fa\u5e2d\u56fd\u9645\u5211\u8b66\u7ec4\u7ec7\u5927\u4f1a\u5f00\u5e55\u5f0f\u5e76\u53d1\u8868\u6f14\u8bb2","price":"infinity"},{"src":"https:\/\/imgsa.baidu.com\/news\/q%3D100\/sign=348d55079c0a304e5422a4fae1c9a7c3\/9f510fb30f2442a710a1dca6da43ad4bd1130201.jpg","title":"\u4e60\u8fd1\u5e73\u51fa\u5e2d\u56fd\u9645\u5211\u8b66\u7ec4\u7ec7\u5927\u4f1a\u5f00\u5e55\u5f0f\u5e76\u53d1\u8868\u6f14\u8bb2","price":"infinity"}];
+		var html='';
+		for(var i=0;i<obj.length;i++){
+			html+='<img src="'+obj[i].src+'">';
+		}
+		document.body.innerHTML=html;
+		</script>
+	</body>
+</html>

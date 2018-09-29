@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//Deferred:延迟到未来的某个点。//解决回调
+			
+			/*$.ajax({
+				
+			})
+			.done()
+			.fail()*/
+			//resolve()-->done()    rejcet()-->fail()
+			
+			//新建Deferred对象。对象下面包括resolve()-->done()    rejcet()-->fail()通过方法获取操作done还是fail
+			var $def=$.Deferred();
+			function fn(){
+				function fn1(){
+					alert('我是内部的函数');
+					//$def.resolve();
+					$def.reject();
+				}
+				setTimeout(fn1,2000);
+				return $def;
+			}
+		
+			
+			//$.when(def).done().fail();
+			$.when(fn()).done(function(){//fn()的返回值Deferred类型。
+				alert('成功');
+			}).done(function(){//fn()的返回值Deferred类型。
+				alert('再成功');
+			}).fail(function(){
+				alert('失败');
+			});
+			
+			//让异步能够形成链式操作。
+		</script>
+	</body>
+</html>

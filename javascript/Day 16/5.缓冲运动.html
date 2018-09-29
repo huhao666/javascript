@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left:1200px;
+				top:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div style="width: 1px;height:600px;background: black;position: absolute;left:600px;top:0px;"></div>
+		<script type="text/javascript">
+			//缓冲运动：距离目标越远，速度越快，反之。(先快后慢)
+			var oDiv=document.querySelector('.box');
+			var timer=null;
+			var speed=0;
+			oDiv.onclick=function(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					speed=Math.floor((600-oDiv.offsetLeft)/8);  speed<0
+					//speed=Math.ceil((600-oDiv.offsetLeft)/8);   speed>0
+					document.title=speed;
+					if(oDiv.offsetLeft==600){
+						clearInterval(timer);
+						alert('停下来了');
+					}else{
+						oDiv.style.left=oDiv.offsetLeft+speed+'px';
+					}		
+				},20);
+			}
+			
+		</script>
+	</body>
+</html>

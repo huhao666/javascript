@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<div class="div1 div2">11111111</div>
+			<div class="div1 div3">22222222</div>
+			<div class="div1 div4">33333333</div>
+			<div class="div4">44444444</div>
+		</div>
+		<script type="text/javascript">
+			//1.获取页面所有的元素  *:通配符 
+			//alert(document.getElementsByTagName('*').length);
+			/*var elements=document.getElementsByTagName('*');
+			for(var i=0;i<elements.length;i++){
+				alert(elements[i]);
+			}*/
+			
+			
+			//封装通过类名获取元素
+			var oBox=document.getElementById('box');
+			function getClass(classname,parent){
+				var parent=parent||document;  //如果parent有值，取parent的值，没有值赋值document
+				var arr=[];//定义一个空数组，用来存储满足条件的元素。
+				var elements=parent.getElementsByTagName('*');//获取parent下面的所有的元素
+				for(var i=0;i<elements.length;i++){
+					if(elements[i].className==div1){
+						arr.push(elements[i]);
+					}
+				}
+				return arr;//返回数组，数组里面是满足条件的元素。
+			}
+			
+			
+			alert(getClass('div1',oBox)[1].innerHTML);
+			
+			//indexOf修改？？？？？？？？
+		</script>
+	</body>
+</html>

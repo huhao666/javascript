@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding:0px;margin:0px;list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			.box{
+				width: 790px;
+				height: 340px;
+				border: 1px solid black;
+				position: relative;
+				margin: 50px auto;
+				overflow: hidden;
+			}
+			.box ul{
+				position: absolute;
+				left:0px;
+				top:0px;
+			}
+			.box ul li{
+				width: 790px;
+				float: left;
+			}
+			.box ol{
+				position: absolute;
+				left:50%;
+				margin-left: -91px;
+				bottom:20px;
+				background-color: hsla(0,0%,100%,.5);
+				padding: 4px 8px;
+				border-radius: 12px;
+			}
+			.box ol li{
+				float: left;
+				width: 12px;
+				height: 12px;
+				margin-right: 10px;
+				border-radius: 50%;
+				background-color: #fff;
+				text-indent:-99999px;
+				cursor: pointer;
+			}
+			.box ol li.active{
+				background: #db192a;
+			}
+			#left,#right{
+				display: none;
+			    position: absolute;
+			    top: 50%;
+			    margin-top: -30px;
+			    width: 30px;
+			    height: 60px;
+			    background-color: rgba(0,0,0,.1);
+			    line-height: 60px;
+			    text-align: center;
+			    color: #fff;
+			    
+			}
+			#left:hover,#right:hover{
+				background-color: #333;
+			}
+			#left{
+				left:0px;
+			}
+			#right{
+				right:0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li><a href="#"><img src="img/1.jpg"></a></li>
+				<li><a href="#"><img src="img/2.jpg"></a></li>
+				<li><a href="#"><img src="img/3.jpg"></a></li>
+				<li><a href="#"><img src="img/4.jpg"></a></li>
+				<li><a href="#"><img src="img/5.jpg"></a></li>
+				<li><a href="#"><img src="img/6.jpg"></a></li>
+				<li><a href="#"><img src="img/7.jpg"></a></li>
+				<li><a href="#"><img src="img/8.jpg"></a></li>
+			</ul>
+			<ol>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</ol>
+			<a href="javascript:;" id="left">&lt;</a>
+			<a href="javascript:;" id="right">&gt;</a>
+		</div>	
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1、获取元素
+			var oBox=document.querySelector('.box');
+			var oUl=oBox.getElementsByTagName('ul')[0];
+			var oOl=oBox.getElementsByTagName('ol')[0];
+			var aBtn=oOl.getElementsByTagName('li');
+			var oLeft=document.getElementById('left');
+			var oRight=document.getElementById('right');
+			var timer=null;
+			var bstop=true;//切换的开关
+
+			
+			
+			//2、改变布局
+			var first=oUl.children[0].cloneNode(true);
+			var last=oUl.children[oUl.children.length-1].cloneNode(true);
+			oUl.appendChild(first);
+			oUl.insertBefore(last,oUl.children[0]);
+			var picli=oUl.getElementsByTagName('li');
+			var picwidth=picli[0].offsetWidth;
+			oUl.style.width=picwidth*picli.length+'px';//设置ul的width
+			oUl.style.left=-picwidth+'px';
+			
+			var num=0;
+			
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index=i;//给按钮添加索引。
+				aBtn[i].onclick=function(){
+					num=this.index;//当前点击按钮的索引
+					tabswitch();
+					aBtn[num].className='active';//添加类名
+				};
+			}
+			
+			
+			oRight.onclick=function(){
+				if(bstop){
+					bstop=false;
+					num++;
+					tabswitch();
+					if(num==aBtn.length){
+						aBtn[0].className='active';
+					}else{
+						aBtn[num].className='active';
+					}
+				}
+			}
+			
+			oLeft.onclick=function(){
+				if(bstop){
+					bstop=false;
+					num--;
+					tabswitch();
+					if(num==-1){
+						aBtn[aBtn.length-1].className='active';
+					}else{
+						aBtn[num].className='active';
+					}
+				}
+			}
+			
+			function tabswitch(){
+				for(var i=0;i<aBtn.length;i++){
+					aBtn[i].className='';
+				}
+				buffermove(oUl,{left:-(num+1)*picwidth},function(){
+					if(num==aBtn.length){//回调函数
+						oUl.style.left=-picwidth+'px';
+						num=0;
+					}
+					
+					if(num==-1){
+						oUl.style.left=-picwidth*aBtn.length+'px';
+						num=aBtn.length-1;
+					}
+					bstop=true;
+				});
+			}
+			
+			oBox.onmouseover=function(){
+				oLeft.style.display='block';
+				oRight.style.display='block';
+				clearInterval(timer);
+			}
+			
+			oBox.onmouseout=function(){
+				oLeft.style.display='none';
+				oRight.style.display='none';
+				timer=setInterval(function(){
+					oRight.onclick();
+				},2000);
+			}
+			
+			timer=setInterval(function(){
+				oRight.onclick();
+			},2000);
+		</script>
+	</body>
+</html>

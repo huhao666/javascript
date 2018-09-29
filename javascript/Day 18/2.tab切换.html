@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				margin: 0px;padding:0;
+			}
+			li{list-style: none;}
+			.title{
+				height: 36px;
+				line-height: 36px;
+				background: #ccc;
+				width: 300px;
+				border: 1px solid #333;
+				margin-bottom: 10px;
+			}
+			.title li{
+				float: left;
+				margin-right: 20px;
+			}
+			.title li a{
+				text-decoration: none;
+				
+			}
+			.title .active{
+				color: red;
+				font-weight: bold;
+			}
+			.div1{
+				width: 300px;
+				height: 200px;
+				border: 1px solid #ccc;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="title">
+				<li><a href="javascript:;" class="active">公告</a></li>
+				<li><a href="javascript:;">规则</a></li>
+				<li><a href="javascript:;">论坛</a></li>
+				<li><a href="javascript:;">安全</a></li>
+			</ul>
+			<div class="div1" style="display: block;">
+				<ul>
+					<li>公告公告公告公告公告公告公告</li>
+					<li>公告公告公告公告公告公告公告</li>
+					<li>公告公告公告公告公告公告公告</li>
+					<li>公告公告公告公告公告公告公告</li>
+					<li>公告公告公告公告公告公告公告</li>
+				</ul>
+			</div>
+			<div class="div1">
+				<ul>
+					<li>规则规则规则规则规则规则规则规则规则</li>
+					<li>规则规则规则规则规则规则规则规则规则</li>
+					<li>规则规则规则规则规则规则规则规则规则</li>
+					<li>规则规则规则规则规则规则规则规则规则</li>
+					<li>规则规则规则规则规则规则规则规则规则</li>
+				</ul>
+			</div>
+			<div class="div1">
+				<ul>
+					<li>论坛论坛论坛论坛论坛论坛论坛论坛</li>
+					<li>论坛论坛论坛论坛论坛论坛论坛论坛</li>
+					<li>论坛论坛论坛论坛论坛论坛论坛论坛</li>
+					<li>论坛论坛论坛论坛论坛论坛论坛论坛</li>
+					<li>论坛论坛论坛论坛论坛论坛论坛论坛</li>
+					
+				</ul>
+			</div>
+			<div class="div1">
+				<ul>
+					<li>安全安全安全安全安全安全安全</li>
+					<li>安全安全安全安全安全安全安全</li>
+					<li>安全安全安全安全安全安全安全</li>
+					<li>安全安全安全安全安全安全安全</li>
+					<li>安全安全安全安全安全安全安全</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*var aA=document.getElementsByTagName('a');
+			var aDiv1=document.querySelectorAll('.div1');
+			for(var i=0;i<aA.length;i++){
+				aA[i].index=i;
+				aA[i].onclick=function(){
+					for(var i=0;i<aA.length;i++){
+						aA[i].className='';
+						aDiv1[i].style.display='none';
+					}
+					aA[this.index].className='active';
+					aDiv1[this.index].style.display='block';
+				}
+			}*/
+			
+			/*function Tab(){
+				this.aA=document.getElementsByTagName('a');
+				this.aDiv1=document.querySelectorAll('.div1');
+				var that=this;
+				this.init=function(){
+					for(var i=0;i<this.aA.length;i++){
+						this.aA[i].index=i;
+						this.aA[i].onclick=function(){
+							that.tabswitch(this);
+						};
+					}
+				};
+				this.tabswitch=function(btn){
+					for(var i=0;i<this.aA.length;i++){
+						this.aA[i].className='';
+						this.aDiv1[i].style.display='none';
+					}
+					this.aA[btn.index].className='active';
+					this.aDiv1[btn.index].style.display='block';
+				}
+			}
+			*/
+			function Tab(){
+				this.aA=document.getElementsByTagName('a');
+				this.aDiv1=document.querySelectorAll('.div1');
+				var that=this;
+				this.init=function(){
+					for(var i=0;i<this.aA.length;i++){
+						this.aA[i].index=i;
+						this.aA[i].onclick=function(){
+							//this:this.aA[i]
+							for(var i=0;i<that.aA.length;i++){
+								that.aA[i].className='';
+								that.aDiv1[i].style.display='none';
+							}
+							that.aA[this.index].className='active';
+							that.aDiv1[this.index].style.display='block';
+						}
+					}
+				}
+				
+			}
+			var t1=new Tab();
+			t1.init();
+			
+			//改写面向对象的规则
+			//1.全局变量--属性    函数--方法
+			//2.this指向(事件处理函数里面的this,定时器里面的this)
+		</script>
+	</body>
+</html>

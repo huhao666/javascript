@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//回调函数
+			/*setTimeout(function(){
+				console.log(1);
+			},0)
+			console.log(2);*/
+			//2,1
+			
+			/*setTimeout(function(){
+				console.log(1);
+				console.log(2);
+			},0)*/
+			//1,2
+			
+			/*setTimeout(function(){
+				console.log(1);
+				fn();
+			},1000);
+			
+			function fn(){
+				console.log(2);
+			}*/
+			
+			/*function callback(){
+				setTimeout(function(){
+					console.log(1);
+					fn();
+				},1000);
+			}
+			callback();
+			
+			function fn(){
+				console.log(2);
+			}*/
+			
+			/*function callback(fn){
+				setTimeout(function(){
+					console.log(1);
+					fn && typeof(fn)=='function'&&fn();
+				},1000);
+			}
+			callback(function(){
+				console.log('abcd');
+			});*/
+			
+			//函数当参数，传递另外一个函数，前期应用比较普遍。
+			
+			/*function callback(fn){
+				setTimeout(function(){
+					console.log('1111111111111111111');
+					fn();
+				},1000);
+			}
+			callback(function(){
+				console.log('22222222222222222222');
+				callback(function(){
+					console.log('3333333333333333333');
+					callback(function(){
+						console.log('4444444444444444444');
+						callback(function(){
+							console.log('555555555555555555555555555');
+						})
+					})
+				})
+			});*/
+			//可读性很差,不易于调式。
+			/*function callback(fn,str){
+				setTimeout(function(){
+					console.log('我是回调函数的返回值');
+					fn(str);
+				},1000);
+			}
+			callback(function(str){
+				if(typeof str=='string'){
+					console.log(str.split('').reverse().join(''));
+				}else{
+					console.log('你输入的不是字符串');
+				}
+				callback(function(str){
+					if(typeof str=='string'){
+						console.log(str.split('').reverse().join(''));
+					}else{
+						console.log('你输入的不是字符串');
+					}
+					callback(function(str){
+							if(typeof str=='string'){
+								console.log(str.split('').reverse().join(''));
+							}else{
+								console.log('你输入的不是字符串');
+							}
+							callback(function(str){
+								if(typeof str=='string'){
+									console.log(str.split('').reverse().join(''));
+								}else{
+									console.log('你输入的不是字符串');
+								}
+								callback(function(str){
+									if(typeof str=='string'){
+										console.log(str.split('').reverse().join(''));
+									}else{
+										console.log('你输入的不是字符串');
+									}
+									callback(function(str){
+										if(typeof str=='string'){
+											console.log(str.split('').reverse().join(''));
+										}else{
+											console.log('你输入的不是字符串');
+										}
+									},'abcdefg');
+							},'opq');
+						},'mni');
+					},'ghi');
+				},'def');
+			},'abc');
+			*/
+			function callback(str){
+				var promise=new Promise(function(resolve,reject){
+					setTimeout(function(){
+						console.log('我是回调函数的返回值');
+						resolve(str);
+					},1000);
+				});
+				return promise;
+			}
+			callback('abcdefg').then(function(str){
+				if(typeof str=='string'){
+					console.log(str.split('').reverse().join(''));
+				}else{
+					console.log('你输入的不是字符串');
+				}
+				return callback('abcde');//继续返回下一次的调用
+			}).then(function(str){
+				if(typeof str=='string'){
+					console.log(str.split('').reverse().join(''));
+				}else{
+					console.log('你输入的不是字符串');
+				}
+				return callback('abc');//继续返回下一次的调用
+			}).then(function(str){
+				if(typeof str=='string'){
+					console.log(str.split('').reverse().join(''));
+				}else{
+					console.log('你输入的不是字符串');
+				}
+			})
+			
+		</script>
+	</body>
+</html>

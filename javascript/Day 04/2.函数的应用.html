@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			
+			/*window.onload=function(){
+				var oDiv=document.querySelector('.box');
+				var oDiv1=document.querySelector('.box1');
+				var oDiv2=document.querySelector('.box2');
+				var html='<table>';
+				for(var i=1;i<=10;i++){
+					html+='<tr>';
+						for(var j=1;j<=10;j++){
+							html+='<td style="border:1px solid blue;">'+j+'</td>';
+						}
+					html+='</tr>';
+				}
+				html+='</table>';
+				
+				
+				var html1='<table>';
+				for(var i=1;i<=5;i++){
+					html1+='<tr>';
+						for(var j=1;j<=5;j++){
+							html1+='<td style="border:1px solid blue;">'+j+'</td>';
+						}
+					html1+='</tr>';
+				}
+				html1+='</table>';
+				
+				var html2='<table>';
+				for(var i=1;i<=6;i++){
+					html2+='<tr>';
+						for(var j=1;j<=2;j++){
+							html2+='<td style="border:1px solid blue;">'+j+'</td>';
+						}
+					html2+='</tr>';
+				}
+				html2+='</table>';
+				
+				
+				oDiv.innerHTML=html;
+				oDiv1.innerHTML=html1;
+				oDiv2.innerHTML=html2;
+			}*/
+		</script>
+	</head>
+	<body>
+		<!--<div class="box" style="border: 1px solid red;"></div>
+		<div class="box1" style="border: 1px solid red;"></div>
+		<div class="box2" style="border: 1px solid red;"></div>-->
+		<script type="text/javascript">
+			//封装，重用，扩展;
+			//封装:将程序代码放到一起,然后将可变的值设为参数
+			function createTable(a,b){//定义括号里面放置形参：形参相当于函数的局部变量，形式上存在的参数
+				//局部变量：定义在函数内部的变量，局部变量在函数外面无法访问。
+				var html='<table>';//局部变量
+				for(var i=1;i<=a;i++){
+					html+='<tr>';
+						for(var j=1;j<=b;j++){
+							html+='<td style="border:1px solid blue;">'+j+'</td>';
+						}
+					html+='</tr>';
+				}
+				document.body.innerHTML+=html;
+			}
+			//alert(html);//html is not defined  局部变量
+			createTable(3,5);//调用的括号里面放置实参：实际上存在的参数。
+			document.write('<hr>');
+			createTable(15,15);
+			document.write('<hr>');
+			
+		</script>
+	</body>
+</html>

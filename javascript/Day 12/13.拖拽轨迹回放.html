@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0px;margin:0;
+			}
+			div{
+				width: 150px;
+				height:150px;
+				background: red;
+				border-radius: 50%;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script type="text/javascript">
+			var oDiv=document.getElementsByTagName('div')[0];
+			var shortx=0;
+			var shorty=0;
+			var arr=[];//存储位置。
+			/*arr.push({
+				x:oDiv.offsetLeft,
+				y:oDiv.offsetTop
+			});*/
+			oDiv.onmousedown=function(ev){
+				var ev=ev||window.event;
+				shortx=ev.offsetX;
+				shorty=ev.offsetY;
+				arr.push({
+					x:oDiv.offsetLeft,
+					y:oDiv.offsetTop
+				});
+				document.onmousemove=function(ev){//位置是变化的
+					var ev=ev||window.event;
+					var l=ev.clientX-shortx;
+					var t=ev.clientY-shorty
+					oDiv.style.left=l+'px';
+					oDiv.style.top=t+'px';
+					arr.push({
+						x:l,
+						y:t
+					});
+				}
+				console.log(arr);
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					var timer=setInterval(function(){
+						var obj=arr.pop();//数组的每一项都是对象
+						if(arr.length==0){
+							clearInterval(timer);
+							return false;
+						}
+						oDiv.style.left=obj.x+'px';
+						oDiv.style.top=obj.y+'px';
+					},10)
+						
+						
+					
+				}
+			}
+		</script>
+	</body>
+</html>

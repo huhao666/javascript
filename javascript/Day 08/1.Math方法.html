@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//		Math.round(float num)：四舍五入取整数
+//		Math.pow(底数，指数)：求幂
+//		Math.floor(float num)：向下取整
+//		Math.ceil(float num)：向上取整
+//		Math.random()：随机[0-1)之间的数
+//		Math.max(多个数字)：最大值
+//		Math.min(多个数字)：最小值
+//		Math.sqrt(数字)：开根号
+//		Math.abs()：绝对值
+//		Math.PI：π
+//		Math.sin();
+//		Math.cos();
+
+		//function -->this
+		/*var arr=[12,3,45,123,78,3,45,1234,8765,234];
+		function arrmin(arr){
+			var minvalue=1000;//假设最小值
+			for(var i=0;i<arr.length;i++){
+				if(minvalue>arr[i]){//比最小值还要写，数组的当前项就是最小值
+					minvalue=arr[i];
+				}
+			}
+			return minvalue;
+		}
+		alert(arrmin(arr));*/
+		
+		//alert(Math.min(12,3,45,123,78,3,45,1234,8765,234));
+		//alert(Math.min([12,3,45,123,78,3,45,1234,8765,234]));//NaN
+		//alert(Math.min.apply('adsfdsafdsafsadf',[12,3,45,123,78,3,45,1234,8765,234]));//3
+		//alert(Math.max.apply('adsfdsafdsafsadf',[12,3,45,123,78,3,45,1234,8765,234]));//8765
+		//this：每一个数字。修改原先的this指向。
+		
+		/*function fn(){
+			alert(this);//window
+		}
+		fn();*/
+		
+		//函数下面有三个方法改变this上下文环境(改变this指向)
+		//call(参1，参2....):参1：this指向，从参2开始，代表函数本身的参数。
+		//apply(参1，参2):参1：this指向，参2:数组。
+		//说明函数也是对象，下面有方法。
+		
+		/*function fn(a,b){
+			alert(this);//hello
+			alert(a+b);
+		}*/
+		//fn.call('hello',3,4);
+		//fn.apply('hello',[3,4]);
+		
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

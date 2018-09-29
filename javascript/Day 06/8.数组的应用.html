@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//整数数组/字符串数组/（对象数组+二维数组）
+		//对象数组
+		var objarr=[{name:'zhangsan'},{age:100},{sex:'男'}];
+		
+		//console.log(objarr[1].age);
+		//console.log(objarr[1]['age']);
+		
+		/*for(var i=0;i<objarr.length;i++){
+			//objarr[i]:每一个都是对象。
+			for(var attr in objarr[i]){
+				console.log(attr+':'+objarr[i][attr]);
+			}
+		}
+		
+		
+		var obj={
+			name:'zhangsan',
+			age:100,
+			sex:'男'
+		}
+		
+		for(var attr in obj){
+			console.log(attr+':'+obj[attr]);
+		}*/
+		
+		
+		//二维数组
+		//var arr=[][];//错误的，js的二维数组分开定义。  arr[i][j]  i:行    j:列
+		
+		//2．通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。试编程。
+		//var arr=[[1,2,3,4,5],[6,7,8,9,10],[],[],[]]
+		/*var arr=[];
+		var num=1;
+		for(var i=0;i<5;i++){//外出循环一次，内层循环到底。
+			arr[i]=[];
+			for(var j=0;j<5;j++){
+				arr[i][j]=num++;
+				document.write(arr[i][j]+'&nbsp;&nbsp;');
+			}
+			
+			document.write('<br>');
+		}*/
+		
+		function doubleNum(n){
+			/*if(n<10){
+				return '0'+n;
+			}else{
+				return n;
+			}*/
+			
+			return n<10 ?'0' + n:n;
+		}
+		
+		//alert(doubleNum(29));
+//		var num1='01';
+//		alert(++num1);   
+		
+		var arr=[];//定义一个数组
+		var num=1;//数组的值
+		for(var i=0;i<5;i++){//外出循环一次，内层循环到底。
+			arr[i]=[];//二维数组的写法，数组的值还是一个数组
+			for(var j=0;j<5;j++){
+				arr[i][j]=doubleNum(num);//给二维数组赋值
+				num++;//累加
+				if(i>=j){//输出三角的判断。
+					document.write(arr[i][j]+'&nbsp;&nbsp;');//输出对应的值
+				}
+				if((num-1)%5==0){//每输出5个换行。
+					document.write('<br>');
+				}
+			}
+		}	
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

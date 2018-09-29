@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--http://www.sojson.com/open/api/weather/json.shtml?city=杭州-->
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			ajax({
+				url:'joke.php',
+				success:function(data){
+					var obj=JSON.parse(data);
+					var arr=obj.data.forecast;//数组
+					var html='<table border="1">';
+					for(var i=0;i<arr.length;i++){
+						html+='<tr>';
+							for(var j in arr[i]){
+								html+='<td>'+arr[i][j]+'</td>';
+							}
+						html+='</tr>';
+					}
+					html+='</table>';
+					document.body.innerHTML=html;
+				}
+			});
+		</script>
+	</body>
+</html>

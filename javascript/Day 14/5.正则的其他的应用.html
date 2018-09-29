@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//m:多行匹配
+			/*var str="mynameiszhangsan\nIamstudent";
+			var reg=/^I/m;
+			var reg1=/n$/m;
+			alert(reg1.test(str));*/
+			
+			
+			//():整体，分组
+			/*var reg=/^hello{3}$/;//hellooo
+			var reg=/^(hello){3}$/;//hellohellohello
+			var str='hellohellohello';
+			alert(reg.test(str));*/
+			
+			/*var str='好好学习,天天向上!呵呵';
+			var reg=/([\u4e00-\u9fa5])\1/g;//\1:代表第一个分组里面的内容
+			alert(str.match(reg));*/
+			
+			/*var reg=/^(a)(b)(c)(d)\1\3$/;
+			var str='abcdac';
+			alert(reg.test(str));//true*/
+			
+//			var str='我到底美不美，或者觉得我帅不帅';
+//			var reg=/([\u4e00-\u9fa5])[\u4e00-\u9fa5]\1/;
+//			alert(str.match(reg));
+//			alert(RegExp.$1);//静态方法，非全局下，第一个分组([\u4e00-\u9fa5])匹配的内容。但静态方法当replace第二个参数直接写$1,无需RegExp
+			
+			/*var str='13545678912';
+			var reg=/(\d{2})(\d)\d{8}/g;
+			alert(str.replace(reg,'$1$2.......'));
+			alert(RegExp.$2);*/
+			
+			
+//			var str='faseripewfdgksdfajltwieropasdfkjdadlk';
+//			var reg=/(\w)\1*/g;
+//			var str1=str.split('').sort().join('');
+//			var str2='';
+//			console.log(str1.replace(reg,function(result,group,index,string){//每一个字符走一遍函数。
+//				str2+=group;
+//				return group+'---'+result.length+'\n';
+//			}))
+//			console.log(str2);
+			//result:整个正则匹配到值的结果
+			//group:分组里面的值，第二个参数
+			//index:索引  倒数第二个参数
+			//string:字符串本身  倒数第一个参数
+			
+			
+//			var arr=[1234,1,8765,1,3,45,123,78,3,45,1000,1234,8765];
+//			for(var i=0;i<arr.length;i++){
+//				for(var j=i+1;j<arr.length;j++){
+//					if(arr[i]==arr[j]){
+//						arr[j]='*';
+//					}
+//				}
+//			}
+//			console.log(arr.join('&').replace(/\*/g,'').split('&').filter(function(v,i,array){
+//				return v;
+//			}));
+			
+			
+			/*var reg=/\w+?/g;
+			var str='abcdefghijklmn';
+			alert(str.replace(reg,'*'));//* 贪婪
+			alert(str.replace(reg,'*'));//************** 非贪婪*/
+			
+			
+			
+			
+			
+			//exec()和match()
+//			exec和match的区别：
+//			1、定义为非全局匹配时，exec和match执行的结果是一样
+//			2、exec与全局是否定义无关系，而match则于全局相关联
+			
+			//var reg=/(\w)(\d)/g;
+			//var str='a1b2c3d4e5f6';
+			//console.log(reg.exec(str));//[a1,a,1]
+			//console.log(str.match(reg));
+			//没有全局，结果相同的，先输出真个匹配的结果，再输出分组的结果
+			//console.log(reg.exec(str));//[a1,a,1]
+			//console.log(str.match(reg));
+		
+			/*var reg=/[\w]/g;
+			var str='ab';
+			alert(reg.test(str));//true lastIndex索引  匹配成功的下一个元素的索引。 lastIndex=1
+			alert(reg.test(str));//true laastIndex=2;(不存在)
+			alert(reg.test(str));//false  lastIndex不存在  重新开始  
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			*/
+			
+			
+			/*var reg=/[\w]/g;
+			var str='abcd';
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));
+			alert(reg.test(str));*/
+			
+			//每次正则都要解析
+			var str='fabcd';
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			alert(/[\w]/g.test(str));
+			
+		</script>
+	</body>
+</html>

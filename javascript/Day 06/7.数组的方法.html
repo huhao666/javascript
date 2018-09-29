@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//		concat() 方法可以基于当前数组中的所有项创建一个新数组。参数：简单值，数组
+		//var array1=['abcd'];
+		//var arr=['hello','hi'];
+		//var arr1=['name','age','sex'];
+		//var newarr=arr.concat();////hello,hi  没有参数，复制一份原先的数组。
+		//var newarr=arr.concat('hehe'); //hello,hi,hehe  添加一项
+		//var newarr=arr.concat(arr1); //hello,hi,name,age,sex  合并两个数组
+		//var newarr1=array1.concat(arr,arr1);//abcd,hello,hi,name,age,sex
+		//alert(newarr1);
+		
+		//var newarr1=array1.concat('你好','他也好',arr,arr1,'ok');//abcd,你好,他也好,hello,hi,name,age,sex,ok
+		//alert(newarr1);
+		//总结:concat：拼合数组，将数组对象+concat所有的参数(简单值，数组)全部组合，生成一个新的数组
+		
+//	slice() 方法它能够基于当前数组中的一或多个项创建一个新数组。可以接受一或两个参数，即要返回项的起始和结束位置，不包括结束位置。
+		//var arrstr=['a','b','c','d','e'];
+		//var newarr=arrstr.slice(1,4);//1,4代表下标，是截取的起始和结束位置，都不包括结束位置。
+		//alert(newarr);//b,c,d
+		//alert(arrstr.slice(2));//一个参数：代表从该位置一直结束的位置。
+		//alert(arrstr.slice(-4));//bcde
+		//alert(arrstr.slice(1,-1));//b,c,d  //如果参数是负数，从后往前数，从-1开始。
+		//alert(arrstr.slice(-4,-2));//bc
+		//alert(arrstr.slice(4,-2));//没有值，返回空。
+		//alert(arrstr.slice());//a,b,c,d,e  没有参数，返回所有的数组项。
+		
+		
+		//总结：如果没有参数，返回所有的数组项  ，如果参数只有一个(无论正负数)，从当前位置往后截取，如果两个参数：截取两个数字之间的数组项，不包括第二个参数的位置。
+		//参数都是数组的下标，如果是正数从前往后数，如果是负数从后往前数。
+		
+//	splice() 方法，对数组进行删除、插入、替换，是最强大的数组方法。修改原数组。
+		//var arrstr=['a','b','c','d','e'];
+		//arrstr.splice(2,2);//2:下标   2：长度    删除
+		//arrstr.splice(2,2,'hehe','haha');//替换：先删除2个，然后插入2个。
+		//arrstr.splice(2,0,'xixi','hihi'); //插入
+		//参数：第一个参数：开始的下标，第二个参数：截取的长度，从第三个参数开始：插入的数组项。
+		//arrstr.splice(-4,-2);//第一个参数负数从后往前数。   第二个参数负数：0
+		//alert(arrstr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

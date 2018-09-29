@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		/*位置方法----indexOf()  lastIndexOf()返回要查找的项在数组中的索引位置，没找到的情况下返回-1。
+		 * （两个参数：要查找的项和（可选的）表示查找起点位置的索引）
+		indexOf() 方法从数组的开头开始向后查找。
+		lastIndexOf() 方法则从数组的末尾开始向前查找。*/
+		
+		var arr=['a','c','e','a','e','c','e'];
+		/*alert(arr.indexOf('a',1));//3
+		alert(arr.lastIndexOf('e'));//5
+		alert(arr.lastIndexOf('e',4));//2
+		alert(arr.lastIndexOf('e',3));//2
+		alert(arr.indexOf('e',-3));//4   负数从后往前找。*/
+		
+		
+		
+		
+		
+		//字符串的方法。
+		//var str='helto';
+		//alert(str.indexOf('e',-10000));//1  负数从0开始。
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//indexOf去重
+		/*var arr=[1,3,45,123,78,3,45,1234,8765,234,78,1234,3,3,3,3,3,3,3,3];
+		var newArr=[];
+		for(var i=0;i<arr.length;i++){
+			if(newArr.indexOf(arr[i])==-1){//去重数组的值没在新数组中出现。
+				newArr.push(arr[i]);//追加到新数组中。
+			}
+		}
+		alert(newArr);*/
+		
+		
+		
+		
+		//迭代方法
+//		every()
+//		some()
+//		filter()
+//		map()
+//		forEach()
+		
+		/*两个参数：
+		第一个参数：要在每一项上运行的函数
+		此函数会接收三个参数：数组项的值、该项在数组中的位置、数组对象本身。
+		第二个参数：（可选的）运行该函数的作用域对象（影响 this 的值）。*/
+		
+		//var arr=[1,2,3,4,5,6,7,8,9,10];
+		/*arr.every(function(){
+			alert(this);//this指向。
+		},'hello')*/
+		
+		
+		//对数组中的每一项运行给定函数，如果该函数对每一项都返回 true ，则返回 true,否则返回false
+		/*var bool=arr.every(function(value,index,array){
+			return value>0;
+		});
+		alert(bool);*/
+		
+		//对数组中的每一项运行给定函数，如果该函数对任意一项返回 true ，则返回 true 。
+		/*var bool=arr.some(function(value,index,array){
+			return value>9;
+		});
+		alert(bool);*/
+		
+		
+		//filter()对数组中的每一项运行给定函数，返回该函数结果为 true的项组成的数组。
+		
+		/*var newarr=arr.filter(function(v,i,array){
+			return v>5;
+		});
+		alert(newarr);*/
+		
+		
+		
+	/*	var newarr=arr.filter(function(v,i,array){
+			return v>5;
+		});
+		alert(newarr);//6,7,8,9,10*/
+		/*var arr=[1,3,45,123,78,3,45,1234,8765,234,78,1234,3,3,3,3,3,3,3,3];
+		var newarr=arr.filter(function(v,i,array){
+			return arr.indexOf(v)==i;//返回true的值组成的数组
+		});
+		alert(newarr);*/
+		
+		/*var arr=[1,3,45,123,78,3,45,1234,8765,234,78,1234,3,3,3,3,3,3,3,3];
+		var newarr=arr.filter((v,i)=>{
+			return arr.indexOf(v)==i;
+		});
+		
+		alert(newarr);*/
+		
+		
+		//map() 对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。返回就是数组，不考虑true或者false
+		/*var arr=[1,2,3,4,5,6,7,8,9,10];
+		var newarr=arr.map((v)=>{
+			return v>5;
+		});
+		alert(newarr)*/
+		//4．编写函数map(arr) 把数组中的每一位数字都增加30%
+		/*var arr=[1,2,3,4,5,6,7,8,9,10];
+		var newarr=arr.map((v)=>{
+			return v*100;
+		});
+		alert(newarr);*/
+		
+		
+		//forEach() ：对数组中的每一项运行给定函数。这个方法没有返回值。
+		/*var arr=[1,2,3,4,5,6,7,8,9,10];
+		arr.forEach((v,i,array)=>{
+			console.log(v*100);
+		});*/
+		
+		
+		//编写函数has(arr , 60) 判断数组中是否存在60这个元素，返回布尔类型
+		/*var arr=[1,2,3,4,5,6,7,8,9,10];
+		function has(arr,num){
+			return arr.some(function(v){
+				return v==num;
+			});
+		}
+		alert(has(arr,-8));*/
+		
+		/*var arr=[1,2,3,4,5,6,7,8,9,10];
+		function has(arr,num){
+			return arr.filter(function(v){
+				return v==num;
+			});
+		}
+		alert(has(arr,8));*/
+		
+		var arr=[1,2,3,4,5,6,7,8,9,10];
+		/*function has(arr,num){
+			return arr.map(function(v){
+				if(v==num){
+					return true;
+				}
+			});
+		}
+		alert(has(arr,1));*/
+		
+		//reduce()
+		//两个参数：每一项上调用的函数和（可选的）作为归并的初始值。
+		//调用的函数接收 4 个参数：前一个值、当前值、项的索引和数组对象。
+		console.log(arr.reduceRight(function(prev,next,index,array){
+			console.log(prev+'-----'+next);
+			return prev+next;
+		},1000));
+		
+		//prev:如果方法第二个参数存在,prev代表第二个参数的值
+		//如果不存在第二个参数,prev代表数组的第一项,next代表数组的第二项,之后,prev前一个值,而next代表数组的下一项
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

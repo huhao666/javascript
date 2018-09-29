@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				width: 150px;
+				height: 200px;
+				border: 1px solid #ccc;
+				background: #eee;
+				position: absolute;
+				display: none;
+			}
+			i{
+				border-left:5px solid transparent;
+				border-top:5px solid #ccc;
+				border-right:5px solid transparent;
+				border-bottom:5px solid transparent;
+				width:0px;
+				height:0px;
+				display: block;
+				position: absolute;
+				left:140px;
+				top:17px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div><span>请选择网站的名称</span><i></i></div>
+		<ul>
+			<li><a href="http://www.baidu.com">百度</a></li>
+			<li><a href="http://www.jd.com">京东</a></li>
+			<li><a href="http://www.taobao.com">淘宝</a></li>
+			<li><a href="http://www.aiqiy.com">爱奇艺</a></li>
+			<li><a href="http://www.youku.com">优酷</a></li>
+		</ul>
+		<!--<select name="" id="">
+			<option value="">11111</option>
+			<option value="">11111</option>
+			<option value="">22222</option>
+			<option value="">11111</option>
+			<option value="">11111</option>
+		</select>-->
+		<script type="text/javascript">
+			/*document.oncontextmenu=function(){//触发鼠标右键事件
+				return false;//去掉右键的菜单。去掉系统默认事件。
+			}*/
+			
+			function cancelbubble(){
+				if(ev.stopPropagation){
+					ev.stopPropagation();
+				}else{
+					ev.cancelBubble=true;
+				}
+			}
+			
+			
+			var oSpan=document.getElementsByTagName('span')[0];
+			var oUl=document.getElementsByTagName('ul')[0];
+			oSpan.onclick=function(ev){
+				var ev=ev||window.event;
+				oUl.style.display='block';
+				ev.stopPropagation();//标准浏览器取消冒泡
+				//ev.cancelBubble=true;//ie下面取消冒泡
+				cancelbubble();
+			}
+			
+			document.onclick=function(){
+				//setTimeout(function(){
+					oUl.style.display='none';
+				//},3000)
+			}
+			
+		</script>
+	</body>
+</html>

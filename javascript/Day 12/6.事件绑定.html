@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*function a(){
+				alert(1);
+			}
+			
+			function b(){
+				alert(2);
+			}
+			
+			document.onclick=a;
+			document.onclick=b;//完全覆盖。*/
+			
+			//上面使用的事件是普通事件(DOM 0级事件)；  一个元素上面只能绑定一个事件。
+			
+			//DOM 2级事件：事件绑定，一个元素上面可以绑定多个事件。
+			//obj.addEventListener('事件类型(没有on)','函数','是否捕获');//标准浏览器下面的方法
+			/*function a(){
+				alert(1);
+			}*/
+			
+			function b(){
+				alert(2);
+			}
+			
+			function c(){
+				alert(3);
+			}
+			document.addEventListener('click',function(){
+				alert(1);
+				alert(this);//[object HTMLDocument]绑定事件的对象
+			},false);//false冒泡  true:捕获
+			document.addEventListener('click',b,false);//false冒泡
+			document.addEventListener('click',c,false);//false冒泡
+			
+			//removeEventListener()：删除事件的绑定，参数和事件绑定是一致的。
+			
+			//document.removeEventListener('click',b,false);//false冒泡
+			
+			//所有的DOM 0级事件都能用事件绑定实现。
+			
+			
+			
+			//obj.attachEvent('事件类型(包含on)',函数);   ie8浏览器支持的方法
+			/*function a(){
+				alert(1);
+			}*/
+			
+			function b(){
+				alert(2);
+			}
+			
+			function c(){
+				alert(3);
+			}
+			document.attachEvent('onclick',function (){
+				alert(1);
+				alert(this);//window
+			});
+			document.attachEvent('onclick',b);
+			document.attachEvent('onclick',c);
+			
+			document.detachEvent('onclick',b);
+			
+			//IE和DOM事件流的区别
+			
+//			1.参数不一致
+//			2.执行顺序按照绑定的顺序来（IE反向）
+//			3.事件类型ie需要添加on,标准的不需要
+//			4.this指向不一样,ie指向window,标准:绑定事件的对象
+			
+			
+//			1.执行顺序不一样
+//			2.参数不一样
+//			3.事件加不加on
+//			4.this指向问题
+		</script>
+	</body>
+</html>

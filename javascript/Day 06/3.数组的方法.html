@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//检测数组:typeof 
+			//var arr=[];
+			//var obj={};
+			//alert(typeof arr);//object
+			//alert(typeof obj);//object
+			//区分数组和对象---静态方法Array.isArray(); 
+			//确定括号中的某个值到底是不是数组,返回一个布尔值。
+			//alert(Array.isArray(arr));//true
+			//alert(Array.isArray(obj));//false
+			
+			
+			
+			window.onload=function(){
+				/*var arr=[
+					['习近平伙食费单据受关注  问政于民  强军用实招','2017-10-23'],
+					['人民大会堂的“十九大时光”  理上网来','2017-10-23'],
+					['直播：十九大第六场记者会  理论新视野','2017-10-23'],
+					['新时代@所有人  十九大时光  党代表通道','2017-10-23'],
+					['十九大代表分组讨论：努力实现更平衡更充分的发展','2017-10-23']
+				];
+				
+				//alert(arr[0][1]);
+				var oNewList=document.querySelector('.newlist');
+				var html='<ul>';
+				for(var i=0;i<arr.length;i++){
+					html+='<li><a href="##">'+arr[i][0]+'</a><span>'+arr[i][1]+'</span></li>';
+				}
+				html+='</ul>';
+				
+				oNewList.innerHTML=html;*/
+				
+				var oNewList=document.querySelector('.newlist');
+				var obj={
+					    "result": [
+					        [
+					            "a字裙",
+					            "5675054"
+					        ],
+					        [
+					            "阿迪达斯",
+					            "1320396"
+					        ],
+					        [
+					            "a字裙 半身裙",
+					            "11533788"
+					        ],
+					        [
+					            "阿迪达斯男鞋",
+					            "237125"
+					        ],
+					        [
+					            "安踏",
+					            "380154"
+					        ],
+					        [
+					            "阿迪达斯女鞋",
+					            "135023"
+					        ],
+					        [
+					            "aj1",
+					            "28202"
+					        ],
+					        [
+					            "按摩椅",
+					            "483801"
+					        ],
+					        [
+					            "奥特曼",
+					            "575666"
+					        ],
+					        [
+					            "安踏男鞋",
+					            "88819"
+					        ]
+					    ]
+				};
+				
+				
+				//alert(obj.result);//数组
+				//alert(obj.result.length);
+				//alert(obj.result[0])//a字裙,5675054
+				
+				var html='<ul>';
+				for(var i=0;i<obj.result.length;i++){
+					html+='<li><a href="#">'+obj.result[i][0]+'</a><span>'+obj.result[i][1]+'</span></li>'
+				}
+				html+='</ul>';
+				oNewList.innerHTML=html;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="newlist">
+			
+		</div>
+		<script type="text/javascript">
+			//var numarr=[1,2,[3,4,[5,6,['a']]],7];
+			//alert(numarr[2][2][2][0]);
+		</script>
+	</body>
+</html>

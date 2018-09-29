@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin:0px;
+				list-style: none;
+			}
+			.box{
+				width: 1215px;
+				height: 540px;
+				border: 1px solid black;
+				margin: 20px auto;
+				padding: 5px;
+			}
+			.box ul{
+				
+			}
+			.box li{
+				float: left;
+				margin: 5px;
+			}
+			.box li img{
+				width: 395px;
+				height:170px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/6.jpg"/></li>
+				<li><img src="img/7.jpg"/></li>
+				<li><img src="img/8.jpg"/></li>
+				<li><img src="img/9.jpg"/></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var aLi=document.getElementsByTagName('li');
+			var zindex=0;
+			//1.将浮动布局改成定位布局
+			var arr=[];//存放位置。
+			for(var i=0;i<aLi.length;i++){
+				arr.push([aLi[i].offsetLeft,aLi[i].offsetTop]);//二维数组
+			}
+			
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].style.position='absolute';
+				aLi[i].style.left=arr[i][0]+'px';
+				aLi[i].style.top=arr[i][1]+'px';
+				aLi[i].style.margin=0;//算位置时margin算了，css还有margin
+			}
+			//2.让图片拖拽
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index=i;//自定义属性。
+				drag(aLi[i]);
+			}
+			
+			
+			function drag(obj){
+				var shortx=0;
+				var shorty=0;
+				obj.onmousedown=function(ev){
+					obj.style.zIndex=++zindex;
+					var ev=ev||window.event;
+					shortx=ev.offsetX;
+					shorty=ev.offsetY;
+					document.onmousemove=function(ev){
+						var ev=ev||window.event;
+						obj.style.left=ev.clientX-shortx+'px';
+						obj.style.top=ev.clientY-shorty+'px';
+						for(var i=0;i<aLi.length;i++){//清除所有的边框
+							aLi[i].style.border='none';
+						}
+						//6.求最小的li盒子，加样式
+						var samllbox=getminbox(obj);//求最小的li盒子
+						if(samllbox){//最小的li盒子是否存在
+							samllbox.style.border='3px solid blue';
+						}
+						
+						
+						
+						
+					}
+					document.onmouseup=function(){
+						document.onmousemove=null;
+						document.onmouseup=null;
+						
+						//7.进行交换
+						var minbox=getminbox(obj);//li元素对象
+						if(minbox){
+							minbox.style.left=arr[obj.index][0]+'px';
+							minbox.style.top=arr[obj.index][1]+'px';
+							obj.style.left=arr[minbox.index][0]+'px';
+							obj.style.top=arr[minbox.index][1]+'px';
+							var temp=obj.index;
+							obj.index=minbox.index;
+							minbox.index=temp;
+							minbox.style.border='none';
+							
+						}else{
+							obj.style.left=arr[obj.index][0]+'px';
+							obj.style.top=arr[obj.index][1]+'px';
+						}
+					}
+					return false;
+				}
+			}
+			//3.碰撞检测
+			function hit(obj1,obj2){
+				if(!((obj1.offsetLeft+obj1.offsetWidth<obj2.offsetLeft)|| (obj1.offsetLeft>obj2.offsetLeft+obj2.offsetWidth)|| (obj1.offsetTop+obj1.offsetHeight<obj2.offsetTop)|| (obj1.offsetTop>obj2.offsetTop+obj2.offsetHeight))){
+					return true;//碰上了
+				}else{
+					return false;
+				}
+			}
+			
+			//4.勾股定理
+			function gg(obj1,obj2){
+				var a=obj1.offsetLeft-obj2.offsetLeft;
+				var b=obj1.offsetTop-obj2.offsetTop;
+				return Math.sqrt(a*a+b*b);
+			}
+			
+			//5.和碰撞的进行对比，求距离最小的盒子，输出这个盒子。
+			function getminbox(obj){
+				var minindex=-1;//假设最小的索引。
+				var minvalue=1000;//假设的最小的距离
+				for(var i=0;i<aLi.length;i++){
+					if(hit(obj,aLi[i])&& obj!=aLi[i]){//碰撞上了，同时不是自己。
+						var distance=gg(obj,aLi[i]);
+						if(distance<minvalue){
+							minvalue=distance;//真正的最小值
+							minindex=i;//最小的索引。
+						}
+					}
+				}
+				
+				if(minindex!=-1){
+					return aLi[minindex];//最小的li
+				}else{
+					return false;
+				}
+				
+				
+			}
+		</script>
+	</body>
+</html>

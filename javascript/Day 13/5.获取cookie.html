@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width:200px
+			}
+		</style>
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//alert(getcookie('username'));
+			
+			/*var arrname=['zhangsan','lisi','wangwu','zhaoliu'];
+			setcookie('names',arrname.toString(),7);//数组
+			alert(typeof getcookie('names'));//string  'zhangsan','lisi','wangwu','zhaoliu'
+			*/
+			
+			/*var objinfo={
+				name:'zhangsan',
+				age:100,
+				sex:'男'
+			}
+			setcookie('info',objinfo,7);//对象
+			console.log(getcookie('info'));//[object object]  无效的数据。*/
+			
+			
+			
+			/*var objinfo="{name:'zhangsan',ge:100,sex:'男'}";
+			setcookie('info',objinfo,7);//对象
+			console.log(getcookie('info'));*/
+			
+			var objinfo={
+				"name":"zhangsan",
+				"age":100,
+				"sex":"男"
+			};
+			
+			var strobj=JSON.stringify(objinfo);
+			//alert(typeof strobj);
+			setcookie('info',strobj,7);//对象
+			//console.log(getcookie('info'));//string
+			
+			var obj=JSON.parse(getcookie('info'));
+			
+			console.log(obj.name);
+			
+			//JSON.parse():将字符串转换成对象 
+			//JSON.stringify():将对象转换成字符串
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

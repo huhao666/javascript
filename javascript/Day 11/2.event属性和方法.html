@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				position: fixed;
+			}
+			.div1{
+				width: 300px;height:300px;background: #fff;border: 5px solid black;
+				margin:50px 0 0 350px;
+			}
+		</style>
+	</head>
+	<body style="background: url(jd13498192.png); width: 1349px;height:8192px; margin: 0 auto;">
+		<!--<div class="box">
+			clientx:<input type="text" />
+			clientY:<input type="text" /><br />
+			pageX:<input type="text" />
+			pageY:<input type="text" /><br />
+			screenX:<input type="text" />
+			screenY:<input type="text" />
+		</div>-->
+		<div class="div1">
+			
+		</div>
+		<script type="text/javascript">
+			//document.onmousedown=function(ev){
+				//1.获取事件对象
+				//var ev=ev||window.event;
+				//2.鼠标的按键,我们一般采用which
+				//console.log(ev.button);//0左键  1滚轮  2右键--标准   ie8  1左键 4滚轮 2右键
+				//console.log(ev.which);//1左键  2滚轮  3右键
+				
+				//3.鼠标事件中获取鼠标的位置属性介绍(clientX、pageX、offsetX、screenX)
+				//clientX,clientY:鼠标相对于可视区的位置。
+				//pageX,pageY:鼠标相对于文档的位置。
+				//offsetX,offsetY:鼠标相对于操作元素(鼠标点击元素)到盒子边缘(左上)的位置
+				//screenX,screenY:鼠标相对于显示屏的位置
+			//}
+			
+				
+			/*var aInput=document.getElementsByTagName('input');
+			document.onmousemove=function(ev){
+				var ev=ev||window.event;
+				aInput[0].value=ev.clientX;
+				aInput[1].value=ev.clientY;
+				
+				aInput[2].value=ev.pageX;
+				aInput[3].value=ev.pageY;
+				
+				aInput[4].value=ev.screenX;
+				aInput[5].value=ev.screenY;
+			};*/
+			
+			
+			document.onmousemove=function(ev){
+				var ev=ev||window.event;
+				document.getElementsByTagName('div')[0].innerHTML=ev.offsetX+','+ev.offsetY
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

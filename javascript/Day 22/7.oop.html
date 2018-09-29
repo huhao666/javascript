@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*var arr=new Array(1,2,3,4);
+			var arr1=new Array(1,2,3,4,5);
+			
+			Array.prototype.push=function(){
+				
+			}*/
+			
+			Array.prototype.add=function(){
+				for(var i=0;i<arguments.length;i++){
+					this[this.length]=arguments[i];
+				}
+				return this.length;
+			}
+			
+			Array.prototype.unique=function(){
+				var newarr=[];
+				for(var i=0;i<this.length;i++){
+					if(newarr.indexOf(this[i])==-1){
+						newarr.add(this[i]);
+					}
+				}
+				return newarr;
+				
+			}
+			
+			Object.prototype.hehe=function(){
+				return 'haha';
+			}
+			
+			var str='abcdef';
+			alert(str.hehe());
+			
+			//alert(arr.add(5,6,7));//arguments:等价于实参的值
+			
+			//alert(arr);//1,2,3,4,5
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			var arr=[1,4,7,2,5,8,3,6,9,1,5,9,4,7,8,6,3,111];
+			alert(arr.unique());
+			
+			alert(arr.hehe());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//alert(arr.push==arr1.push);//true
+			//alert(arr.length);
+			//arr.push();
+			//alert(arr.constructor);//查看实例的构造函数  function Array() { [native code] }
+			
+			
+			
+			
+			
+			
+			
+			/*function Num(n1,n2){//构造函数
+				this.num1=n1;
+				this.num2=n2;
+				this.sum=function(){
+					return this.num1+this.num2;
+				}
+			}
+			
+			var n=new Num(3,4);
+			var nn=new Num(3,4);*/
+			
+			//alert(n.sum());
+			//alert(nn.sum());
+			
+			//alert(n.sum==nn.sum);//false 
+			//总结：sum方法每次实例对象调用它的时候，都会重新创建一次。构造函数的弊端。
+			
+			
+			//混合模式：构造函数+原型。
+//			function Num(n1,n2){//构造函数
+//				this.num1=n1;
+//				this.num2=n2;
+//				/*this.sum=function(){
+//					return this.num1+this.num2;
+//				}*/
+//			}Num.prototype.num3=1000;//共有的属性。
+//			Num.prototype.sum=function(){//实例 对象共有的方法。
+//				return this.num1+this.num2;
+//			}
+//			var n=new Num(3,4);
+//			var nn=new Num(3,4);
+//			
+//			alert(n.sum===nn.sum);//true
+//			
+//			alert(n.num3);
+//			alert(nn.num3);
+		</script>
+	</body>
+</html>

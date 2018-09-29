@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p align="middle" xxx='yyyy' class="abc"></p>
+		<input type="checkbox" checked="checked" />
+		<input type="checkbox" checked="checked" />
+		<input type="checkbox" checked="checked" />
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		/*属性
+		attr(name|pro|key,val|fn) : 读写属性    自定义
+		removeAttr(name) : 移除属性
+		prop(n|p|k,v|f) : 读写属性
+		removeProp(name) : 移除属性
+		CSS 类
+		addClass(class|fn) 
+		removeClass([class|fn]) 
+		toggleClass(class|fn[,sw]) 切换类，存在删除，不存在加上。
+		HTML代码/文本/值
+		html([val|fn]) 
+		text([val|fn]) 
+		val([val|fn|arr])*/ 
+		
+		//alert($('p').attr('align'));//获取
+		//alert($('p').attr('xxx'));
+		//$('p').attr('aaa','bbbb');//设置
+		
+		
+		//alert($('p').prop('align'));//middle
+		//alert($('p').prop('xxx'));//undefined
+		
+		//alert($('input').attr('checked'));//checked
+		//alert($('input').prop('checked'));//true  主要用来操作和布尔值相关的属性值。
+		
+		//$('input').attr('xxxx','yyyy');//获取一个，设置全部。
+		//$('input').prop('checked',false);
+		
+		//$('p').addClass('abc');
+		$('p').toggleClass('abc');
+		</script>
+	</body>
+</html>

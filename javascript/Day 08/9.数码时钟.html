@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/mh.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/mh.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<script type="text/javascript">
+			var aImg=document.getElementsByTagName('img');//8
+			function double(n){
+				return n<10? '0' + n : n;
+			}
+			function time(){
+				var d=new Date();
+				var hour=d.getHours();
+				var min=d.getMinutes();
+				var sec=d.getSeconds();
+				var str=double(hour)+':'+double(min)+':'+double(sec);//14:34:08和八张图片进行匹配
+				//alert(typeof str);//string
+				for(var i=0;i<str.length;i++){
+					if(i==2 || i==5){
+						aImg[i].src='images/mh.jpg';
+					}else{
+						aImg[i].src='images/'+str[i]+'.jpg';
+					}
+				}
+			}
+			time();
+			setInterval(time,1000);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//switch:多条件; ===恒等
+			/*switch(4){
+				case 1:	 语句块1; break;//break:跳出程序。而 break 关键字会导致代码执行流跳出 switch语句
+				case 2:	 语句块2; break;
+				case 3:	 语句块3; break;
+				case 4:  语句块4; break;
+				default: 语句块;   //default:其他情况
+			}*/
+			
+			//总结：if：范围，布尔值        switch：恒等值  多条件
+		</script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/*var num=prompt('请输入一个数字');
+			switch(Number(num)){
+				case 1:	 alert('case1'); break;//break:跳出程序。
+				case 2:	 alert('case2'); break;
+				case 3:	 alert('case3'); break;
+				case 4:  alert('case4'); break;
+				default: alert('default');   //default:其他情况
+			}*/
+			
+			//输入分数，判定成绩等级(if和switch两种写法)（5个等级0-100）
+			var score=Number(prompt('请输入一个数字'));
+			var num=100;
+			if(!isNaN(score)){
+				
+				if(score>=0 && score<=100){
+					
+					switch(score){
+						//case (score<=90 && score>=60) : alert('优秀');  break;
+						case 100: switch(num){
+							case 100: alert('case嵌套'); break;
+						};  
+						break;
+						case 99:
+						case 98: alert('优秀');  break;
+						default: alert('程序有误');
+					}
+					
+					
+					
+				}else{
+					alert('数字超出范围');
+				}
+				
+				
+			}else{
+				alert('不是数字');
+			}
+			
+			/*var score=Number(prompt('请输入一个数字'));
+			if(!isNaN(score)){
+				
+				if(score>=0 && score<=100){
+					
+					if(score<=90 && score>=60){
+						alert('优秀');
+					}else if(score<60){
+						alert('不及格');
+					}
+					
+					
+				}else{
+					alert('数字超出范围');
+				}
+				
+				
+			}else{
+				alert('不是数字');
+			}
+			*/
+		</script>
+		
+		
+	</body>
+</html>

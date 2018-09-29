@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding:0px;margin:0px;
+			}
+			.box{
+				width: 300px;
+				height: 400px;
+				background: red;
+				position: absolute;
+				left:-300px;
+				top:50%;
+				margin-top: -200px;
+			}
+			.box span{
+				width: 30px;
+				height: 60px;
+				text-align: center;
+				background: blue;
+				position: absolute;
+				right:-30px;
+				top:50%;
+				margin-top: -30px;
+				cursor: pointer;
+			}
+		</style>
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="box">
+			<span>分享到</span>
+		</div>
+		<script type="text/javascript">
+			var oDiv=document.querySelector('.box');
+			var oSpan=document.getElementsByTagName('span')[0];
+			oDiv.onmouseover=function(){
+				buffermove(oDiv,{left:0});
+			}
+			oDiv.onmouseout=function(){
+				buffermove(oDiv,{left:-300});
+			}
+			
+			
+			//onmouseenter/onmouseleave:没有冒泡
+		</script>
+	</body>
+</html>

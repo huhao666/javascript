@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//三角函数复习
+		
+		//js没有角度的概念，仅有弧度的概念
+		
+		//一个圆的弧度=2π
+		//一个圆的角度=360
+		//1deg=π/180弧度
+		
+		//alert(Math.sin(30*Math.PI/180));
+		//r:半价  x，y元素的位置
+		//sin30=x/r;===>x=sin30*r
+		//cos30=y/r;===>y=cos30*r
+		//a,b:圆心的位置。
+		
+		//x=a+Math.sin(num*Math.PI/180)*r;
+		//y=b+Math.cos(num*Math.PI/180)*r;
+		
+		
+		//X坐标=a + Math.sin(2*Math.PI / 360) * r ；
+		//Y坐标=b + Math.cos(2*Math.PI / 360) * r ；
+		
+		
+		//勾股定理复习
+		//c2=a*a+b*b;
+		//Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="width: 20px;height:20px;background: red;position: absolute;"></div>
+		<script type="text/javascript">
+			var oDiv=document.getElementById('div1');
+			var num=0;
+			setInterval(function(){
+				//x=a+Math.sin(num*Math.PI/180)*r;
+				//y=b+Math.cos(num*Math.PI/180)*r;
+				num++;
+				x=400+Math.sin(num*Math.PI/180)*100;//盒子left
+				y=200+Math.cos(num*Math.PI/180)*100;//盒子top
+				
+				oDiv.style.left=x+'px';
+				oDiv.style.top=y+'px';
+				
+				/*var cdiv=document.createElement('div');
+				cdiv.style.cssText='width:5px;height:5px;background:red;position:absolute';
+				cdiv.style.left=x+'px';
+				cdiv.style.top=y+'px';
+				document.body.appendChild(cdiv);*/
+				
+			},10)
+		</script>
+	</body>
+</html>

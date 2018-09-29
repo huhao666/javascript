@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			//文档碎片在理论上可以提高DOM操作的执行效率
+			function createTable(){
+				//console.time('hehe');
+				var d=new Date();
+				var fragment=document.createDocumentFragment();//创建文档碎片
+				var fragment1=document.createDocumentFragment();//创建文档碎片
+				var cTable=document.createElement('table');
+				for(var i=0;i<10;i++){
+					var cTr=document.createElement('tr');
+						for(var j=0;j<10;j++){
+							var cTd=document.createElement('td');
+							cTd.innerHTML='111111';
+							cTd.style.cssText='padding:10px 20px;border:1px solid red;'
+							fragment.appendChild(cTd);
+						}
+						cTr.appendChild(fragment);//将fragment追加到cTr.
+						fragment1.appendChild(cTr);//将要追加的dom操作先放置在文档碎片中
+				}
+				cTable.appendChild(fragment1);
+				document.body.appendChild(cTable);
+				//console.timeEnd('hehe');
+				var d1=new Date();
+				console.log(d1-d);
+			}
+			createTable();
+		</script>
+	</body>
+</html>

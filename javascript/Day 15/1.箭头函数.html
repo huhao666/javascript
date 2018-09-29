@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">11111111111111111111111</div>
+		<script type="text/javascript">
+			/*function sum(a,b){
+				var a=a||5;
+				var b=b||6;
+				return a+b;
+			}*/
+			
+			/*function sum(a=5,b=6){//默认参数。
+				return a+b;
+			}*/
+			
+			//alert(sum(2,3));//5
+			//alert(sum(7,8));//实参
+			/*var sum=function(a,b){
+				return a+b;
+			}*/
+			//var sum=(a,b)=>a+b;
+			
+			//一个参数，省略括号，两个参数不能省略括号，没有参数也不能省略括号
+			//箭头后面的就是return的返回值。如果是多行代码，使用{}包起来
+			
+			//alert(sum(7,8));
+			/*var fn=function(str){
+				return str;
+			}*/
+			
+			/*var fn=str=>str;
+			alert(fn('hehe'));*/
+			
+			/*var oDiv=document.getElementsByTagName('div')[0];
+			oDiv.onclick=()=>{
+				alert(this);//window
+				setTimeout(()=>{
+					alert(this);//window
+					this.innerHTML='222222222222222';
+				},2000)
+			}*/
+			
+			/*var oDiv=document.getElementsByTagName('div')[0];
+			oDiv.onclick=function(){
+				setTimeout(()=>{
+					this.innerHTML='222222222222222';
+				},2000)
+			}*/
+			
+			//var arr=[1,4,7,2,5,81,3,6,19];
+			//alert(arr.sort((a,b)=>a-b));
+			
+			/*alert(arr.filter((v)=>{
+				return v>3
+			}));
+			*/
+			
+			
+			/*var fn=function(){
+				alert(this);
+			};
+			
+			fn.call(document);//[object HTMLDocument]*/
+			/*var fn=()=>{
+				alert(this);
+			};
+			
+			fn.call(document);*///[object Window]
+			
+			
+			//事件处理函数
+			//对象的方法
+			/*var num=1000;
+			var obj={
+				num:100,
+				shownum:()=>{
+					alert(this);
+					alert(this.num);
+				}
+			}
+			obj.shownum();*/
+			
+			
+		</script>
+	</body>
+</html>

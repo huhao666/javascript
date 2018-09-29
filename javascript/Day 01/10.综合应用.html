@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding:0px;margin:0px;list-style: none;
+			}
+			#baidu{
+				width: 790px;
+				height:340px;
+				position:relative;
+				margin: 50px auto;
+			}
+			#btnleft,#btnright{
+				position: absolute;
+				top:50%;
+				font-size: 100px;
+				margin-top: -60px;
+				text-decoration: none;
+				color: #fff;
+			}
+			#btnleft{
+				left:20px;
+			}
+			#btnright{
+				right:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="baidu">
+			<ul>
+				<li><img src="0.jpg" alt="" id="img1" /></li>
+			</ul>
+			<a href="javascript:;" id="btnleft">&lt;</a>
+			<a href="javascript:;" id="btnright">&gt;</a>
+		</div>
+		<script type="text/javascript">
+			//获取元素
+			var oImg=document.getElementById('img1');//获取图片对象
+			var oLeft=document.getElementById('btnleft');//获取←
+			var oRight=document.getElementById('btnright');//获取→
+			var num=0;
+			//onclick:鼠标单击左键。
+			/*oRight.onclick=function(){//鼠标单击右箭头执行{}里面的代码
+				num++;
+				num=num%5;
+				oImg.src=num+'.jpg';//将图片的值赋给图片对象。
+			};
+			
+			oLeft.onclick=function(){//鼠标单击右箭头执行{}里面的代码
+				num--;
+				oImg.src=num+'.jpg';//将图片的值赋给图片对象。
+				document.title=num;//将num值放置到标题上面打印出来
+			};*/
+			
+			
+			oRight.onclick=function(){//鼠标单击右箭头执行{}里面的代码
+				if(num==4){
+					num=0;
+				}else{
+					num+=1;	
+				}
+				oImg.src=num+'.jpg';//将图片的值赋给图片对象。
+			};
+			
+			oLeft.onclick=function(){//鼠标单击右箭头执行{}里面的代码
+				if(num==0){
+					num=4;
+				}else{
+					num-=1;	
+				}
+				oImg.src=num+'.jpg';//将图片的值赋给图片对象。
+			};
+			
+			//分支：如果...那么...   if(){}else{}
+			
+			/*if(条件){//如果条件为真，执行if大括号里面的语句，否则else大括号里面的语句。
+				
+			}else{
+				
+			}*/
+			
+			/*if(!'饿了'){
+				alert('吃');
+			}else{
+				alert('睡');
+			}*/
+			
+			
+			/*var num=prompt('请输入一个数字:')
+			if(!isNaN(num)){//输入的是数字，取反了。
+				//如果是数字,直接执行下面的代码
+				if(num%2==0){
+					alert('偶数');
+				}else{
+					alert('奇数');
+				}
+			}else{
+				alert('你输入的不是一个数字')
+			}*/
+		</script>
+	</body>
+</html>

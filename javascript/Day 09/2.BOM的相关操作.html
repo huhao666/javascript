@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 2000px;">
+		<p>111111111111111111111</p>
+		<p>222222222222222222222</p>
+		<p>333333333333333333333</p>
+		<p>444444444444444444444</p>
+		<p>111111111111111111111</p>
+		<p>222222222222222222222</p>
+		<p>333333333333333333333</p>
+		<p>444444444444444444444</p>
+		<p>111111111111111111111</p>
+		<p>222222222222222222222</p>
+		<p>333333333333333333333</p>
+		<p>444444444444444444444</p>
+		<script type="text/javascript">
+			//1.window三个常用事件
+			/*window.onload=function(){
+				alert('onload');
+			}
+			
+			window.onscroll=function(){
+				alert('onscroll');
+			}
+			
+			window.onresize=function(){
+				alert('onresize');
+			}*/
+			//console.log(document.documentElement);//[object htmlHtmlElement]
+			//console.log('可视区的宽'+document.documentElement.clientWidth);
+			//console.log('可视区的高'+document.documentElement.clientHeight);
+			
+			//document.onmousedown=function(){//鼠标按下获取
+				//console.log('滚动条距离'+document.documentElement.scrollTop);//firefox  ie
+				//console.log('滚动条距离'+document.body.scrollTop);//chrome
+				//console.log(document.documentElement.scrollTop||document.body.scrollTop);//兼容的写法
+			//}
+			
+			
+			
+			//open/close
+//			channelmode=yes|no|1|0	是否使用剧院模式显示窗口。默认为 no。
+//			directories=yes|no|1|0	是否添加目录按钮。默认为 yes。
+//			fullscreen=yes|no|1|0	是否使用全屏模式显示浏览器。默认是 no。处于全屏模式的窗口必须同时处于剧院模式。
+//			height=pixels	窗口文档显示区的高度。以像素计。
+//			left=pixels	窗口的 x 坐标。以像素计。
+//			location=yes|no|1|0	是否显示地址字段。默认是 yes。
+//			menubar=yes|no|1|0	是否显示菜单栏。默认是 yes。
+//			resizable=yes|no|1|0	窗口是否可调节尺寸。默认是 yes。
+//			scrollbars=yes|no|1|0	是否显示滚动条。默认是 yes。
+//			status=yes|no|1|0	是否添加状态栏。默认是 yes。
+//			titlebar=yes|no|1|0	是否显示标题栏。默认是 yes。
+//			toolbar=yes|no|1|0	是否显示浏览器的工具栏。默认是 yes。
+//			top=pixels	窗口的 y 坐标。
+//			width=pixels	窗口的文档显示区的宽度。以像素计。
+//			document.onclick=function(){
+//				open('https://www.baidu.com','_self'/*,'width=300,height=300,left=300,top=250'*/);
+//			}
+//			
+//			document.onkeydown=function(){
+//				close();
+//			}
+
+			
+			//alert()  prompt()  confirm() 方法
+			
+			//confirm('确定要删除吗');//如果点击确定返回true，点击取消返回false
+
+			//console.log(confirm('确定要删除吗'));
+			
+			//定时器
+//			setInterval(函数名称，时间)；间隔定时器(反复调用)
+//			clearInterval( 定时器的返回值 );  停止定时器
+//			setTimeout(函数名称，时间); 延时定时器
+//			clearTimeout( 定时器的返回值 ); 停止定时器
+
+			/*function fn(){
+				alert('我是普通函数');
+			}
+			function fn1(){
+				alert('我是普通函数1111111111');
+			}*/
+			//setInterval(fn,2000);
+			//setInterval('fn()',2000);
+			
+			//setInterval('fn(),fn1()',2000);//同时处理多个函数。 处理异步。
+			
+			//alert(adsfdsafadsf);//同步：阻塞
+			//alert(123);
+			
+			//setInterval(function(){alert(fasdfdsafdsaf)});//异步：非阻塞，
+			//alert(123);
+			
+			//alert(setInterval(function(){alert('fasdfdsafdsaf')}));//定时器返回值，方便关闭定时器。
+			
+			//setInterval(function(){console.log('fasdfdsafdsaf')});//及时关闭定时器。
+			
+			
+		</script>
+	</body>
+</html>

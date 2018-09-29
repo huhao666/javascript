@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//获取键盘上按键对应的unicode编码
+			document.onkeydown=function(ev){
+				var ev=ev||window.event;
+				
+				//alert(ev.keyCode);
+				//alert(ev.which);
+				//eyCode/which兼容
+				var code=ev.keyCode||ev.which;//兼容
+				alert(code);
+			}
+			
+			//组合键ev.ctrlKey、ev.altKey、ev.shiftKey代表着ctrl、alt、shift这三个键
+			if(ev.keyCode == 13 && ev.ctrlKey) {//ctrl+回车
+				
+			}
+		</script>
+	</body>
+</html>

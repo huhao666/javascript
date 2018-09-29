@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//编写一个函数，计算两个数字的和、差、积、商（要求：使用传参的形式）
+			function calc(num1,num2,opation){
+				if(opation=='+'){
+					return num1+num2;
+				}else if(opation=='-'){
+					return num1-num2;
+				}
+			}
+			
+			//alert(calc(3,4,'-'));//实参
+			//2.编写一个函数，计算三个数字的大小，按从小到大顺序输出。
+			/*function compare(a,b,c){
+				if(a>b){
+					var temp=a;
+					a=b;
+					b=temp;
+				}
+				
+				if(a>c){
+					var temp=a;
+					a=c;
+					c=temp;
+				}
+				
+				if(b>c){
+					var temp=b;
+					b=c;
+					c=temp;
+				}
+				
+				return a+','+b+','+c;
+			}
+			alert(compare(12,4,37));*/
+			
+			//编写任意个数字的求和、差、积、商的函数
+			function calc(){
+				/*alert(arguments.length);
+				alert(arguments[arguments.length-1])*/
+				if(arguments[arguments.length-1]=='+'){
+					for(var i=0,sum=0;i<arguments.length-1;i++){
+						sum+=arguments[i];
+					}
+					return sum;
+				}
+				
+				if(arguments[arguments.length-1]=='*'){
+					for(var i=0,sum=1;i<arguments.length-1;i++){
+						sum*=arguments[i];
+					}
+					return sum;
+				}
+				
+			}
+			//alert(calc(1,2,3,4,5,6,7,8,9,10,'+'));
+			//alert(calc(1,2,3,4,5,'*'));
+			
+			//2．编写生成4位数字验证码的函数，并生成10次，同时将结果存入数组
+			
+			//parseInt(Math.random()*10)  ===>  [0-9]   
+			/*var str='';
+			for(var i=1;i<=4;i++){
+				str+=parseInt(Math.random()*10);
+			}
+			document.write(str);*/
+			var arr=new Array();//新建一个数组
+			function yzm(){
+				var str='';
+				for(var i=1;i<=6;i++){
+					str+=parseInt(Math.random()*10);
+				}
+				//document.write(str);
+				return str;
+			}
+			
+			for(var i=1;i<=10;i++){
+				//yzm();
+				//document.write('<br>');
+				arr[i-1]=yzm();
+			}
+			
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

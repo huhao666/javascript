@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//利用构造函数创建一个日期对象
+			//var d=new Date();
+			//alert(d);//Fri Oct 27 2017 14:28:37 GMT+0800 (中国标准时间)
+			//d:实例对象：当前的日期。包括年月日时分秒。
+			
+			//alert(d.toLocaleString());//toLocaleString:本地
+			//2017/10/27 下午2:32:59
+			
+//			var year=d.getFullYear();//四位的年
+//			var month=d.getMonth()+1;//0-11代表12个月，  月份+1
+//			var day=d.getDate();
+//			var week=d.getDay();//0-6  星期日--星期六
+//			var hour=d.getHours();
+//			var min=d.getMinutes();
+//			var sec=d.getSeconds();
+			
+			
+			//document.write(hour+':'+min+':'+sec);
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//今天是：2017年4月7日  星期五 10：46：12
+			function double(n){
+				return n<10? '0'+n : n;
+			}
+			
+			function getdate(){
+				var d=new Date();
+				var year=d.getFullYear();//四位的年
+				var month=d.getMonth()+1;//0-11代表12个月，  月份+1
+				var day=d.getDate();
+				var week=d.getDay();//0-6  星期日--星期六
+				switch(week){
+					case 5: week='星期五'; break;
+				}
+				var hour=d.getHours();
+				var min=d.getMinutes();
+				var sec=d.getSeconds();
+				return '今天是：'+year+'年'+month+'月'+day+'日 &nbsp;&nbsp;'+week+'&nbsp;&nbsp;'+hour+':'+double(min)+':'+double(sec);
+				
+			}
+			
+			
+			document.body.innerHTML=getdate();
+			
+			var timer=setInterval(function(){
+				document.body.innerHTML=getdate();
+			},1000);
+			
+			
+		</script>
+	</body>
+</html>

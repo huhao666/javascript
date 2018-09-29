@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			html{
+				height: 100%;
+			}
+			
+			body{
+				height: 100%;
+				background-image: url(bg.jpg);
+				background-size: cover;
+				overflow: hidden;
+			}
+			img{
+				width: 15px;
+				height: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<img src="1.jpg"/>-->
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function Firefly(){
+				var that=this;
+				this.createFire=function(){//创建图片
+					this.fire=document.createElement('img');
+					this.fire.src='1.jpg';
+					this.fire.style.cssText='position:absolute;left:'+ranNum(0,document.documentElement.clientWidth-this.fire.offsetWidth)+'px;top:'+ranNum(0,document.documentElement.clientHeight-this.fire.offsetHeight)+'px;';
+					document.body.appendChild(this.fire);
+					return this;//返回对象。
+				};
+				this.fireMove=function(){
+					buffermove(this.fire,{
+						left:ranNum(0,document.documentElement.clientWidth-this.fire.offsetWidth),
+						top:ranNum(0,document.documentElement.clientHeight-this.fire.offsetHeight)
+					},function(){
+						that.fireMove();
+					})
+				}
+				
+			}
+			for(var i=0;i<60;i++){
+				new Firefly().createFire().fireMove();
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//DOM元素类型
+			//节点可以分为元素节点、属性节点和文本节点...，而这些节点又有三个非常有用的属性 ，分别为：nodeName（节点的名称）、nodeType（节点类型） 和 nodeValue（文本）
+
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li>
+					<span>11111</span>
+				</li>
+				<li>22222</li>
+				<li>33333</li>
+				<li>44444</li>
+				<li>55555</li>
+				<li>66666</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			
+			var oUl=document.getElementsByTagName('ul')[0];
+			//alert(oUl.childNodes.length);//13
+			//alert(oUl.children.length);//6
+			//nodeType：元素(1)     属性(2)     文本(3)
+			//alert(oUl.childNodes[0].nodeType);//3
+			//alert(oUl.children[0].nodeType);//1
+			
+			//nodeName（节点的名称）
+			//alert(oUl.childNodes[1].nodeName);//LI
+			//alert(oUl.children[0].nodeName);//LI
+			
+			//nodeValue(节点的值)
+			//alert(oUl.childNodes[1].childNodes[0].nodeValue);//[object HTMLLIElement]//所有的内容都变成了节点，注意文本节点。
+			
+			//alert(oUl.childNodes[1].innerHTML);
+			//alert(oUl.children[0].nodeValue);
+			
+			//alert(oUl.childNodes[1].childNodes[1].childNodes[0].nodeValue);
+			
+		
+		</script>
+	</body>
+</html>

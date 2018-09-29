@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="b.js" type="text/javascript" charset="utf-8"></script>
+		<script src="c.js" type="text/javascript" charset="utf-8"></script>
+		<script src="d.js" type="text/javascript" charset="utf-8"></script>
+		<script src="e.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>
+		<script src="a.js" type="text/javascript" charset="utf-8"></script>-->
+		
+		<script type="text/javascript">
+			//闭包、命名空间、面向对象
+			//闭包
+			//冲突、依赖
+			
+			//原始写法
+			/*function m1(){
+			　　　　//...
+			}
+			function m2(){
+			　　　　//...
+			}
+			
+			var m1=function(){}
+			var m2=function(){}*/
+			//这种做法的缺点很明显："污染"了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。
+		
+			//二、对象写法
+			/*var obj=new Object();
+			obj.sum=10;
+			obj.m1=function(){
+				
+			}*/
+			
+			/*var obj={
+				sum:10,
+				m1:function(){},
+				m2:function(){}
+			}
+			obj.m1();
+			obj.m2();*/
+			
+			/*var obj=new Object({
+				sum:10,
+				m1:function(){},
+				m2:function(){}
+			});
+			
+			//但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写
+			obj.sum=100;//改写
+			alert(obj.sum);*/
+			
+			//三、立即执行函数写法
+			
+			/*var obj=(function(){
+				var sum=10;
+				var m1=function(){
+					alert('m1');
+				};
+				var m2=function(){
+					
+				};
+				//window.m1=m1;
+				return {
+					sum:sum,
+					m1:m1,
+					m2:m2
+				}
+			})();
+			
+			//alert(sum);// sum is not defined
+			obj.m1();
+			m1();//访问是不好的，普通的调用，出现冲突的*/
+			
+			var obj1=(function(){
+				var sum=10;
+				var m1=function(){
+					alert('m1');
+				};
+				var m2=function(){
+					
+				};
+				//window.m1=m1;
+				return {
+					sum:sum,
+					m1:m1,
+					m2:m2
+				}
+			})();
+			var obj2=(function(){
+				var sum=10;
+				var m1=function(){
+					alert('m11');
+				};
+				var m2=function(){
+					
+				};
+				//window.m1=m1;
+				return {
+					sum:sum,
+					m1:m1,
+					m2:m2
+				}
+			})();
+			
+			obj1.m1();
+			obj2.m1();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

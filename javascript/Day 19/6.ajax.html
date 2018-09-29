@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="news"></div><!--新闻模块-->
+		<script type="text/javascript">
+			//http://127.0.0.1/js1708/Day%2019/5.array.php  ：接口地址
+			/*var ajax=new XMLHttpRequest();//创建ajax对象
+			ajax.open('get','http://127.0.0.1/js1708/Day%2019/5.array.php',true);
+			ajax.send();//5步 (0,1,2,3,4):就绪状态码(readystate)
+			ajax.onreadystatechange=function(){//监听就绪状态码发生改变。
+				if(ajax.readyState==4){
+					//console.log(ajax.responseText);//接口的内容
+					//console.log(typeof ajax.responseText);//string   JSON.parse()/eval()
+					var arr=JSON.parse(ajax.responseText);
+					var html='<ul>';
+					for(var i=0;i<arr.length;i++){
+						html+='<li><a href="#">'+arr[i].title+'</a><span>'+arr[i].date+'</span></li>';
+					}
+					html+='</ul>';
+					document.querySelector('.news').innerHTML=html;
+				}
+			}*/
+			
+			//mock.js-无需等待,让前端独立于后端进行开发 - CNode技术社区
+			
+			
+			/*var ajax=new XMLHttpRequest();//创建ajax对象
+			ajax.open('get','http://127.0.0.1/js1708/Day%2019/8.class.php?__hbt=1510816124352',true);
+			ajax.send();
+			ajax.onreadystatechange=function(){
+				if(ajax.readyState==4){
+					var obj=JSON.parse(ajax.responseText);
+					var arr1=obj.data1;
+					var arr2=obj.data2;
+					var arr3=obj.data3;
+					console.log(arr1);
+					console.log(arr2);
+					console.log(arr3);
+					
+				}
+			}*/
+			
+			var ajax=new XMLHttpRequest();//创建ajax对象
+			ajax.open('get','http://127.0.0.1/js1708/Day%2019/9.getdata.php?__hbt=1510817315989',true);
+			ajax.send();
+			ajax.onreadystatechange=function(){
+				if(ajax.readyState==4){
+					var obj=JSON.parse(ajax.responseText);
+					//console.log(obj.content);
+					document.body.innerHTML=obj.content;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>11111</li>
+			<li>22222</li>
+			<li>22222</li>
+			<p>pppppp</p>
+			<p>pppppp</p>
+			<li>22222</li>
+			<li>22222</li>
+			<li>22222</li>
+		</ul>
+		<script type="text/javascript">
+			var aLi1=document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+			var aLi2=document.getElementsByTagName('ul')[0].children[1];
+			var aLi3=document.getElementsByTagName('ul')[0].children;
+			//children:获取元素对象的子节点(不管元素名称)。类数组的形式。
+			//alert(aLi1[0].innerHTML);
+			//alert(aLi2.innerHTML);
+			alert(aLi1.length);
+			alert(aLi3.length);
+		</script>
+	</body>
+</html>

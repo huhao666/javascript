@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入城市：<input type="text" />
+		<table border="1"></table>
+		<script type="text/javascript">
+			/*
+			 * jsonp:
+			 * 后端不存在跨域，后端取到接口中的数据，将数据放在一个函数里面，当作函数的实参。
+			 * 前端将约定的函数名传给后端。
+			 * 将整个的后端文件通过script标签引入，script不存在跨域。
+			 * 
+			 * */
+			function weather(info){
+				var oTable=document.getElementsByTagName('table')[0];
+				var obj=JSON.parse(info);
+				var arr=obj.data.forecast;
+				var html='';
+				for(var i=0;i<arr.length;i++){
+					html+='<tr>';
+					for(var j in arr[i]){
+						html+='<td>'+arr[i][j]+'</td>';
+					}
+					html+='</tr>';
+				}
+				oTable.innerHTML=html;
+			}
+			
+			
+			var oInput=document.getElementsByTagName('input')[0];
+			oInput.onblur=function(){
+				var cscript=document.createElement('script');
+				cscript.src='7.weather.php?callback=weather&city='+oInput.value;
+				document.body.appendChild(cscript);
+			};
+			
+		</script>
+	</body>
+</html>

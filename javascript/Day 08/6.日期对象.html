@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//getTime();//获取1970年1月1日 午夜 到当前时间的一个毫秒数
+			
+			var d=new Date();
+			
+			//alert(d.getTime());//1509087851029
+			
+			
+			
+			/*var min=1509087851029/1000;
+			
+			var day=parseInt(min/86400);
+			
+			var hour=parseInt(min%86400/3600);
+			
+			alert(hour);*/
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//倒计时
+			function countdown(){
+				//var futuretime=new Date(2018,9,1,15,22,0);//设置日期：未来日期
+				var futuretime=new Date('2018/10/1 15:25:15');//设置日期：未来日期
+				var nowtime=new Date();//当前日期
+				var time=(futuretime-nowtime)/1000;
+				//29234821767毫秒
+				var day=parseInt(time/86400);
+				var hour=parseInt(time%86400/3600);
+				var min=parseInt(time%3600/60);
+				var sec=parseInt(time%60);
+		
+				return '离2018年国庆节还有：'+day+'天'+hour+'时'+min+'分'+sec+'秒';
+			}
+			document.body.innerHTML=countdown();
+			setInterval(function(){
+				document.body.innerHTML=countdown();
+			},1000);
+		</script>
+	</body>
+</html>

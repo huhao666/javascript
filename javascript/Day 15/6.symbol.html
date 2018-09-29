@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*var s1=Symbol('hello');
+			var s2=Symbol('hello');
+			alert(s1===s2);*/
+			
+			/*var obj={//toString()
+				if:1,
+				else:2,
+				for:3,
+				in:4,
+				100:5,
+				for:400
+			}*/
+			/*for(var i in obj){
+				console.log(i+':'+obj[i]);
+			}*/
+			
+			//alert(obj['for']);
+			
+			
+			/*var s1=Symbol('one');
+			var s2=Symbol('two');
+			var s3=Symbol('three');
+			var s4=Symbol('four');
+			var s5=Symbol('four');
+			console.log(s1);
+			console.log(s2);
+			console.log(s3);
+			console.log(s4);*/
+			//console.log(s1==s2);
+			
+			//console.log(typeof s1);
+			
+			/*var s1=Symbol('three');
+			var s2=Symbol('three');
+			var s3=Symbol('three');
+			var s4=Symbol('four');
+			var obj={
+				if:1,
+				[s3]:99,
+				else:2,
+				for:3,
+				[Symbol('three')]:250,
+				in:4,
+				s1:100,
+				[s1]:200
+			}*/
+			
+			//alert(obj.s1);
+			//alert(obj[s1]);
+			/*for(var i in obj){
+				console.log(i+':'+obj[i]);
+			}*/
+			//alert(Object.getOwnPropertySymbols(obj).length);
+			//alert：不能输出Object.getOwnPropertySymbols(obj)遍历出来的值
+			/*for(var i=0;i<Object.getOwnPropertySymbols(obj).length;i++){
+				console.log(obj[Object.getOwnPropertySymbols(obj)[i]]);
+			}*/
+			
+			var s1=Symbol.for('hello');
+			var s2=Symbol.for('hello');
+			alert(s1==s2);//true
+			alert(Symbol.keyFor(s1));//hello  输出key值。
+		</script>
+	</body>
+</html>

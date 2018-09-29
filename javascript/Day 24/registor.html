@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset id="" style="width: 400px;">
+			<legend>用户注册</legend>
+			<form action="form.php" method="post">
+				<p>
+					<label for="">用户名：</label><input type="text" name="username" id="user" /><span></span>
+				</p>
+				<p>
+					<label for="">密　码：</label><input type="text" name="password" />
+				</p>
+				<p>
+					<label for="">邮　箱：</label><input type="text" name="email" />
+				</p>
+				<p><input type="submit" name="submit" /></p>
+			</form>
+		</fieldset>
+		<script src="public.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var user=document.getElementById('user');
+			var oSpan=document.getElementsByTagName('span')[0];
+			user.onblur=function(){
+				ajax({
+					type:'post',
+					url:'form.php',
+					data:{
+						sname:user.value
+					},
+					success:function(d){
+						if(!d){
+							oSpan.innerHTML='√';
+						}else{
+							oSpan.innerHTML='用户名已经存在';
+						}
+					}
+				});
+			};
+		</script>
+	</body>
+</html>

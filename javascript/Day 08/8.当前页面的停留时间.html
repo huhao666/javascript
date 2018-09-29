@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//计数器
+			var sec=0;
+			var min=0;
+			function double(n){
+				return n<10? '0' + n : n;
+			}
+			setInterval(count,100);
+			count();
+			function count(){
+				sec++;
+				if(sec>=60){
+					min++;
+					sec=0;
+				}
+				document.body.innerHTML=double(min)+':'+double(sec);
+			}
+		</script>
+	</body>
+</html>

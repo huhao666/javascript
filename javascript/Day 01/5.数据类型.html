@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//js的数据类型：基本类型，引用类型
+			//基本类型：number,string,boolean,null,undefined
+			//var num=5;//数字类型(number)
+			//var str='hello';//字符串类型(string)
+			//var bstop=true;//布尔类型(boolean)--->(true,false)--->条件触发
+			//特殊类型：null(空对象),undefined(未定义，未初始化)
+			
+			//引用类型：objects(对象)
+			
+			
+			//操作：typeof():检测数据类型。简写方式：typeof var   将typeof理解成运算符的写法
+			
+			
+			//三个强制转换类型的方法：Number(value)  String(value)  Boolean(value)
+			//三个强制方法使用：将括号里面的值转换对应的类型。
+			
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//var num=15;
+			var num1=30;
+			document.write(typeof(num1));
+			//alert(num+num1);//45
+			
+			//var n1=prompt('请输入一个数字');
+			//var n2=prompt('请输入二个数字');
+			
+			//alert(typeof(n1));//string
+			//alert(typeof Number(n1));//number
+			//alert(Number(n1)+Number(n2));//+连接符号，具有加法运算的能力。
+			
+			/*var n1=window.Number(prompt('请输入一个数字'));
+			var n2=window.Number(prompt('请输入二个数字'));
+			alert(n1+n2);*/
+			
+			document.write('<hr>');
+			
+			var str='hello';
+			document.write(typeof str);
+			
+			document.write('<hr>');
+			
+			var bool=true;
+			document.write(typeof bool);
+			
+			document.write('<hr>');
+			//特殊类型：非常重要
+			var a;
+			document.write('类型是：'+ typeof a);
+			document.write('<br>');
+			document.write('值：'+a);
+			
+			document.write('<hr>');
+			var b=null;
+			document.write('类型是：'+ typeof b);
+			document.write('<br>');
+			document.write('值：'+b);
+			
+			document.write('<hr>');
+			
+			//document.write(c);//Uncaught ReferenceError: c is not defined  引用错误：某个东西找不到。
+			document.write(window.c);//undefined
+			document.write(window);//[object Window]
+			//document.write(hehe.c);//hehe is not defined
+			
+			document.write('<hr>');
+			var hehe={//提前了解：创建一个对象
+				c:'zhangsan',//对象的属性
+				fangfa:function(){//对象的方法。
+					alert(hehe.c);
+				}
+			};
+			/*document.write('类型是：'+ typeof hehe);
+			document.write('<br>');
+			document.write('值：'+hehe.c);//hehe is not defined*/
+			
+			document.write('类型是：'+ typeof hehe);
+			document.write('<br>');
+			document.write('值：'+hehe.c);
+			hehe.fangfa();
+		</script>
+	</body>
+</html>

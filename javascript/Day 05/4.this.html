@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//this关键字:函数里面有this关键字，当前的函数归谁调用，this指向谁。
+			
+			//1.普通函数里面this，指向window,函数是window下面的方法
+			/*function fn(){
+				alert(this);
+			}
+			fn();//[object Window]
+			window.fn();*/
+			
+			//2.事件处理函数：当前调用函数的对象。代表当前所操作的元素对象
+			/*window.onload=function(){
+				var oBox=document.querySelector('.box');
+				oBox.onclick=function(){
+					alert(this);//oBox  [object HTMLDivElement]
+				}
+			}*/
+		</script>
+	</head>
+	<body>
+		<div class="box">111111111111</div>
+		<div class="box">22222222222</div>
+		<div class="box">33333333333</div>
+		<div class="box">444444444444</div>
+		<div class="box">55555555555</div>
+		<div class="box">66666666666</div>
+		<script type="text/javascript">
+			/*var aBox=document.querySelectorAll('.box');//获取所有的类为box的盒子，类数组。
+			//alert(aBox.length);//长度
+			//alert(aBox[1].innerHTML);
+			
+			for(var i=0;i<aBox.length;i++){
+				aBox[i].onclick=function(){//同时给6个div添加事件。
+					//alert('hello');
+					//this:this代表当前所操作的元素对象。
+					alert(this.innerHTML);
+				}
+			}*/
+			
+			/*var aBox=document.querySelectorAll('.box');
+			for(var i=0;i<aBox.length;i++){
+				alert(i);//0-5
+				aBox[i].onclick=function(){//同时给6个div添加事件。
+					alert(i);//此时的i是循环最后一次值。
+				}
+			}*/
+			//注意：如果for循环里面带有事件，此时for循环的值在事件里面是最后一次值，for循环不归事件控制的。
+		</script>
+		<script type="text/javascript">
+			/*function a()
+			{
+				alert("aa");
+				return a();   //报错  TypeError: a is not a function
+			}
+			
+			var b = a;
+			a = null;*/
+			
+			var arr=[1,2];
+			var arr1=arr;
+			
+			alert(arr);
+			alert(arr1);
+			
+			
+
+		</script>
+	</body>
+</html>

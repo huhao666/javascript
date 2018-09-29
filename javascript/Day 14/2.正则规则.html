@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<fieldset id="">
+			<legend>表单测试</legend>
+			<p><label for="">邮政编码：</label><input type="text" /><span></span></p>
+			<p><label for="">电子邮箱：</label><input type="text" /><span></span></p>
+			<p><label for="">手机号码：</label><input type="text" /><span></span></p>
+			<p><label for="">身份号码：</label><input type="text" /><span></span></p>
+			<p><label for="">日期检测：</label><input type="text" /><span></span></p>
+		</fieldset>
+		<script type="text/javascript">
+			var aInput=document.getElementsByTagName('input');
+			var aSpan=document.getElementsByTagName('span');
+			//var reg1=new RegExp('^[1-9]\\d{5}$','g');  //\:转义。
+			aInput[0].onblur=function(){
+				if(/^[1-9]\d{5}$/g.test(this.value)){
+					aSpan[0].innerHTML='√'
+				}else{
+					aSpan[0].innerHTML='邮编格式有误!';
+				}
+			}
+			
+			aInput[1].onblur=function(){
+				if(/^[\w][\w\-\.\+\-]+@[\w][\w\-]+.[\w][\w\-]+$/g.test(this.value)){
+					aSpan[1].innerHTML='√'
+				}else{
+					aSpan[1].innerHTML='邮箱格式有误!';
+				}
+			}
+			
+			aInput[2].onblur=function(){
+				if(/^[1][34578]\d{9}$/g.test(this.value)){
+					aSpan[2].innerHTML='√'
+				}else{
+					aSpan[2].innerHTML='手机号码有误!';
+				}
+			}
+			//验证身份证号（15位）："\d{14}[0-9xX]"，（18位）："\d{17}[0-9xX]"
+			var r1=/^\d{6}\d{2}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\d{3}$/g;  //15
+			var r2=/^\d{6}(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\d{3}[0-9xX]$/g;  //18
+			aInput[3].onblur=function(){//括号：或  
+				if(/^\d{6}(19|20)?\d{2}(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\d{3}[0-9xX]?$/g.test(this.value)){
+					aSpan[3].innerHTML='√'
+				}else{
+					aSpan[3].innerHTML='身份号码有误!';
+				}
+			}
+			
+			//日期检测   2017-11-07  2017年11月07日     2017/11/07  2017.11.07
+			aInput[4].onblur=function(){
+				if(/^20\d{2}[\-\/\.年](0[1-9]|1[0-2])[\-\/\.月](0[1-9]|[12][0-9]|3[01])[日]?$/g.test(this.value)){
+					aSpan[4].innerHTML='√'
+				}else{
+					aSpan[4].innerHTML='日期有误!';
+				}
+			}
+			
+			
+		</script>
+		
+		<script type="text/javascript">
+			//字符串首尾去空格
+			//var str='     dasfdasf           adsfadsf          ';
+			//var reg=/^\s+ | \s+$/g;//去首尾空格
+			//alert('('+str.replace(reg,'')+')');
+			//trim:去首尾空格
+			//alert(str.trim());
+			
+			
+			/*var str='我是chinese人,我来自china国';
+			var reg=/[\u4e00-\u9fa5]/g;
+			
+			alert(str.match(reg));*/
+			
+			//var str='我是chinese人,我来自china国';
+			
+			
+			
+		</script>
+	</body>
+</html>

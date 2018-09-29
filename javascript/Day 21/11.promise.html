@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//promise：异步编程的一种解决方案。取代callback
+			//异步编程也可以拥有顺序。
+			//实例化promise对象
+			//约定:固有的使用。
+			//pending:
+			//resolve:成功/解决
+			//reject:失败/未解决
+			/*var promise=new Promise(function(resolve,reject){
+				setTimeout(function(){
+					console.log(1);
+					//resolve();//成功  找then方法的第一个函数参数
+					reject();//失败 找then方法的第一个函数参数
+				},1000);
+			});
+			
+			promise.then(function(){
+				console.log('成功');
+			},function(){
+				console.log('失败');
+			});*/
+			
+		/*	var promise=new Promise(function(resolve,reject){
+				setTimeout(function(){
+					console.log(1);
+					//resolve();//成功  找then方法的第一个函数参数
+					reject();//失败 找then方法的第一个函数参数
+				},1000);
+			});
+			
+			promise.then(function(){
+				console.log('成功');
+			}).catch(function(){//失败走catch方法
+				console.log('失败');
+			});*/
+			
+		</script>
+	</body>
+</html>

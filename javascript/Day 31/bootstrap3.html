@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--用ie的最高版本渲染里面代码-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/docs.min.css" rel="stylesheet">
+    <!--html5shiv.js:让ie9及以下的浏览器支持html5新增的标签-->
+    <!--respond.js:让ie9及以下的浏览器支持媒体查询  media-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+   <!--	<div class="container" style="background: red; height: 200px;"></div>
+   	<div class="container-fluid" style="background: orange; height: 200px;"></div>-->
+    
+    <div class="container">
+    	<!--栅格化布局-->
+    	<!--<div class="row show-grid">
+    		<div class="col-md-4 col-sm-4 col-xs-6">col-md</div>
+    		<div class="col-md-4 col-sm-4 col-xs-6">col-md</div>
+    		<div class="col-md-4 col-sm-4 col-xs-6">col-md</div>
+    	</div>-->
+    	<!--<div class="row show-grid">
+    		<div class="col-md-6">
+    			<div class="row">
+    				<div class="col-md-6">1</div>
+    				<div class="col-md-6">2</div>
+    				<div class="col-md-6">2</div>
+    			</div>
+    		</div>
+    		<div class="col-md-6">col-md-6</div>
+    	</div>-->
+    	<!--<div class="row show-grid">
+    		<div class="col-md-4">col-md-4</div>
+    		<div class="col-md-4 col-md-offset-2">col-md-4</div>
+    	</div>-->
+    	<!--<p class="text-warning">我是文字</p>
+    	<dl class="dl-horizontal">
+		  <dt>1111111111111111</dt>
+		  <dd>2222222222222222</dd>
+		</dl>-->
+		
+		
+		
+		<hr />
+		<table class="table table-bordered table-striped table-hover">
+			<tr>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+			</tr>
+			<tr>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+			</tr>
+			<tr>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+			</tr>
+			<tr>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+				<td>11111</td>
+			</tr>
+		</table>
+		
+		<hr />
+		<div class="dropup">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+		<hr />
+		<div class="btn-group">
+			<button class="btn btn-primary">1111</button>
+			<button class="btn btn-success">2222</button>
+			<button class="btn btn-info">3333</button>
+		</div>
+		
+		<hr />
+		<hr />
+		<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<hr />
+		<div class="bs-example" data-example-id="embedded-scrollspy">
+    <nav id="navbar-example2" class="navbar navbar-default navbar-static">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project Name</a>
+        </div>
+        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#fat">@fat</a></li>
+            <li class=""><a href="#mdo">@mdo</a></li>
+            <li class="dropdown">
+              <a href="#" id="navbarDrop1" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDrop1">
+                <li class=""><a href="#one">one</a></li>
+                <li class=""><a href="#two">two</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#three">three</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
+      <h4 id="fat">@fat</h4>
+      <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+      <h4 id="mdo">@mdo</h4>
+      <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+      <h4 id="one">one</h4>
+      <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+      <h4 id="two">two</h4>
+      <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+      <h4 id="three">three</h4>
+      <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+      <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+      </p>
+    </div>
+  </div>
+		<hr />
+		<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Home</a></li>
+      <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Profile</a></li>
+      <li role="presentation" class="dropdown">
+        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+          <li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+          <li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
+        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">
+        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+      </div>
+    </div>
+  </div>
+		<hr />
+<form >
+  <div class="form-group form-inline">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<hr />
+<button class="btn btn-primary btn-lg">按钮</button>
+<hr />
+<img class="img-thumbnail" src="https://imgsa.baidu.com/news/q%3D100/sign=a36c69af9945d688a502b6a494c37dab/b64543a98226cffc7e861f2eb2014a90f703eafa.jpg" alt="" />
+    <hr />
+   	<span class="glyphicon glyphicon-heart" style="color: red;"></span>
+    </div>
+   
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	window.onresize=function(){
+    		console.log(document.documentElement.clientWidth);
+    	}
+    </script>
+  </body>
+</html>

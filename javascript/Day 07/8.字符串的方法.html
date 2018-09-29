@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//11.substring()：用来截取字符串的内容
+		/*没有参数全部截取。相当于从第0位开始截取。
+		一个参数代表截取从参数的位置往后的字符串。
+		两个参数代表截取两个参数之间的字符串，包括第一个参数的位置。
+		两个参数的时候，当第二个参数小于第一个参数，自动交换位置。
+		如果是负数，当做0来处理。*/
+		//var str='javascript';
+		//alert(str.substring());//javascript没有参数全部截取。相当于从第0位开始截取。
+		//alert(str.substring(3));//ascript没一个参数代表截取从参数的位置往后的字符串。包括位置
+		//alert(str.substring(3,6));//asc 两个参数代表截取两个参数之间的字符串，包括第一个参数的位置。
+		
+		//alert(str.substring(6,3));//asc 两个参数的时候，当第二个参数小于第一个参数，自动交换位置。
+		//alert(str.substring(-6,3));//jav 如果是负数，当做0来处理。
+		//alert(str.substring(-6,-3));// 如果是负数，当做0来处理。
+		
+		//12.slice():截取
+		/*alert(str.slice());
+		alert(str.slice(3));
+		alert(str.slice(3,6));
+		alert(str.slice(6,3));//空,没有交换
+		alert(str.slice(-6,3));//空  
+		alert(str.slice(-6,-3));//scr*/
+		//alert(str.slice(-6,-5));//s
+		
+		
+		
+//		13.substr(start, length); 用来截取字符串的内容
+//		start：开始的索引，如果为负数，从后往前数，包括开始的索引。
+//		length：截取的长度。
+
+		//var str='javascript';
+		//alert(str.substr(2,4));//vasc
+		//alert(str.substr(-8,4));//vasc
+		
+		//alert(str.substr(1,3));//ava
+		//alert(str.substr(1,5));//如果开始位置为1的话，第二个参数代表长度和包括截止位置的索引。(不严谨，巧合)
+
+		
+		//14.toLowerCase、toUpperCase
+		//toUpperCase()将字符串转换成大写
+		//toLowerCase()将字符串转换成小写
+		
+		//重要：substring,replace,split,match,search
+		
+		
+		
+		
+		
+		
+
+		</script>
+	</head>
+	<body style="padding: 100px;">
+		<span style="border: 1px solid red; padding: 10px 20px; cursor: pointer;"></span>
+		<script type="text/javascript">
+			//var oSpan=document.getElementsByTagName('span')[0];//通过标签名获取一组元素。(类数组)。
+			/*alert(oSpan[0].innerHTML);
+			alert(oSpan[1].innerHTML);*/
+			function yanzhengma(){
+				//1.数组遍历出来
+				var arr=[];
+				for(var i=48;i<=57;i++){
+					arr.push(String.fromCharCode(i));
+				}
+				for(var i=97;i<=122;i++){
+					arr.push(String.fromCharCode(i));
+				}
+				//alert(arr.length);//36
+				var html='';
+				for(var j=0;j<6;j++){
+					var ranIndex=parseInt(Math.random()*arr.length);
+					//html+=arr[parseInt(Math.random()*arr.length)];//i===[0,35]===parseInt(Math.random()*arr.length);
+					if(ranIndex>9){//字符
+						
+						var bool=Math.random()>0.5?true:false;
+						if(bool){
+							html+=arr[ranIndex].toUpperCase();
+						}else{
+							html+=arr[ranIndex];
+						}
+						
+					}else{//数字
+						html+=arr[ranIndex];
+					}
+				}
+				return html;
+			}
+			
+			oSpan.innerHTML=yanzhengma();
+			
+			oSpan.onclick=function(){
+				this.innerHTML=yanzhengma();
+			};
+			
+			
+			
+		</script>
+	</body>
+</html>

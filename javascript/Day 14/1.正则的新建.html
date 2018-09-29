@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.利用构造函数创建正则对象，如果规则中包含变量，必须采用构造函数定义。
+			//var reg=new RegExp('stUdy','ig');//study:规则   i:忽略大小写  g:全局匹配
+			//var str='abcstudyabc';
+			//alert(reg.test(str));
+			
+			
+			//2.字面量构造建正则
+			/*var reg1=/sTudy/i;//默认里面的规则就是字符串。
+			var str='abcstudyabc';
+			alert(reg1.test(str));*/
+			
+			
+			//reg.test(str)方法在字符串中查找是否存在指定的正则表达式并返回布尔值，如果存在则返回 true，不存在则返回 false。
+			//reg.exec(str)方法对一个指定的字符串执行一个正则表达式，简言之，就是在一个字符串中执行匹配检索。如果它没有找到任何匹配返回null，如果找到一个匹配，它将返回一个数组。
+			
+			//var reg=/[0-9]+/g;
+			//var str='8sf23dsf64f6s8fsafd1af3';
+			//alert(reg.test(str));//true  存在
+			//alert(reg.exec(str).length);
+			
+			//split() replace() match() search()
+			
+			//alert(str.match(reg));//输出匹配的结果，数组的形式输出。
+			
+			/*var reg=/[0-9]+/g;
+			var str='a11b22c33d44e55f66g';
+			alert(str.split(reg));//a,b,c,d,e,f,g*/
+			
+			/*var reg=/[a-z]+/g;
+			var str='a11b22c33d44e55f66g';
+			alert(str.replace(reg,'*'));//*11*22*33*44*55*66**/
+			
+			
+			/*var reg=/[a]/;
+			var str='11b22ac33da44e55fa66g';
+			alert(str.search(reg));//5  找第一次出现的*/
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

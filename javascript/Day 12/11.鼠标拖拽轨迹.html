@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 5px;
+				height:5px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.onmousemove=function(ev){
+				var cDiv=document.createElement('div');
+				var ev=ev||window.event;
+				cDiv.style.left=ev.clientX+'px';
+				cDiv.style.top=ev.clientY+'px';
+				document.body.appendChild(cDiv);
+			}
+		</script>
+	</body>
+</html>

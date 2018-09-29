@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function Animal(leg){
+			this.leg=leg;
+		}
+		
+		function Animal1(leg){
+			this.leg=leg;
+		}
+		Animal.prototype.legcount=function(){
+			return this.leg; 
+		}
+		Animal1.prototype.legcount=function(){
+			return this.leg; 
+		}
+		Animal.prototype.num=100;
+		Object.prototype.big=10000;
+		var cat=new Animal(4);	
+		var cat1=new Animal1(4);
+		var chicken=new Animal(2);	
+		//alert(cat.legcount());
+		//alert(chicken.legcount());
+		
+		
+//		hasOwnProperty()  : 看是不是对象自身下面的属性， 只在属性存在于实例中时才返回 true。 
+		
+		//alert(cat.hasOwnProperty('leg'));//true   构造函数里面的私有属性
+		//alert(cat.hasOwnProperty('num'));//false  原型共有的
+		//alert(cat.hasOwnProperty('big'));//false  原型链上面的
+		
+//		in操作符用来判断某个属性属于某个实例对象,可以是对象的直接属性，也可以是通过prototype继承的属性(包括Object下面的属性)。
+//		alert('leg' in cat);//true  //原型链上面存在，都是这个实例对象的属性
+//		alert('num' in cat);//true  
+//		alert('big' in cat);//true 
+//		toString() :系统对象下面都是自带的 , 系统对象都有toString(),自己写的对象都是通过原型链找Object下面的，可以把对象转成字符串，可以做进制转换或者类型的判断。
+		//最好的类型判断的方法。
+//		alert(Object.prototype.toString.call(100).slice(8,-1).toLowerCase());//[object Number]
+//		alert(Object.prototype.toString.call('100').slice(8,-1).toLowerCase());//[object String]
+//		alert(Object.prototype.toString.call(true).slice(8,-1).toLowerCase());//[object Boolean]
+//		alert(Object.prototype.toString.call([]).slice(8,-1).toLowerCase());//[object Array]
+//		alert(Object.prototype.toString.call({}).slice(8,-1).toLowerCase());//[object Object]
+//		alert(Object.prototype.toString.call(function(){}).slice(8,-1).toLowerCase());//[object Function]
+//		alert(Object.prototype.toString.call(/\d/i).slice(8,-1).toLowerCase());//[object RegExp]
+//		alert(Object.prototype.toString.call(new Date).slice(8,-1).toLowerCase());//[object Date]
+//		alert(Object.prototype.toString.call(null).slice(8,-1).toLowerCase());//[object null]
+//		alert(Object.prototype.toString.call(undefined).slice(8,-1).toLowerCase());//[object undefined]
+//		constructor：输出实例对象的构造函数  (实例对象.constructor)
+		//alert(cat.constructor);
+		//var num=123;
+		//var str='hello';
+		//alert(num.constructor);//function Number() { [native code] }
+		//alert(str.constructor);
+//		instanceof：判断一个对象是否是一个构造函数（类）的实例。
+		
+		//alert(Object instanceof Function);//true
+		//alert(Function instanceof Object);//true  函数也是对象，同时对象的构造器。
+		
+		//alert(cat instanceof Object);
+		//alert(Animal instanceof Function);
+		//alert(new Animal instanceof Function);//false
+//		isPrototypeOf (): 判断一个实例对象是否指向了该构造函数的原型对象。
+		alert(Animal.prototype.isPrototypeOf(cat));//true
+		alert(Animal.prototype.isPrototypeOf(cat1));//false
+		alert(Animal1.prototype.isPrototypeOf(cat1));//true
+		</script>
+	</body>
+</html>

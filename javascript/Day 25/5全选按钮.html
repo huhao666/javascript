@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" class="checkall" />全选<br />
+		<input type="checkbox" />1<br />
+		<input type="checkbox" />2<br />
+		<input type="checkbox" />3<br />
+		<input type="checkbox" />4<br />
+		<input type="checkbox" />5<br />
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.checkall').change(function(){
+				if($(this).prop('checked')){
+					$('input').prop('checked',true);
+				}else{
+					$('input').prop('checked',false);
+				}
+			});
+			
+			var len=$('input').not('.checkall').length;//5
+			
+			$('input').not('.checkall').click(function(){//not:排除
+				//如果选中的长度等于len，全选成立，反之不成立
+				if($('input:checked').not('.checkall').size()==len){
+					$('.checkall').prop('checked',true);
+				}else{
+					$('.checkall').prop('checked',false);
+				}
+			});
+		</script>
+	</body>
+</html>

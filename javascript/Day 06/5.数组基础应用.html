@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:200px;
+				height: 250px;
+				background-color: red;
+				position: absolute;
+				left:50px;
+				top:150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script type="text/javascript">
+			//获取元素的css属性：(offsetLeft/offsetTop:盒子的偏移值)/(offsetWidth/offsetHeight:盒模型的尺寸)
+			//div.style.width:仅能获取行内的样式，一般用来设置css属性。
+			var oDiv=document.querySelector('.box');
+			//console.log(oDiv.offsetLeft,oDiv.offsetTop,oDiv.offsetWidth,oDiv.offsetHeight);
+			
+			//getComputedStyle();//获取任意的css属性的值，标准浏览器使用的。
+			
+			//alert(getComputedStyle(oDiv)['position']);
+			//currentStyle;//获取任意的css属性的值，ie浏览器使用的。
+			//alert(oDiv.currentStyle.position);
+			//alert(oDiv.currentStyle['position']);
+			
+			/*if(oDiv.currentStyle){//满足条件ie浏览器
+				alert(oDiv.currentStyle.position);
+			}else{//标准浏览器
+				alert(getComputedStyle(oDiv)['position']);
+			}*/
+			
+			//得到任意css样式
+			/*function getStyle(obj,attr){
+				if(obj.currentStyle){//满足条件ie浏览器
+					alert(obj.currentStyle[attr]);
+				}else{//标准浏览器
+					alert(getComputedStyle(obj)[attr]);
+				}
+			}
+			getStyle(oDiv,'height');//带单位*/
+			
+			//点操作符改[]的应用
+			
+//1．定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程。
+		/*var arr=[];
+		for(var i=0;i<30;i++){
+			arr[i]=(i+1)*2;
+		}
+		alert(arr);
+		alert(arr.length);*/
+		
+		var arr=[];//创建的数组
+		var newArr=[];//存放平均值的数组
+		var avg=0;//平均值。
+		for(var i=0;i<30;i++){
+			arr.push((i+1)*2);
+		}
+		//console.info(arr);
+		// [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60]
+		//alert(arr.length);
+		
+		for(var j=0;j<arr.length;j++){
+			avg+=arr[j];
+			if((j+1)%5==0){//代表每5个，索引从0开始的。
+				newArr.push(avg/5);//将平均值push到新的数组
+				avg=0;//重置为0，每五个从新计算
+			}
+		}
+		console.info(arr);
+		console.info(newArr);
+		</script>
+	</body>
+</html>

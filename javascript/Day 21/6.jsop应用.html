@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function hehe(data){
+				console.log(JSON.parse(data));
+			}
+			
+			document.onclick=function(){
+				var cScript=document.createElement('script');
+				cScript.src='6.jsonp.php?callback=hehe';//hehe：传给后端的函数名字
+				document.body.appendChild(cScript);
+			}
+		</script>
+		<!--<script src="6.jsonp.php" type="text/javascript" charset="utf-8"></script>-->
+		<!--fn(data)：函数调用-->
+	</body>
+</html>
+
+<!--
+1、函数名的约定
+callback / cb 
+
+2、script创建出来，不是自动生成(不好通过事件控制了)
+-->

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//作用域:任何程序设计语言都有作用域的概念，简单的说，作用域就是变量与函数的可访问范围
+			//即作用域控制着变量与函数的可见性和生命周期。
+			//在JavaScript中，变量的作用域有全局作用域和局部作用域两种
+			//变量:全局变量和局部变量
+			
+			/*var num=100;//全局变量：整个文档都可以使用
+			function fn(){
+				var num1=1000;//局部变量：只能对函数内部有效。
+				alert(num);
+			}
+			fn();
+			alert(num1);//num1 is not defined*/
+			
+			
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*var a=5;
+			function sum(){
+				var a=100;
+				alert(a);
+			}
+			
+			sum();//100  在函数体内，局部变量的优先级高于同名的全局变量*/
+			
+			/*function fn(){
+				'use strict';//严格模式，严格模式下面变量定义必须添加var关键字。
+				num1=1000;//定义的局部变量，如果没有var关键字，就会变成全局变量(es5之前)。
+				alert(num1);
+			}
+			fn();//1000
+			alert(num1);//1000 */
+			
+			
+		</script>
+	</body>
+</html>

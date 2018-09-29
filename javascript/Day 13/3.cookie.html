@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="md5.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*document.cookie="name=zhangsan";
+			var d=new Date();
+			d.setDate(d.getDate()+10);
+			document.cookie="age=100;expires="+d;//expires:设置过期时间*/
+			//alert(document.cookie);
+		/*	var d=new Date();
+			d.setDate(d.getDate()+7);
+			document.cookie='name=wangwu;expires='+d;*/
+			
+			//alert(document.cookie);
+			
+//			添加cookie:过期事件，如果设置过期时间在规定的时间内读取，没有设置过期事件，浏览器关闭cookie立即消失。
+//			添加cookie自定义的名称(key),每一个key对应一个值。逐条添加
+			/*document.cookie="name=zhangsan";//key==>value  name:自定义的
+			document.cookie="age=100";
+			document.cookie="sex="+encodeURI('男');//encodeURI:转码*/
+			/*var d=new Date();
+			d.setDate(d.getDate()+10);//10天后的时间
+			document.cookie="name=zhangsan;expires="+d;*/
+			
+			function setcookie(key,value,days){
+				var d=new Date();
+				d.setDate(d.getDate()+days);
+				//document.cookie="name=zhangsan;expires="+d;
+				document.cookie=key+'='+encodeURI(value)+';expires='+d;
+			}
+			
+			setcookie('xingming','张三',365);
+			setcookie('xingming','zhangsan',365);//key值相同会覆盖
+			setcookie('tel','13645789658',365);//key值相同会覆盖
+			setcookie('password',hex_md5('123456'),365);//key值相同会覆盖
+			
+//			获取cookie
+			//alert(decodeURI(document.cookie));//获取全部的cookie
+			//xingming=zhangsan; tel=13645789658; password=e10adc3949ba59abbe56e057f20f883e
+			/*var arr=decodeURI(document.cookie).split('; ');
+			//alert(arr);//[xingming=zhangsan,tel=13645789658,password=e10adc3949ba59abbe56e057f20f883e]
+			for(var i=0;i<arr.length;i++){
+				//alert(arr[0]);//xingming=zhangsan
+				//console.log(arr[i].split('='));
+				var newarr=arr[i].split('=');//['xingming','zhangsan']
+				if(newarr[0]=='password'){
+					alert(newarr[1]);
+				}
+			}*/
+			function getcookie(key){
+				var arr=decodeURI(document.cookie).split('; ');//获取全部的cookie进行分割
+				for(var i=0;i<arr.length;i++){
+					var newarr=arr[i].split('=');//对arr里面的每一项进行分隔组成新数组，每个新数组的长度都是2.
+					if(newarr[0]==key){
+						return newarr[1];
+					}
+				}
+			}
+			
+			// "/><script>alert(document.cookie)</script><!--
+			alert(getcookie('xingming'));//张三
+			//alert(getcookie('tel'));//13645789658
+//			删除cookie：修改过期时间
+			function delcookie(key){
+				setcookie(key,'',-1);//将时间设置成过去的时间
+			}
+			delcookie('password');
+			
+		</script>
+	</body>
+</html>

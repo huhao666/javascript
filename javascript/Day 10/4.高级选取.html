@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//高级选取firstChild/lastChild/parentNode/previousSibling/nextSibling
+//			firstChild/firstElementChild 获取当前元素节点的第一个子节点
+//			lastChild /lastElementChild获取当前元素节点的最后一个子节点
+
+//			previousSibling 获取当前节点的前一个兄弟节点
+//			nextSibling 获取当前节点的后一个兄弟节点
+
+			 window.onload=function(){
+			 	var oUl=document.getElementsByTagName('ul')[0];
+			 	//alert(oUl.firstChild);//[object Text]  包括空白节点
+			 	//alert(oUl.firstElementChild);//[object HTMLLIElement]  不包括空白节点
+			 	
+			 	
+			 	//alert(oUl.previousSibling);//[object Text] 包括空白节点
+			 	//alert(oUl.previousElementSibling);//[object HTMLParagraphElement]
+			 	
+			 	
+			 	
+			 	//ownerDocument 获取该节点的文档根节点（document）
+				
+				//alert(oUl.ownerDocument);//[object HTMLDocument]  //document的根节点null
+				
+			
+				//document.documentElement 获取的html标签元素
+				//document.documentElement.scrollTop===>html
+				//document.body.scrollTop  ===>body
+				
+				
+				//parentNode 获取当前节点的父节点
+				
+				//alert(oUl.parentNode.parentNode.parentNode.parentNode.parentNode)
+			 	
+			 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<p>pppppppppppppp</p>
+			<ul>
+				<li>11111</li>
+				<li>22222</li>
+				<li>33333</li>
+				<li>44444</li>
+				<li>55555</li>
+				<li>66666</li>
+			</ul>
+			<ol></ol>
+		</div>
+	</body>
+</html>

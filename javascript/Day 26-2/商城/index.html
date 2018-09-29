@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/new_file.css" />
+</head>
+
+<body>
+    <div id="part">
+        <div class="partCon">
+            <div class="banner">
+                <a href="javascript:void(0)" class="prev"></a>
+                <a href="javascript:void(0)" class="next"></a>
+                <div class="scroll">
+                    <img class="first" src="img/flash1.jpg" />
+                    <img src="img/flash2.jpg" />
+                    <img src="img/flash3.jpg" />
+                    <img src="img/flash4.jpg" />
+                    <img src="img/flash5.png" />
+                    <img src="img/flash6.jpg" />
+                </div>
+                <div class="btn">
+                    <span class="hover"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>	
+    <script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	var $img=$('.scroll img');
+    	var $btn=$('.btn span');
+    	var $index=0;//当前索引
+    	var $qindex=0;//前一个索引
+    	//核心：前一个索引每次用来接收当前索引。
+    	$btn.on('click',function(){
+    		$index=$(this).index();//当前索引
+    		imgscroll();
+    		$qindex=$index;
+    	});
+    	
+    	//左右切换按钮的显示与隐藏
+    	$('#part').hover(function(){
+    		$('.prev').show();
+    		$('.next').show();
+    	},function(){
+    		$('.prev').hide();
+    		$('.next').hide();
+    	});
+    	$('.prev').on('click',function(){
+    		$index--;
+    		if($index<0){
+    			$qindex=0;
+    			$index=5;
+    		}
+    		imgscroll();
+    		$qindex=$index;
+    	});
+    	
+    	
+    	$('.next').on('click',function(){
+    		$index++;
+    		console.log($index,$qindex);
+    		if($index>5){
+    			$qindex=5;
+    			$index=0;
+    		}
+    		imgscroll();
+    		$qindex=$index;
+    	});
+    	
+    	function imgscroll(){
+    		$btn.eq($index).addClass('hover').siblings('span').removeClass('hover');
+    		if($qindex==5 && $index==0){//确定点击是a还是span  if...else
+    			$img.eq($qindex).animate({
+    				left:-820
+    			});
+    			$img.eq($index).css('left','820px').animate({
+    				left:0
+    			});
+    			
+    		}else if($qindex==0 && $index==5){
+    			$img.eq($qindex).animate({
+    				left:820
+    			});
+    			$img.eq($index).css('left','-820px').animate({
+    				left:0
+    			})
+    		}else if($index>$qindex){
+    			$img.eq($qindex).animate({
+    				left:-820
+    			});
+    			$img.eq($index).css('left','820px').animate({
+    				left:0
+    			})
+    		}else if($index<$qindex){
+    			$img.eq($qindex).animate({
+    				left:820
+    			});
+    			$img.eq($index).css('left','-820px').animate({
+    				left:0
+    			})
+    		}
+    	}
+    </script>
+</body>
+
+</html>

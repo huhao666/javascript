@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea name="" rows="10" cols="30"></textarea><br />
+		<button>发布</button>
+		<ul id="list">
+			<li>1111111111111111111</li>
+		</ul>
+		<script type="text/javascript">
+			
+			//document.body.innerHTML='<div>1111111111111</div>';
+			
+			/*var cDiv=document.createElement('div');
+			var cText=document.createTextNode('222222222222222');
+			cDiv.appendChild(cText);
+			document.body.appendChild(cDiv);*/
+			
+			/*var cDiv=document.createElement('div');
+			cDiv.innerHTML='22222222222222';
+			document.body.appendChild(cDiv);*/
+			
+			var oBtn=document.getElementsByTagName('button')[0];
+			var oText=document.getElementsByTagName('textarea')[0];
+			var oUl=document.getElementById('list');
+			
+			oText.focus()
+			oBtn.onclick=function(){
+				//alert(oText.value);
+				var cLi=document.createElement('li');
+				cLi.innerHTML=oText.value;
+				oText.value='';
+				oText.focus();
+				
+				if(oUl.children.length>=1){//至少有一条，通过insertBefore往上面插入数据。
+					oUl.insertBefore(cLi,oUl.children[0]);//
+				}else{
+					oUl.appendChild(cLi);//追加在对象oUl的内部的下面
+				}
+			}
+			
+			//obj.cloneNode(） 复制节点,复制obj元素标签，可以传一个布尔值为参数，如果参数为true，连同obj子元素一起复制。
+			//obj.replaceChild(新添加的节点 , 被替换的节点);
+			
+			/*var cUl=oUl.cloneNode(true);//参数ture，表示包含子节点一起克隆
+			document.body.appendChild(cUl);*/
+			
+			
+			/*var cDiv=document.createElement('div');
+			cDiv.innerHTML='22222222222222222';
+			oUl.replaceChild(cDiv , oUl.children[0]);*/
+			
+		</script>
+	</body>
+</html>

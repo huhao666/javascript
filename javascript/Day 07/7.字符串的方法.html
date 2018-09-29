@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//1.charAt(num):返回对应字符串索引的内容。
+		//var str='javascript';
+		//alert(str.length);//10
+		//alert(str[5])//c  ie6-ie7不能识别下标访问。
+		//alert(str.charAt(5));//c  所有的浏览器都支持。
+		
+		
+		//2.charCodeAt(num):返回对应的字符串索引的内容的unicode编码
+			/*var str='你b好a吗';
+			alert(str.length);//5(中英文字符都算一个字符)
+			alert(str.charCodeAt(0));//20320(10进制)*/
+			
+		//3.String.fromCharCode(unicode编码);将参数中的unicode编码返回成对应的字
+		
+			//Array.isArray   Math.ceil：静态方法。
+			//alert(String.fromCharCode(20320));//你
+			
+			
+			/*for(var i=1;i<=50000;i++){
+				document.write(String.fromCharCode(i));
+			}*/
+			
+			
+			//4.localeCompare(); :本地的方式进行排序
+			
+			/*var str='彭';
+			var str1='习';
+			
+			alert(str>str1);*/
+			
+			/*var str='刘德华';
+			var str1='郭富城';
+			
+			alert(str>str1);*/
+			
+			/*var arr=['刘德华','郭富城','黎明','张学友'];
+			arr.sort(function(a,b){
+				return a.localeCompare(b);
+			});
+			
+			alert(arr);*/
+			
+			
+			
+		//5.indexOf(‘查找字符’, ’开始位置’):从指定的位置从左往右查找对应的字符，并返回对应字符的位置。如果第二个参数为负数，默认当做0来处理。 没有找到就返回-1。
+		//6.search();//查找
+		var str='1234@578@qq.c@om@m@m@m@m';
+		//alert(str.indexOf('@'));//8
+		//alert(str.search('@'));//应用于字符串和正则。
+		//alert(str.indexOf('@'));
+		/*if(str.indexOf('@')!=-1 && str.indexOf('.')!=-1){
+			alert('email');
+		}else{
+			alert('not email');
+		}*/
+		
+		//7.lastIndexOf(‘查找字符’,’开始位置’):查找顺序是相反，为从后往前找。
+		//alert(str.lastIndexOf('@'));//13  从后往前
+		//alert(str.indexOf('@',9));//13
+		//alert(str.lastIndexOf('@',10));//8:开始的位置(正常的索引位置)，从开始位置往前推，往前找
+		
+		/*alert(str.indexOf('@',4));//开始的位置就是需要查找的字符时，包括开始的位置
+		alert(str.lastIndexOf('@',4));//*/
+		
+		/*alert(str.indexOf('@',11));//13
+		alert(str.lastIndexOf('@',3));//-1*/
+		
+		//alert(str.indexOf('@',-5));//4  起始位置是负数，默认从0开始。
+		//alert(str.lastIndexOf('@',-5));//-1  //如果第二个参数是负数，除了第一个字符就是你要找的，剩下都是输出-1
+		
+		
+		//8.replace：替换字符串，正则里面的方法
+		/*var str='你好';
+		alert(str.replace('你','我'));*/
+		
+		
+		//var str='妈妈，这件衣服是你妈的还是你妹的，我觉得是你大爷的';
+		//alert(str.replace(/妈的|妹的|大爷的/g,'*'));//过滤敏感词
+			
+		//9.match(); //匹配,返回数组
+		/*var str='asd24324fsadaf224232fsadf89089fdsfsadf9';
+		console.log(str.match(/[a-z]/g));*/
+		
+		//10.split：根据分隔符、拆分成数组，正则下面的方法。
+//		var str='a1aaaaaaaaaaaaaaaaaaaaaa2a3aaaaa4a5a6';
+//		alert(str.length);
+//		alert(str.split('a'));//1,2,3,4,5,6  分隔符不现实。
+//		alert(str.split('a'));
+		
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*ECMAScript 中的函数使用 function 关键字来声明，后跟一组参数以及函数体。
+			普通函数声明
+			函数表达式:函数赋值给变量（匿名函数、自执行函数、事件处理函数）*/
+			
+			
+			//普通函数声明：函数不调用，当作不存在。
+			/*function fn(){//():括号里面放置参数，参数等同于函数内部定义的变量
+				alert('第一个函数');
+			}*/
+			//普通函数的调用,任何地方调用
+			//fn();
+			
+			
+			//函数表达式：
+			//fn1();//变量不可以前置，函数表达式不可前置的。   //fn1 is not a function
+			/*var fn1=function (){
+				alert('函数表达式');
+			};
+			
+			fn1();*/
+			
+			
+			/*function 函数(){
+				alert('我也可以用中文');
+			}
+			函数();*/
+			
+			/*function fn(){
+				alert('第一个函数');
+			}*/
+			
+			//alert(fn);//函数名整个函数声明和函数体。
+			//fn();
+			
+			
+			//函数的声明和调用放置到一起了。保证函数的代码是一个表达式。
+			//将一个函数代码转换成表达式：~ ！ + - 
+			/*(function (){//自执行的函数，匿名函数(没有函数名)
+				alert('第一个函数');
+			})();*/
+			
+			/*~function (){
+				alert('第一个函数');
+			}();
+			!function (){
+				alert('第一个函数');
+			}();
+			+function (){
+				alert('第一个函数');
+			}();
+			-function (){
+				alert('第一个函数');
+			}();*/
+			
+			
+//			window.onload=function(){
+//				/*document.onclick=function(){//给事件使用的，事件处理函数。
+//					alert('document触发的');
+//				}*/
+//				
+//				function strinfo(){
+//					alert('我是普通函数');
+//				}
+//				
+//				//strinfo();
+//				//document.onclick=strinfo();//无需点击，自动运行。
+//				//document.onclick=strinfo;//点击document，事件来触发strinfo函数。
+//				document.onclick=function(){
+//					alert('我是普通函数');
+//				};
+//			}
+
+
+			//箭头函数
+			/*var fn=()=>{
+				alert('我是箭头函数');
+			}
+			
+			fn();*/
+			
+			
+		
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

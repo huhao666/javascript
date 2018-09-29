@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>
+		<script type="text/javascript">
+			var oA=document.getElementsByTagName('a')[0];
+			oA.onclick=function(ev){
+				//return false;//阻止默认事件
+				var ev=ev||window.event;
+				//ev.preventDefault();
+				//ev.returnValue=false;//ie阻止默认事件。
+				preventdefault();
+			}
+			
+			function preventdefault(){
+				var ev=ev||window.event;
+				if(ev.preventDefault){
+					ev.preventDefault();
+				}else{
+					ev.returnValue=false;
+				}
+			}
+			
+			
+			function fn(){
+				var a=18;				
+				fn1();
+			}
+			
+			function fn1(){
+				alert(a);//a is not defined   a上面函数的局部变量
+			}
+			//fn();
+		</script>
+	</body>
+</html>

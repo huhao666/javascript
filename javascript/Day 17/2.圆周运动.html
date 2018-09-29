@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 50px;
+				height:50px;
+				background: red;
+				border-radius: 50%;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script type="text/javascript">
+			//圆的方程  a,b圆的坐标原点     r:半价     num：角度
+			//x=a+Math.sin(num*Math.PI/180)*r;
+			//y=b+Math.cos(num*Math.PI/180)*r;
+			
+			var oDiv=document.getElementsByTagName('div')[0];
+			var timer=null;
+			var num=0;
+			var r=100;
+			timer=setInterval(function(){
+				num++;
+				if(num>=360){
+					clearInterval(timer);
+				}
+				oDiv.style.left=500+Math.cos(num*Math.PI/180)*r+'px';
+				oDiv.style.top=300+Math.sin(num*Math.PI/180)*r+'px';
+				var cdiv=document.createElement('div');
+				cdiv.style.cssText='width:5px;height:5px;background:red;position:absolute';
+				cdiv.style.left=oDiv.offsetLeft+'px';
+				cdiv.style.top=oDiv.offsetTop+'px';
+				document.body.appendChild(cdiv);
+			},30);
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+				function cancelbubble(ev){//事件处理函数。
+					var ev=ev||window.event;
+					if(ev.stopPropagation){
+						ev.stopPropagation();
+					}else{
+						ev.cancelBubble=true;
+					}
+				}
+				
+				function change(ele){//ele：input元素。
+					ele.outerHTML=ele.value;//ele.outerHTML input标签的全部内容，包括标签自身
+				}
+			window.onload=function(){//页面加载完成（结构，图片等相关的页面信息）
+				//如果window.onload里面存在结构，结构里面引用的函数必须设为全局。window.onload的特定造成的。
+				var oTable=document.getElementsByTagName('table')[0];
+				//alert(oTable.rows.length);//获取行
+				//alert(oTable.rows[0].cells.length);
+				//insertRow(index); //insertRow() 方法用于在表格中的指定位置(index)插入一个新行。 
+				//insertCell(index);//方法用于在 HTML 表的一行的指定位置插入一个空的 <td> 元素。
+				//deleteRow(); 方法用于从表格删除指定位置的行。
+				//deleteCell();
+				var oTr=null;
+				var oTd=null;
+				for(var i=0;i<10;i++){
+					oTr=oTable.insertRow(i);//i:第几行
+					for(var j=0;j<10;j++){
+						oTd=oTr.insertCell(j);
+						oTd.innerHTML='1111111111'+j;
+					}
+				}
+				var aTd=document.getElementsByTagName('td');
+				for(var i=0;i<aTd.length;i++){
+					aTd[i].onclick=function(){
+						this.innerHTML='<input type="text" onblur="change(this)" onclick="cancelbubble()" value="'+this.innerHTML+'">';
+						this.children[0].select();
+					};
+					
+				}
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<table border="1">
+			
+		</table>
+	</body>
+</html>

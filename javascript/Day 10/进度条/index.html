@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bootstrap飞机跑道进度条动画特效 - 站长素材</title>
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="progress">
+		<div class="progress-bar" style="width: 0%; background:orange;" id="loading">
+			<span id="span1">0%</span>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var progressbar=document.querySelector('#loading');
+	var oSpan=document.querySelector('#span1');
+	var timer=null;
+	timer=setInterval(function(){
+		if(parseInt(progressbar.style.width)<100){
+			var w=parseInt(progressbar.style.width);
+			w++;
+			progressbar.style.width=w+'%';
+			oSpan.innerHTML=parseInt(oSpan.innerHTML)+1+'%';
+		}else{
+			clearInterval(timer);
+		}
+	},30)
+	
+	
+	
+</script>
+</body>
+</html>

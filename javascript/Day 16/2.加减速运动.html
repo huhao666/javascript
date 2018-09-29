@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left:0px;
+				top:0px;
+				/*border-radius: 50%;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div style="width: 1px;height:600px;background: black;position: absolute;left:600px;top:0px;"></div>
+		<script type="text/javascript">
+			var oDiv=document.querySelector('.box');
+			var speed=0;
+			var timer=null;
+			oDiv.onclick=function(){
+				//目标：600px;
+				clearInterval(timer);
+				timer=setInterval(function(){
+					/*if(oDiv.offsetLeft<600){
+						speed+=(600-oDiv.offsetLeft)/10;
+
+					}else{
+						speed-=(oDiv.offsetLeft-600)/10;
+					}*/
+					speed+=(600-oDiv.offsetWidth)/5; 
+					//运动因子
+					speed*=0.7;//摩擦力
+					if(Math.abs(speed)<1 && Math.abs(600-oDiv.offsetWidth)<=1){//停止定时器
+						clearInterval(timer);
+						speed=0;
+						oDiv.style.width=600+'px';
+					}
+					console.log(speed,oDiv.offsetWidth);
+					oDiv.style.width=oDiv.offsetWidth+speed+'px';
+					
+				},30)
+				
+			};
+			
+		</script>
+	</body>
+</html>

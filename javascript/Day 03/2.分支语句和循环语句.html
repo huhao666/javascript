@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//if  switch  while for
+			
+			//性能
+			/*for(var i=0;i<10;i++){
+				document.write('<li>第'+i+'次11111111</li>');//解析10次
+			}*/
+			
+			
+			
+			
+			//for循环嵌套:外层循环一次，里面的循环全部完成。
+			
+			/*for(var i=1;i<=10;i++){
+				document.write('这是i的循环<br>');
+				for(var j=1;j<=10;j++){
+					document.write('&nbsp;&nbsp;&nbsp;&nbsp;这是j的循环<br>');
+				}
+			}*/
+			
+			
+			//内层的循环次数，取决于外层。
+			/*for(var i=1;i<=10;i++){
+				document.write('这是i的循环<br>');
+				for(var j=1;j<=i;j++){
+					document.write('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是j的循环<br>');
+				}
+			}*/
+			
+			
+			//innerHTML:获取元素对象从起始位置到结束位置的内容
+			//获取元素。
+			//document.getElementById();
+			//document.querySelector('选择器/标签');
+			//document.querySelector('#div1'); 获取带有id的元素对象
+			//document.querySelector('.div1'); 获取带有className的元素对象
+			//document.querySelector('div');  
+			
+			//事件：onclick
+			//函数：function (){}
+			
+			
+			//通过js获取元素的属性
+			//通过js获取元素的css属性。
+		</script>
+	</head>
+	<body>
+		<!--<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>-->
+		<script type="text/javascript">
+			//var html='<ul><li>1111111</li></ul>';
+			//document.body:获取body元素对象。   document.title 获取标题    document.documentElement:获取html
+			//document.body.innerHTML=html;//给body元素设置内容。
+			
+			/*var html='<ul>';
+			
+			for(var i=1;i<=100;i++){
+				html+='<li>'+i+'</li>';//+=:累加
+			}
+			
+			html+='</ul>';
+			
+			document.body.innerHTML=html;//最后一把渲染出来。*/
+			
+			/*var html='<table border=1>';
+			for(var i=1;i<=10;i++){
+				html+='<tr>';
+					for(var j=1;j<=10;j++){
+						html+='<td>'+j+'</td>';
+					}
+				html+='</tr>';
+			}
+			
+			html+='</table>';
+			
+			document.body.innerHTML=html;*/
+			
+			/*var html='<table>';
+			for(var i=1;i<=10;i++){
+				html+='<tr>';
+					for(var j=1;j<=i;j++){
+						html+='<td style="padding:5px 30px; border:1px solid red;">'+j+'*'+i+'='+i*j+'</td>';
+					}
+				html+='</tr>';
+			}
+			
+			html+='</table>';
+			
+			document.body.innerHTML=html;*/
+			
+		
+			//alert(document.querySelector('table'));//[object HTMLTableElement]
+			//var oTable=document.querySelector('table');
+			//alert(oTable.innerHTML);
+		</script>
+	</body>
+</html>
